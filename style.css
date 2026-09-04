@@ -328,6 +328,12 @@ body {
   color: var(--muted);
 }
 
+/* The email is decorative — the logo carries the brand, so it stays
+   hidden on every screen size. */
+#userEmail {
+  display: none;
+}
+
 .logout-btn {
   background: transparent;
   border: 1px solid var(--border);
@@ -1937,11 +1943,6 @@ select.auth-input option {
     flex-wrap: wrap;
     gap: 8px;
     font-size: 0.8rem;
-  }
-
-  /* The email is decorative on phones — the logo carries the brand. */
-  #userEmail {
-    display: none;
   }
 
   .ghost-btn,
