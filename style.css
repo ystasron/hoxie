@@ -2130,4 +2130,79 @@ select.auth-input option {
     font-size: 0.95rem;
   }
 }
+/* ---------- Help (AI chat) on phones ---------- */
+@media (max-width: 640px) {
+  .help-card {
+    padding: 22px 14px;
+  }
+
+  /* The chat fills the phone screen like a real messenger thread,
+     and only the message area scrolls (dvh keeps it right above the
+     keyboard on modern phones). */
+  .help-chat {
+    height: calc(100vh - 320px); /* older browsers */
+    height: calc(100dvh - 320px);
+    min-height: 240px;
+    max-height: none;
+    gap: 12px;
+    padding: 2px 2px 12px;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+  }
+
+  .help-chat::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Roomier, thumb-friendly bubbles with readable copy. */
+  .help-msg {
+    max-width: 88%;
+    padding: 12px 15px;
+    font-size: 0.95rem;
+  }
+
+  .help-typing {
+    padding: 14px 16px;
+  }
+
+  .help-typing i {
+    width: 7px;
+    height: 7px;
+  }
+
+  /* Full-height composer row: 48px touch targets, no iOS zoom
+     (input stays at 1rem). */
+  .help-form {
+    gap: 10px;
+  }
+
+  .help-input {
+    flex: 1;
+    min-width: 0;
+    min-height: 48px;
+    padding: 13px 16px;
+    font-size: 1rem;
+  }
+
+  .help-send {
+    min-height: 48px;
+    padding: 0 22px;
+  }
+
+  .help-note {
+    padding-bottom: calc(4px + env(safe-area-inset-bottom));
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .help-chat {
+    height: calc(100vh - 290px);
+    height: calc(100dvh - 290px);
+    min-height: 220px;
+  }
+
+  .help-msg {
+    max-width: 92%;
+  }
 }
