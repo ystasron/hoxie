@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-04T00:00:00.000Z",
+  "title": "Design System: Hoxie",
+  "extensions": {
+    "colorMeta": {
+      "claude-bg": {
+        "role": "neutral",
+        "displayName": "Charcoal Ground",
+        "canonical": "oklch(28% 0.006 75)",
+        "tonalRamp": ["#161514", "#1c1b1a", "#21201f", "#262624", "#2b2a29", "#302f2d", "#353431", "#3a3936"]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface",
+        "canonical": "oklch(33% 0.006 75)",
+        "tonalRamp": ["#1b1a19", "#211f1e", "#262524", "#2e2d2b", "#363532", "#3e3d3a", "#464542", "#4e4d49"]
+      },
+      "coral": {
+        "role": "primary",
+        "displayName": "Claude Coral",
+        "canonical": "oklch(70% 0.13 40)",
+        "tonalRamp": ["#8f3d24", "#a54a2e", "#bb5738", "#d97757", "#e08b6d", "#e79f86", "#edb3a0", "#f4c7b9"]
+      },
+      "google-white": {
+        "role": "neutral",
+        "displayName": "Google White",
+        "canonical": "oklch(100% 0 0)",
+        "tonalRamp": ["#f2f2f2", "#f5f5f5", "#fafafa", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"]
+      },
+      "correct": {
+        "role": "semantic",
+        "displayName": "Sage",
+        "canonical": "oklch(75% 0.09 155)",
+        "tonalRamp": ["#2f5c45", "#3d7358", "#4b8a6b", "#74be92", "#8bc9a4", "#a2d5b7", "#b9e0c9", "#d0ecdb"]
+      },
+      "wrong": {
+        "role": "semantic",
+        "displayName": "Rust Red",
+        "canonical": "oklch(70% 0.12 25)",
+        "tonalRamp": ["#963d37", "#ad4c45", "#c45c54", "#e07b74", "#e58f89", "#eaa49e", "#efb9b4", "#f4cecb"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display Serif",
+        "purpose": "The math question only."
+      },
+      "body": {
+        "displayName": "Body Sans",
+        "purpose": "All interface copy, inputs, and buttons. Schibsted Grotesk — a warm grotesque close to Claude's Styrene."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Stat labels, section notes — small, tracked, uppercase."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-lift",
+        "value": "0 1px 2px rgba(0,0,0,.18), 0 12px 32px rgba(0,0,0,.22)",
+        "purpose": "Main card and auth card."
+      },
+      {
+        "name": "control-lift",
+        "value": "0 2px 6px rgba(0,0,0,.2)",
+        "purpose": "Buttons and the Google button at rest."
+      },
+      {
+        "name": "hover-lift",
+        "value": "0 4px 14px rgba(0,0,0,.35)",
+        "purpose": "Buttons on hover."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "All entrances: fade-ups, question turn-in, feedback, pulse."
+      },
+      {
+        "name": "dur-fade",
+        "value": "0.4s",
+        "purpose": "View and card entrances."
+      },
+      {
+        "name": "dur-question",
+        "value": "0.35s",
+        "purpose": "Question swap-in."
+      },
+      {
+        "name": "dur-pulse",
+        "value": "0.45s",
+        "purpose": "Single scale pulse on the Total Earnings value."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "480px" },
+      { "name": "md", "value": "640px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single call to action — submit answer, log in, create account.",
+      "html": "<button class=\"ds-btn-primary\">Submit</button>",
+      "css": ".ds-btn-primary { background: #D97757; color: #1F1E1C; font: 600 1rem/1 Schibsted Grotesk, system-ui, sans-serif; padding: 13px 22px; border: none; border-radius: 12px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,.2); transition: background .15s ease, box-shadow .15s ease, transform .05s ease; } .ds-btn-primary:hover { background: #E08B6D; box-shadow: 0 4px 14px rgba(0,0,0,.35); } .ds-btn-primary:active { transform: translateY(1px); } .ds-btn-primary:focus-visible { outline: 2px solid #D97757; outline-offset: 2px; } .ds-btn-primary:disabled { opacity: .55; cursor: not-allowed; }"
+    },
+    {
+      "name": "Google Sign-In",
+      "kind": "button",
+      "refersTo": "google-btn",
+      "description": "OAuth entry — the one deliberately bright element, kept pristine white.",
+      "html": "<button class=\"ds-btn-google\">Sign in with Google</button>",
+      "css": ".ds-btn-google { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; background: #ffffff; color: #1F1E1C; font: 600 1rem/1 Schibsted Grotesk, system-ui, sans-serif; padding: 13px; border: none; border-radius: 12px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,.2); transition: box-shadow .15s ease, transform .05s ease; } .ds-btn-google:hover { box-shadow: 0 4px 14px rgba(0,0,0,.35); } .ds-btn-google:active { transform: scale(.985); }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Email, password, and answer fields — inset on their surface, coral focus.",
+      "html": "<input class=\"ds-input\" placeholder=\"Your answer\" />",
+      "css": ".ds-input { background: #363532; color: #F4F3EE; font: 400 1rem/1.4 Schibsted Grotesk, system-ui, sans-serif; padding: 13px 16px; border: 1px solid #43413C; border-radius: 12px; outline: none; transition: border-color .15s ease; } .ds-input::placeholder { color: #A8A5A0; } .ds-input:focus { border-color: #D97757; box-shadow: 0 0 0 2px rgba(217,119,87,.25); }"
+    },
+    {
+      "name": "Stat Chip",
+      "kind": "chip",
+      "refersTo": "stat-chip",
+      "description": "Compact metric chips above the question card.",
+      "html": "<div class=\"ds-stat\"><span class=\"ds-stat-label\">Total Earnings</span><span class=\"ds-stat-value\">₱1.24</span></div>",
+      "css": ".ds-stat { background: #2E2D2B; border: 1px solid #43413C; border-radius: 12px; padding: 8px 14px; display: flex; flex-direction: column; align-items: flex-end; gap: 2px; } .ds-stat-label { font: 500 .72rem/1.3 Schibsted Grotesk, system-ui, sans-serif; letter-spacing: .06em; text-transform: uppercase; color: #A8A5A0; } .ds-stat-value { font: 600 1.1rem/1.2 'Source Serif 4', Georgia, serif; color: #D97757; }"
+    },
+    {
+      "name": "Segmented Tabs",
+      "kind": "nav",
+      "refersTo": "tabs",
+      "description": "Login / Sign Up switcher on the auth card.",
+      "html": "<div class=\"ds-tabs\"><button class=\"ds-tab active\">Login</button><button class=\"ds-tab\">Sign Up</button></div>",
+      "css": ".ds-tabs { display: flex; gap: 4px; background: #363532; border: 1px solid #43413C; border-radius: 12px; padding: 4px; } .ds-tab { flex: 1; padding: 10px; font: 600 .95rem/1 Schibsted Grotesk, system-ui, sans-serif; color: #A8A5A0; background: transparent; border: none; border-radius: 8px; cursor: pointer; transition: background .15s ease, color .15s ease; } .ds-tab:hover { color: #F4F3EE; } .ds-tab.active { background: #D97757; color: #1F1E1C; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Coral Ledger",
+    "overview": "Math Points is a dark adaptation of Claude.ai's visual identity: warm charcoal surfaces that never go pure black, a serif voice for the arithmetic itself, and a single coral accent reserved for action and earning. The interface reads like a quiet desk lamp over paper — every surface is a warm neutral, borders are hairline, and the only saturated thing in the room is the coral that marks what you can do and what you have earned. Motion is restrained: entrances fade up gently, the question slides in as if turned over, and a correct answer gives a single quiet pulse rather than a celebration.",
+    "keyCharacteristics": [
+      "Warm charcoal neutrals with a faint brown undertone; no pure black, no cool grays",
+      "Serif display (Source Serif 4) for the question and brand; Inter for every label and control",
+      "One coral accent (Claude's #D97757) used only for primary action and the points that earn",
+      "Hairline borders + soft warm shadows for depth; flat surfaces at rest",
+      "Gentle authored motion: fade-up entrances, question turn-in, a single pulse on earnings"
+    ],
+    "rules": [
+      { "name": "The One Coral Rule", "body": "Coral covers less than 5% of any screen at rest. Its rarity is what makes earning read as an event.", "section": "colors" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest; the only response to state is a border-color shift, a 1px translate on press, or a soft hover shadow on primary actions.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do set the question in the serif display face — it is the product's voice.",
+      "Do reserve coral for action and earnings; muted warm neutrals carry everything else.",
+      "Do keep motion gentle: fade-ups under 0.5s, a single pulse on earning, nothing that bounces or spins.",
+      "Do use hairline borders plus a soft warm shadow for card depth."
+    ],
+    "donts": [
+      "Don't use pure black, cool grays, or blue-tinted darks — the palette is warm charcoal.",
+      "Don't add gradient text, glassmorphism, or glowing accents.",
+      "Don't animate the question continuously; it enters once and rests.",
+      "Don't let coral cover more than ~5% of any screen at rest."
+    ]
+  }
+}

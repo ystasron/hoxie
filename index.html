@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#262624" />
+  <title>Hoxie — Answer & Earn ₱0.025</title>
+  <link rel="icon" type="image/jpeg" href="img/hoxie.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ===================== AUTH VIEW ===================== -->
+  <div class="app" id="authView">
+    <div class="auth-card">
+      <div class="auth-brand">
+        <img src="img/hoxie.jpg" alt="Hoxie logo" class="auth-logo" />
+      </div>
+      <p class="auth-sub">Answer math questions, earn ₱0.025 each</p>
+
+      <button type="button" id="googleBtn" class="google-btn">
+        <svg class="google-icon" viewBox="0 0 48 48" aria-hidden="true">
+          <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+          <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+          <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+          <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+        </svg>
+        Sign in with Google
+      </button>
+
+      <div class="divider"><span>or with email</span></div>
+
+      <div class="tabs">
+        <button type="button" class="tab active" id="tabLoginBtn">Login</button>
+        <button type="button" class="tab" id="tabSignupBtn">Sign Up</button>
+      </div>
+
+      <form id="loginForm" class="auth-form" autocomplete="on">
+        <input type="email" id="loginEmail" class="auth-input" placeholder="Email" autocomplete="email" required />
+        <input type="password" id="loginPassword" class="auth-input" placeholder="Password" autocomplete="current-password" required />
+        <button type="submit" class="submit-btn auth-submit">Log in</button>
+      </form>
+
+      <form id="signupForm" class="auth-form" autocomplete="on" hidden>
+        <input type="email" id="signupEmail" class="auth-input" placeholder="Email" autocomplete="email" required />
+        <input type="password" id="signupPassword" class="auth-input" placeholder="Password (min 6 characters)" autocomplete="new-password" required />
+        <input type="password" id="signupConfirm" class="auth-input" placeholder="Confirm password" autocomplete="new-password" required />
+        <button type="submit" class="submit-btn auth-submit">Create account</button>
+      </form>
+
+      <p class="auth-msg" id="authMsg"></p>
+    </div>
+  </div>
+
+  <!-- ===================== QUIZ VIEW ===================== -->
+  <div class="app" id="quizView" hidden>
+    <header class="topbar">
+      <div class="brand">
+        <img src="img/hoxie.jpg" alt="Hoxie" class="brand-logo" />
+      </div>
+      <div class="user-bar">
+        <span id="userEmail"></span>
+        <button type="button" id="leaderboardBtn" class="icon-btn" aria-label="Leaderboard" title="Leaderboard">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2" />
+            <path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2" />
+            <path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3" />
+            <path d="M4 22h16" />
+            <path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z" />
+            <path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3" />
+          </svg>
+        </button>
+        <button type="button" id="bountyBtn" class="icon-btn" aria-label="Bounty" title="Bounty">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 7v14" />
+            <path d="M20 11v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8" />
+            <path d="M7.5 7a1 1 0 0 1 0-5A4.8 8 0 0 1 12 7a4.8 8 0 0 1 4.5-5 1 1 0 0 1 0 5" />
+            <rect x="3" y="7" width="18" height="4" rx="1" />
+          </svg>
+          <span class="icon-dot" id="bountyDot" hidden aria-hidden="true"></span>
+        </button>
+        <button type="button" id="profileBtn" class="icon-btn" aria-label="Profile" title="Profile">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+        </button>
+        <button type="button" id="helpBtn" class="icon-btn" aria-label="Help" title="Help">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
+          </svg>
+        </button>
+        <button type="button" id="logoutBtn" class="logout-btn">Logout</button>
+      </div>
+    </header>
+
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-label">Total Earnings</span>
+        <span class="stat-value" id="totalPoints">₱0.000</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Current Balance</span>
+        <span class="stat-value" id="currentPoints">₱0.000</span>
+        <button type="button" id="withdrawBtn" class="withdraw-btn">Withdraw</button>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Today</span>
+        <span class="stat-value" id="pointsToday">₱0.000</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Rate</span>
+        <span class="stat-value" id="rateStat">₱0.025 / answer</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Questions</span>
+        <span class="stat-value" id="questionCount">0 / 20,000</span>
+      </div>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-note" id="progressNote">0% of today's daily limit</div>
+    </div>
+
+    <main class="card">
+      <div class="question-box">
+        <p class="question-label">Solve the math problem</p>
+        <h1 class="question" id="question">…</h1>
+      </div>
+
+      <form id="answerForm" autocomplete="off">
+        <input
+          type="number"
+          id="answerInput"
+          class="answer-input"
+          placeholder="Your answer"
+          inputmode="numeric"
+          autofocus
+        />
+        <button type="submit" id="submitBtn" class="submit-btn">Submit</button>
+      </form>
+
+      <div class="feedback" id="feedback" aria-live="polite"></div>
+    </main>
+
+    <footer class="footnote" id="footnote">₱0.025 per correct answer &middot; up to 20,000 questions per day</footer>
+  </div>
+
+  <!-- ===================== SUBSCRIBE VIEW ===================== -->
+  <div class="app" id="subscribeView" hidden>
+    <header class="topbar">
+      <div class="brand">
+        <img src="img/hoxie.jpg" alt="Hoxie" class="brand-logo" />
+      </div>
+      <div class="user-bar">
+        <button type="button" class="logout-btn">Logout</button>
+      </div>
+    </header>
+
+    <main class="card subscribe-card">
+      <p class="subscribe-kicker">Account inactive</p>
+      <h1 class="subscribe-title">
+        Subscribe now &amp; earn up to <span class="subscribe-highlight">₱1,000 per day</span>
+      </h1>
+      <p class="subscribe-sub">
+        Your account isn't active yet. Once you subscribe you can start answering
+        questions at a rate of up to <strong>₱0.50 per question</strong> — the
+        more you answer, the more you earn.
+      </p>
+
+      <div class="subscribe-rate">
+        <span>Rate per question</span>
+        <strong>up to ₱0.50</strong>
+      </div>
+
+      <div class="subscribe-actions">
+        <a href="https://m.me/yourpage" target="_blank" rel="noopener" class="subscribe-cta subscribe-messenger">
+          💬 Buy on Messenger
+        </a>
+        <a href="https://www.facebook.com/groups/yourgroup" target="_blank" rel="noopener" class="subscribe-cta subscribe-ghost">
+          👥 Join our Facebook Group
+        </a>
+      </div>
+
+      <p class="subscribe-note">
+        Message us on Messenger or in the Facebook group to purchase your subscription.
+        Once your payment is confirmed, your account is activated and you can start
+        earning right away.
+      </p>
+    </main>
+  </div>
+
+  <!-- ===================== PROFILE VIEW ===================== -->
+  <div class="app" id="profileView" hidden>
+    <header class="topbar">
+      <div class="brand">
+        <img src="img/hoxie.jpg" alt="Hoxie" class="brand-logo" />
+      </div>
+      <div class="user-bar">
+        <button type="button" id="profileBackBtn" class="ghost-btn">← Quiz</button>
+        <button type="button" class="logout-btn">Logout</button>
+      </div>
+    </header>
+
+    <main class="card">
+      <div class="profile-header">
+        <div class="avatar" id="avatarEl" aria-hidden="true"></div>
+        <div class="profile-id">
+          <h1 class="profile-name" id="profileNameDisplay">…</h1>
+          <p class="profile-email" id="profileEmailDisplay">…</p>
+        </div>
+        <span class="status-badge" id="statusBadge">Active</span>
+      </div>
+
+      <form id="profileForm" class="profile-form" autocomplete="on">
+        <label class="field">
+          <span class="field-label">Name</span>
+          <input type="text" id="profileNameInput" class="auth-input" placeholder="Your name" autocomplete="name" />
+        </label>
+
+        <label class="field">
+          <span class="field-label">Birthday</span>
+          <input type="date" id="profileBirthdayInput" class="auth-input" />
+        </label>
+
+        <div class="profile-meta">
+          <span>Member since <strong id="profileJoined">—</strong></span>
+          <span>Total earnings <strong id="profilePointsEl">₱0.000</strong></span>
+          <span>Current balance <strong id="profileCurrentEl">₱0.000</strong></span>
+        </div>
+
+        <div class="profile-rows">
+          <div class="profile-row">
+            <span class="field-label">Ranked</span>
+            <span class="profile-row-main">
+              <span class="profile-row-value" id="profileRank">—</span>
+            </span>
+          </div>
+          <div class="profile-row">
+            <span class="field-label">Referred by</span>
+            <span class="profile-row-main">
+              <span class="profile-row-value" id="profileReferredBy">—</span>
+              <button type="button" id="profileRedeemBtn" class="ghost-btn profile-row-btn" hidden>Enter a code</button>
+            </span>
+          </div>
+          <div class="profile-row">
+            <span class="field-label">Withdrawal method</span>
+            <span class="profile-row-main">
+              <span class="profile-row-value" id="profileWithdrawal">—</span>
+              <button type="button" id="profileWithdrawSetupBtn" class="ghost-btn profile-row-btn" hidden>Set up</button>
+            </span>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn profile-save">Save changes</button>
+        <p class="auth-msg" id="profileMsg"></p>
+      </form>
+    </main>
+  </div>
+
+  <!-- ===================== WITHDRAW VIEW ===================== -->
+  <div class="app" id="withdrawView" hidden>
+    <header class="topbar">
+      <div class="brand">
+        <img src="img/hoxie.jpg" alt="Hoxie" class="brand-logo" />
+      </div>
+      <div class="user-bar">
+        <button type="button" id="withdrawBackBtn" class="ghost-btn">← Quiz</button>
+        <button type="button" class="logout-btn">Logout</button>
+      </div>
+    </header>
+
+    <main class="card">
+      <h1 class="section-title">Withdraw</h1>
+      <p class="section-sub">Cash out your current balance to GCash.</p>
+
+      <div class="profile-meta">
+        <span>Current balance <strong id="withdrawBalance">₱0.000</strong></span>
+        <span>Minimum withdrawal <strong>₱100.000</strong></span>
+      </div>
+
+      <div id="withdrawSetup" class="withdraw-setup">
+        <form id="withdrawForm" class="profile-form" autocomplete="on">
+          <label class="field">
+            <span class="field-label">Withdrawal method</span>
+            <select id="withdrawMethod" class="auth-input">
+              <option value="gcash" selected>GCash</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span class="field-label">GCash number</span>
+            <input
+              type="tel"
+              id="withdrawNumber"
+              class="auth-input"
+              placeholder="09XXXXXXXXX"
+              inputmode="numeric"
+              autocomplete="off"
+            />
+          </label>
+
+          <p class="withdraw-note">Your number can only be saved once and cannot be changed afterward.</p>
+
+          <button type="submit" class="submit-btn profile-save">Save number</button>
+        </form>
+      </div>
+
+      <div id="withdrawLocked" class="withdraw-locked" hidden>
+        <div class="locked-row">
+          <span class="field-label">Method</span>
+          <span class="locked-value" id="lockedMethod">GCash</span>
+        </div>
+        <div class="locked-row">
+          <span class="field-label">GCash number</span>
+          <span class="locked-value" id="lockedNumber">—</span>
+        </div>
+        <p class="withdraw-note">🔒 This number is permanent and cannot be edited.</p>
+
+        <div class="withdraw-action">
+          <button type="button" id="requestWithdrawBtn" class="submit-btn profile-save">Withdraw ₱0.000</button>
+          <p class="withdraw-note" id="withdrawMinNote"></p>
+        </div>
+      </div>
+
+      <p class="auth-msg" id="withdrawMsg"></p>
+
+      <div class="history">
+        <h2 class="history-title">Withdrawal history</h2>
+        <div id="withdrawHistory"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ===================== BOUNTY VIEW ===================== -->
+  <div class="app" id="bountyView" hidden>
+    <header class="topbar">
+      <div class="brand">
+        <img src="img/hoxie.jpg" alt="Hoxie" class="brand-logo" />
+      </div>
+      <div class="user-bar">
+        <button type="button" id="bountyBackBtn" class="ghost-btn">← Quiz</button>
+        <button type="button" class="logout-btn">Logout</button>
+      </div>
+    </header>
+
+    <main class="card">
+      <h1 class="section-title">Bounty</h1>
+      <p class="section-sub">Boost your rate and earn bonus pesos.</p>
+
+      <!-- Daily login reward -->
+      <section class="reward-card" aria-label="Daily login reward">
+        <div class="reward-head">
+          <div class="reward-copy">
+            <h2 class="reward-title">Daily login reward</h2>
+            <p class="reward-sub">
+              Claim <strong>₱3.00</strong> every day. Claim 6 days in a row and the
+              7th day unlocks <strong>+₱0.003 per question</strong> — miss a day and
+              the streak resets.
+            </p>
+          </div>
+          <button type="button" id="rewardClaimBtn" class="submit-btn reward-btn" disabled>Claim ₱3.00</button>
+        </div>
+        <div class="reward-track" id="rewardTrack" aria-hidden="true"></div>
+        <p class="reward-status" id="rewardStatus" aria-live="polite"></p>
+      </section>
+
+      <div class="bounty-summary">
+        <span>Base rate <strong id="bountyBaseRate">₱0.025</strong></span>
+        <span>Your current rate <strong id="bountyRate">₱0.025</strong></span>
+      </div>
+
+      <section class="bounty-section">
+        <h2 class="bounty-title">Referral</h2>
+        <p class="bounty-desc">
+          Share your code — for every friend who signs up with it, you instantly
+          earn <strong>₱20.00</strong> and your rate goes up
+          <strong>+₱0.01 per question</strong> forever. Your friend also earns
+          <strong>₱20.00</strong> the moment they redeem.
+        </p>
+
+        <div class="bounty-code-row">
+          <span class="code-box" id="bountyCode" title="Your referral code">—</span>
+          <button type="button" id="bountyCopyBtn" class="copy-btn">Copy</button>
+        </div>
+
+        <div class="profile-meta">
+          <span>Referrals <strong id="bountyReferralCount">0</strong></span>
+        </div>
+
+        <div id="bountyRedeemBox" class="bounty-redeem">
+          <p class="withdraw-note">
+            Used someone's code? Enter it here — you'll instantly earn
+            <strong>₱20.00</strong> (each account can redeem only once).
+          </p>
+          <form id="bountyRedeemForm" class="profile-form" autocomplete="off">
+            <input
+              type="text"
+              id="bountyRedeemInput"
+              class="auth-input"
+              placeholder="Referral code"
+              autocomplete="off"
+            />
+            <button type="submit" id="bountyRedeemBtn" class="submit-btn profile-save">Redeem code</button>
+          </form>
+        </div>
+        <p id="bountyRedeemedNote" class="withdraw-note" hidden>
+          ✅ You've already redeemed a referral code.
+        </p>
+      </section>
+
+      <section class="bounty-section">
+        <h2 class="bounty-title">Comment to posts</h2>
+        <p class="bounty-desc">
+          Comment on our posts, then submit your comment link. Once approved,
+          your rate goes up <strong>+₱0.005 per question</strong>.
+        </p>
+
+        <form id="bountyCommentForm" class="profile-form" autocomplete="off">
+          <input
+            type="url"
+            id="bountyCommentLink"
+            class="auth-input"
+            placeholder="Paste your comment link (https://…)"
+            autocomplete="off"
+          />
+          <button type="submit" id="bountyCommentBtn" class="submit-btn profile-save">Submit link</button>
+        </form>
+
+        <div class="history">
+          <h2 class="history-title">Comment history</h2>
+          <div id="bountyCommentHistory"></div>
+        </div>
+      </section>
+
+      <p class="auth-msg" id="bountyMsg"></p>
+    </main>
+  </div>
+
+  <!-- ===================== LEADERBOARD VIEW ===================== -->
+  <div class="app" id="leaderboardView" hidden>
+    <header class="topbar">
+      <div class="brand">
+        <img src="img/hoxie.jpg" alt="Hoxie" class="brand-logo" />
+      </div>
+      <div class="user-bar">
+        <button type="button" id="leaderboardBackBtn" class="ghost-btn">← Quiz</button>
+        <button type="button" class="logout-btn">Logout</button>
+      </div>
+    </header>
+
+    <main class="card">
+      <h1 class="section-title">Leaderboard</h1>
+      <p class="section-sub">
+        Top earners ranked by lifetime earnings — every correct answer
+        moves you one step closer to the top.
+      </p>
+
+      <div class="lb-summary" id="leaderboardSummary"></div>
+
+      <div class="leaderboard" id="leaderboardList"></div>
+
+      <p class="lb-note">
+        Ranked by lifetime earnings. Keep answering and check back here to
+        watch yourself climb.
+      </p>
+    </main>
+  </div>
+
+  <!-- ===================== HELP VIEW ===================== -->
+  <div class="app" id="helpView" hidden>
+    <header class="topbar">
+      <div class="brand">
+        <img src="img/hoxie.jpg" alt="Hoxie" class="brand-logo" />
+      </div>
+      <div class="user-bar">
+        <button type="button" id="helpBackBtn" class="ghost-btn">← Quiz</button>
+        <button type="button" class="logout-btn">Logout</button>
+      </div>
+    </header>
+
+    <main class="card help-card">
+      <h1 class="section-title">Help</h1>
+      <p class="section-sub">Ask anything about earning, withdrawing, or your account.</p>
+
+      <div class="help-chat" id="helpMessages" aria-live="polite"></div>
+
+      <form id="helpForm" class="help-form" autocomplete="off">
+        <input
+          type="text"
+          id="helpInput"
+          class="auth-input help-input"
+          placeholder="Type your question…"
+          autocomplete="off"
+        />
+        <button type="submit" id="helpSendBtn" class="submit-btn help-send">Send</button>
+      </form>
+
+      <p class="help-note">
+        Powered by AI — it can make mistakes. For urgent issues, reach us on
+        Messenger or the Facebook group.
+      </p>
+    </main>
+  </div>
+
+  <!-- ===================== REDEEM SUCCESS MODAL ===================== -->
+  <div class="modal-wrap" id="redeemModal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="redeemModalTitle">
+      <button type="button" id="redeemModalClose" class="modal-x" aria-label="Close">✕</button>
+      <p class="modal-emoji" aria-hidden="true">🎉</p>
+      <h2 class="modal-title" id="redeemModalTitle">Congrats, you earned ₱20.00!</h2>
+      <p class="modal-sub">Your referral code was accepted and ₱20.00 was added to your balance.</p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
