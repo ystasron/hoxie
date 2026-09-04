@@ -11,7 +11,7 @@ A simple math quiz where users log in / sign up, answer up to **20,000 questions
 | `script.js` | Auth, quiz logic, daily limit, Supabase saves        |
 | `config.js` | **Your Supabase URL + anon key go here**             |
 | `setup.sql` | `profiles`, `withdrawals`, `daily_answers`, `comment_links`, `login_rewards` tables, triggers, RPCs, RLS policies (run once in Supabase) |
-| `supabase/functions/help-ai/` | Edge Function that proxies Help-chat messages to the Mistral agent (the API key stays in function secrets) — deploy with `npx supabase functions deploy help-ai --project-ref <ref>` and set `MISTRAL_API_KEY` + `AGENT_ID` secrets |
+| `supabase/functions/help-ai/` | Edge Function that proxies Help-chat messages to **Google Gemini** (the API key stays in function secrets; the assistant's role is a `system_instruction`) — deploy with `npx supabase functions deploy help-ai --project-ref <ref>` and set the `GEMINI_API_KEY` secret |
 
 ## Setup
 
@@ -55,6 +55,7 @@ A simple math quiz where users log in / sign up, answer up to **20,000 questions
   - **Referral** — every user has a unique referral code (auto-generated on signup). When a friend signs up and redeems it, the referrer instantly earns **₱20.00** and gets **+₱0.01** added to their per-question rate forever, and the friend who redeems also earns **₱20.00** (via the `redeem_referral` RPC — one redemption per account). The referral count is a plain column you can edit manually in the dashboard.
   - **Comment to posts** — users paste the link of a comment they made on your posts; it's saved as `pending` in `comment_links`. When you flip its status to `success` in the dashboard, a DB trigger permanently adds **+₱0.005** to their rate (pending stays coral, success turns green in the history list).
 - The quiz generates questions of four types (addition, subtraction, multiplication, division), server-side.
+- The **bell icon** in the quiz top bar opens the **System Notice** modal — an alternating timeline of system announcements (each entry has an emoji, bold title, description with links, and a relative timestamp). The feed is a static, easy-to-edit list (`SYSTEM_NOTICES` in `script.js`); unread entries get a coral node and the bell shows a red dot until the modal is closed. The single **Close Notice** button (or the ✕, Escape, or the dimmed backdrop) marks everything read. To publish a notice, add an entry with a higher `id` than the newest one.
 
 ## Notes
 

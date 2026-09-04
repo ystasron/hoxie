@@ -11,7 +11,7 @@ const SUPABASE_CONFIG = {
   anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZqdWx3dHh5cnlpeG5tZGdtbm93Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg0NzA5ODcsImV4cCI6MjEwNDA0Njk4N30.K2yrlGHxOVAwlox_hSfTxmOQamjvFcbdLERMDy2NcrQ",
 };
 
-// Help AI chat — the Mistral key lives server-side in the help-ai
+// Help AI chat — the Gemini API key lives server-side in the help-ai
 // Supabase Edge Function; this is just its public URL.
 const HELP_AI_CONFIG = {
   url: "https://fjulwtxyryixnmdgmnow.functions.supabase.co/help-ai",

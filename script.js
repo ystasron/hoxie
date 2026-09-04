@@ -143,6 +143,12 @@ const helpMessages = document.getElementById("helpMessages");
 const helpForm = document.getElementById("helpForm");
 const helpInput = document.getElementById("helpInput");
 const helpSendBtn = document.getElementById("helpSendBtn");
+const notificationsBtn = document.getElementById("notificationsBtn");
+const noticeDot = document.getElementById("noticeDot");
+const noticeModal = document.getElementById("noticeModal");
+const noticeCloseBtn = document.getElementById("noticeCloseBtn");
+const noticeDismissBtn = document.getElementById("noticeDismissBtn");
+const noticeTimeline = document.getElementById("noticeTimeline");
 const redeemModal = document.getElementById("redeemModal");
 const redeemModalClose = document.getElementById("redeemModalClose");
 const footnoteEl = document.getElementById("footnote");
@@ -315,6 +321,7 @@ function scheduleMidnightRefresh() {
       updateBountyDot();
       if (!bountyView.hidden) renderLoginRewards();
     });
+    updateNoticeDot();
     scheduleMidnightRefresh();
   }, msUntilManilaMidnight());
 }
@@ -377,6 +384,7 @@ async function enterQuiz(user) {
   }
   await loadLoginRewards(); // drives the red dot on the Bounty icon
   updateBountyDot();
+  updateNoticeDot(); // red dot on the bell while notices are unread
   render();
   await syncDailyTally(); // server-authoritative daily count
   nextQuestion();
@@ -405,6 +413,9 @@ function leaveQuiz() {
   state = null;
   loginRewards = null;
   bountyDot.hidden = true;
+  noticeDot.hidden = true;
+  noticeModal.hidden = true;
+  document.body.style.overflow = "";
   helpTranscript = [];
   helpMessages.textContent = "";
   busy = false;
@@ -678,7 +689,7 @@ profileWithdrawSetupBtn.addEventListener("click", () => {
 });
 
 // ------------------------------------------------------------
-// Help: chat with the Mistral AI assistant via the help-ai Edge
+// Help: chat with the Gemini AI assistant via the help-ai Edge
 // Function (the API key stays server-side in function secrets).
 // ------------------------------------------------------------
 function openHelp() {
@@ -1459,6 +1470,194 @@ function closeRedeemModal() {
 redeemModalClose.addEventListener("click", closeRedeemModal);
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && !redeemModal.hidden) closeRedeemModal();
+});
+
+// ------------------------------------------------------------
+// Notifications: the System Notice modal. The feed is a static,
+// easy-to-edit list of system announcements — to publish a new
+// notice, add an entry with a higher id than the newest one. Users
+// who already closed the modal will see the bell red dot again (and
+// the new item highlighted as unread) because their "last seen" id
+// is lower.
+//   text may contain [label](url) links, styled inline.
+//   ageMin = how many minutes ago the notice was "posted" (relative,
+//   so it always looks fresh and feeds the time label).
+// ------------------------------------------------------------
+const SYSTEM_NOTICES = [
+  {
+    id: 3,
+    emoji: "🛠️",
+    title: "Scheduled maintenance this Sunday",
+    text: "Hoxie will be briefly offline on Sunday from 1:00 to 2:00 AM Philippine time while we upgrade the servers. Your balance and streak are safe. Follow [Hoxie on Facebook](https://www.facebook.com/hoxie) for live updates.",
+    ageMin: 150,
+  },
+  {
+    id: 2,
+    emoji: "🔒",
+    title: "Keep your account safe",
+    text: "Hoxie will never ask for your password or your GCash PIN, in chat or anywhere else. If someone does, report it to [support@hoxie.ph](mailto:support@hoxie.ph).",
+    ageMin: 2900,
+  },
+  {
+    id: 1,
+    emoji: "⚙️",
+    title: "Withdrawal requests are reviewed daily",
+    text: "Payouts are processed in batches and sent once your request is approved. If a payout takes longer than a few days, email [support@hoxie.ph](mailto:support@hoxie.ph).",
+    ageMin: 8700,
+  },
+];
+
+function noticeLastIdKey() {
+  return "hoxie_notice_seen_" + currentUser.id;
+}
+
+function readNoticeLastId() {
+  const n = Number(localStorage.getItem(noticeLastIdKey()));
+  return Number.isFinite(n) && n > 0 ? n : 0;
+}
+
+function writeNoticeLastId(n) {
+  try {
+    localStorage.setItem(noticeLastIdKey(), String(n));
+  } catch (e) {
+    /* private mode etc — dot just stays on */
+  }
+}
+
+function noticeNewestId() {
+  return SYSTEM_NOTICES.reduce((max, n) => Math.max(max, n.id), 0);
+}
+
+function hasUnreadNotices() {
+  if (!isActive()) return false;
+  return noticeNewestId() > readNoticeLastId();
+}
+
+function updateNoticeDot() {
+  if (!noticeDot) return;
+  noticeDot.hidden = !hasUnreadNotices();
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, (c) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
+  }[c]));
+}
+
+// [label](url) becomes a styled, safe-to-open link.
+function linkifyNotice(text) {
+  return escapeHtml(text).replace(
+    /\[([^\]]+)\]\((https?:\/\/[^)\s]+|mailto:[^)\s]+)\)/g,
+    '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+  );
+}
+
+function timeAgoLabel(at) {
+  const s = Math.max(0, Math.floor((Date.now() - at.getTime()) / 1000));
+  if (s < 60) return "just now";
+  const m = Math.floor(s / 60);
+  if (m < 60) return m + " min ago";
+  const h = Math.floor(m / 60);
+  if (h < 24) return h + " hr ago";
+  const d = Math.floor(h / 24);
+  if (d === 1) return "yesterday";
+  if (d < 7) return d + " d ago";
+  return at.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+}
+
+// Alternate the entries across the spine: first on the right, second
+// on the left, and so on. New items (id above the user's last seen)
+// get a coral node.
+function renderNoticeTimeline() {
+  const unseen = readNoticeLastId();
+  const items = SYSTEM_NOTICES; // every entry is a system notice now
+  noticeTimeline.textContent = "";
+
+  if (items.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "notice-empty";
+    empty.textContent = "No notices in this category yet.";
+    noticeTimeline.appendChild(empty);
+    return;
+  }
+
+  items.forEach((n, i) => {
+    const at = new Date(Date.now() - n.ageMin * 60000);
+
+    const row = document.createElement("div");
+    row.className = "notice-item " + (i % 2 === 0 ? "on-right" : "on-left");
+    if (n.id > unseen) row.classList.add("is-new");
+    row.style.animationDelay = Math.min(i * 55, 330) + "ms";
+
+    const card = document.createElement("article");
+    card.className = "notice-card";
+    card.setAttribute("aria-label", n.title);
+
+    const head = document.createElement("div");
+    head.className = "notice-card-head";
+    const emoji = document.createElement("span");
+    emoji.className = "notice-emoji";
+    emoji.setAttribute("aria-hidden", "true");
+    emoji.textContent = n.emoji;
+    const title = document.createElement("h3");
+    title.className = "notice-item-title";
+    title.textContent = n.title;
+    head.append(emoji, title);
+
+    const text = document.createElement("p");
+    text.className = "notice-text";
+    text.innerHTML = linkifyNotice(n.text);
+
+    const time = document.createElement("time");
+    time.className = "notice-time";
+    time.dateTime = at.toISOString();
+    time.textContent = timeAgoLabel(at);
+
+    card.append(head, text, time);
+
+    const dot = document.createElement("span");
+    dot.className = "notice-dot";
+    dot.setAttribute("aria-hidden", "true");
+
+    row.append(card, dot);
+    noticeTimeline.appendChild(row);
+  });
+  noticeTimeline.scrollTop = 0;
+}
+
+function openNotifications() {
+  if (!isActive()) { showSubscribe(); return; }
+  renderNoticeTimeline();
+  noticeModal.hidden = false;
+  document.body.style.overflow = "hidden"; // lock page scroll behind the modal
+  noticeDismissBtn.focus();
+}
+
+// The single close path: closing always marks everything read, so the
+// bell dot stays off until a newer notice is published.
+function closeNotices() {
+  writeNoticeLastId(noticeNewestId());
+  noticeModal.hidden = true;
+  document.body.style.overflow = "";
+  updateNoticeDot();
+}
+
+notificationsBtn.addEventListener("click", openNotifications);
+
+noticeDismissBtn.addEventListener("click", closeNotices);
+noticeCloseBtn.addEventListener("click", closeNotices);
+
+// Clicking the dimmed backdrop closes like the ✕ does.
+noticeModal.addEventListener("click", (e) => {
+  if (e.target === noticeModal) closeNotices();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && !noticeModal.hidden) closeNotices();
 });
 
 bountyCommentForm.addEventListener("submit", async (e) => {
