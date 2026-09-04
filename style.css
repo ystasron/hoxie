@@ -2132,17 +2132,49 @@ select.auth-input option {
 }
 /* ---------- Help (AI chat) on phones ---------- */
 @media (max-width: 640px) {
-  .help-card {
-    padding: 22px 14px;
+  /* The chat becomes a messenger-style column that fills the phone
+     screen: topbar on top, a scrollable thread in the middle, and the
+     composer pinned to the bottom. Flexbox shares out the leftover
+     space instead of a fixed height guess, so the composer is never
+     cut off below the fold — or under the on-screen keyboard. */
+  #helpView.app {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 40px); /* older browsers */
+    height: calc(
+      100dvh
+      - max(20px, env(safe-area-inset-top))
+      - max(20px, env(safe-area-inset-bottom))
+    );
   }
 
-  /* The chat fills the phone screen like a real messenger thread,
-     and only the message area scrolls (dvh keeps it right above the
-     keyboard on modern phones). */
+  #helpView.app .topbar {
+    flex-shrink: 0;
+    margin-bottom: 12px;
+  }
+
+  .help-card {
+    flex: 1 1 auto;
+    min-height: 0;
+    padding: 20px 14px;
+    /* --kb-inset (set from JS) is the on-screen keyboard's height on
+       browsers that overlay it (iOS Safari, older Android). This
+       padding lifts the composer above the keys. */
+    padding-bottom: calc(20px + var(--kb-inset, 0px));
+  }
+
+  .help-card .section-title {
+    flex-shrink: 0;
+  }
+
+  .help-card .section-sub {
+    flex-shrink: 0;
+    margin-bottom: 12px;
+  }
+
   .help-chat {
-    height: calc(100vh - 320px); /* older browsers */
-    height: calc(100dvh - 320px);
-    min-height: 240px;
+    flex: 1 1 auto;
+    min-height: 88px;
     max-height: none;
     gap: 12px;
     padding: 2px 2px 12px;
@@ -2173,6 +2205,7 @@ select.auth-input option {
   /* Full-height composer row: 48px touch targets, no iOS zoom
      (input stays at 1rem). */
   .help-form {
+    flex-shrink: 0;
     gap: 10px;
   }
 
@@ -2185,24 +2218,27 @@ select.auth-input option {
   }
 
   .help-send {
+    /* .submit-btn goes width:100% on phones — undo that here so the
+       Send button stays a normal flex item next to the input. */
+    width: auto;
+    flex-shrink: 0;
     min-height: 48px;
     padding: 0 22px;
   }
 
   .help-note {
+    flex-shrink: 0;
     padding-bottom: calc(4px + env(safe-area-inset-bottom));
     font-size: 0.72rem;
   }
 }
 
 @media (max-width: 420px) {
-  .help-chat {
-    height: calc(100vh - 290px);
-    height: calc(100dvh - 290px);
-    min-height: 220px;
-  }
-
   .help-msg {
     max-width: 92%;
+  }
+
+  .help-send {
+    padding: 0 18px;
   }
 }

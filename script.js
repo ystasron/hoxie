@@ -677,6 +677,52 @@ profileWithdrawSetupBtn.addEventListener("click", () => {
 });
 
 // ------------------------------------------------------------
+// Mobile keyboard tracking: browsers that overlay the on-screen
+// keyboard instead of resizing the layout (iOS Safari, older
+// Android) hide the Help composer behind the keys. The visual
+// viewport shrinks by exactly the keyboard height, so we expose
+// that as --kb-inset for the CSS to lift the composer above it.
+// (Modern Chrome resizes the layout itself via the
+// interactive-widget=resizes-content viewport meta, leaving the
+// inset at 0.)
+(function trackKeyboardInset() {
+  const root = document.documentElement;
+  const mq = window.matchMedia("(max-width: 640px)");
+  const isEditable = (el) =>
+    el &&
+    (el.tagName === "INPUT" ||
+      el.tagName === "TEXTAREA" ||
+      el.isContentEditable);
+  // Only measure while the keyboard can actually be open (an editable
+  // field is focused). Browser chrome (URL bars) also shrinks the
+  // visual viewport, but that shouldn't move the composer.
+  let focused = false;
+  const update = () => {
+    let inset = 0;
+    const vv = window.visualViewport;
+    if (mq.matches && focused && vv) {
+      inset = Math.max(0, Math.round(window.innerHeight - vv.height));
+    }
+    root.style.setProperty("--kb-inset", inset + "px");
+  };
+  document.addEventListener("focusin", (e) => {
+    focused = isEditable(e.target);
+    update();
+  });
+  document.addEventListener("focusout", () => {
+    focused = false;
+    update();
+  });
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", update);
+    window.visualViewport.addEventListener("scroll", update);
+  }
+  window.addEventListener("resize", update);
+  window.addEventListener("orientationchange", () => setTimeout(update, 250));
+  update();
+})();
+
+// ------------------------------------------------------------
 // Help: chat with the Gemini AI assistant via the help-ai Edge
 // Function (the API key stays server-side in function secrets).
 // ------------------------------------------------------------
