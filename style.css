@@ -627,22 +627,6 @@ input:focus-visible {
   border-bottom: 1px solid var(--border-soft);
 }
 
-.avatar {
-  width: 56px;
-  height: 56px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--accent-ink);
-  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
-  border-radius: 50%;
-  box-shadow: var(--shadow-control);
-}
-
 .profile-id {
   flex: 1;
   min-width: 0;
@@ -1436,27 +1420,6 @@ select.auth-input option {
   color: var(--muted);
 }
 
-.lb-avatar {
-  width: 36px;
-  height: 36px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--accent-ink);
-  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
-  border-radius: 50%;
-}
-
-.lb-avatar-you {
-  background: var(--surface-inset);
-  border: 1px solid var(--border);
-  color: var(--text);
-}
-
 .lb-main {
   flex: 1;
   min-width: 0;
@@ -2088,12 +2051,6 @@ select.auth-input option {
     font-size: 0.78rem;
   }
 
-  .lb-avatar {
-    width: 34px;
-    height: 34px;
-    font-size: 0.82rem;
-  }
-
   .lb-name {
     font-size: 0.98rem;
   }
@@ -2164,15 +2121,9 @@ select.auth-input option {
     gap: 8px;
   }
 
-  /* Tiniest screens: shave avatar/points so the name column wins. */
+  /* Tiniest screens: tighten the row so the name column wins. */
   .leaderboard-row {
     gap: 8px;
-  }
-
-  .lb-avatar {
-    width: 30px;
-    height: 30px;
-    font-size: 0.78rem;
   }
 
   .lb-points {

@@ -80,7 +80,6 @@ const profileBackBtn = document.getElementById("profileBackBtn");
 const profileForm = document.getElementById("profileForm");
 const profileNameInput = document.getElementById("profileNameInput");
 const profileBirthdayInput = document.getElementById("profileBirthdayInput");
-const avatarEl = document.getElementById("avatarEl");
 const profileNameDisplay = document.getElementById("profileNameDisplay");
 const profileEmailDisplay = document.getElementById("profileEmailDisplay");
 const statusBadge = document.getElementById("statusBadge");
@@ -601,17 +600,6 @@ document.querySelectorAll(".logout-btn").forEach((btn) => {
 // ------------------------------------------------------------
 // Profile: view + edit (name, birthday) saved to Supabase
 // ------------------------------------------------------------
-function initialsFrom(source) {
-  const parts = String(source || "?").trim().split(/\s+/);
-  const first = parts[0] ? parts[0][0] : "";
-  const last = parts.length > 1 ? parts[1][0] : "";
-  return (first + last).toUpperCase() || "?";
-}
-
-function initialsFor() {
-  return initialsFrom((profile && profile.name) || currentUser.email);
-}
-
 function statusLabel(status) {
   return String(status || "active")
     .replace(/_/g, " ")
@@ -822,7 +810,6 @@ function renderProfile() {
   profileBirthdayInput.value = profile.birthday || "";
   profileNameDisplay.textContent = profile.name || email;
   profileEmailDisplay.textContent = email;
-  avatarEl.textContent = initialsFor();
   statusBadge.textContent = statusLabel(profile.account_status);
   statusBadge.classList.toggle(
     "status-inactive",
@@ -1162,10 +1149,6 @@ async function renderLeaderboard() {
       rankEl.textContent = shown.toLocaleString();
     }
 
-    const avatar = document.createElement("span");
-    avatar.className = "lb-avatar" + (r.isUser ? " lb-avatar-you" : "");
-    avatar.textContent = initialsFrom(r.name);
-
     const main = document.createElement("span");
     main.className = "lb-main";
 
@@ -1195,7 +1178,7 @@ async function renderLeaderboard() {
     pointsEl.textContent = formatPeso(0);
     right.appendChild(pointsEl);
 
-    row.append(rankEl, avatar, main, right);
+    row.append(rankEl, main, right);
     leaderboardList.appendChild(row);
     // Count the lifetime total up once the row has entered.
     countUp(pointsEl, r.points, rowDelay + 200);
