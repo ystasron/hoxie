@@ -1,5 +1,5 @@
 // ============================================================
-// Hoxie — answer math questions, earn ₱0.025 per correct answer,
+// Hoxiee — answer math questions, earn ₱0.025 per correct answer,
 // up to 20,000 questions per day. Users log in / sign up with
 // Supabase Auth; profiles and points live in Supabase.
 // ============================================================
@@ -698,7 +698,7 @@ function openHelp() {
   if (helpMessages.children.length === 0) {
     helpTranscript = [];
     addHelpBubble(
-      "Hi! I'm the Hoxie assistant. Ask me about earning, your balance, withdrawals, referrals — or anything else.",
+      "Hi! I'm the Hoxiee assistant. Ask me about earning, your balance, withdrawals, referrals — or anything else.",
       "bot"
     );
   }
@@ -1488,27 +1488,27 @@ const SYSTEM_NOTICES = [
     id: 3,
     emoji: "🛠️",
     title: "Scheduled maintenance this Sunday",
-    text: "Hoxie will be briefly offline on Sunday from 1:00 to 2:00 AM Philippine time while we upgrade the servers. Your balance and streak are safe. Follow [Hoxie on Facebook](https://www.facebook.com/hoxie) for live updates.",
+    text: "Hoxiee will be briefly offline on Sunday from 1:00 to 2:00 AM Philippine time while we upgrade the servers. Your balance and streak are safe. Follow [Hoxiee on Facebook](https://www.facebook.com/hoxiee) for live updates.",
     ageMin: 150,
   },
   {
     id: 2,
     emoji: "🔒",
     title: "Keep your account safe",
-    text: "Hoxie will never ask for your password or your GCash PIN, in chat or anywhere else. If someone does, report it to [support@hoxie.ph](mailto:support@hoxie.ph).",
+    text: "Hoxiee will never ask for your password or your GCash PIN, in chat or anywhere else. If someone does, report it to [support@hoxiee.ph](mailto:support@hoxiee.ph).",
     ageMin: 2900,
   },
   {
     id: 1,
     emoji: "⚙️",
     title: "Withdrawal requests are reviewed daily",
-    text: "Payouts are processed in batches and sent once your request is approved. If a payout takes longer than a few days, email [support@hoxie.ph](mailto:support@hoxie.ph).",
+    text: "Payouts are processed in batches and sent once your request is approved. If a payout takes longer than a few days, email [support@hoxiee.ph](mailto:support@hoxiee.ph).",
     ageMin: 8700,
   },
 ];
 
 function noticeLastIdKey() {
-  return "hoxie_notice_seen_" + currentUser.id;
+  return "hoxiee_notice_seen_" + currentUser.id;
 }
 
 function readNoticeLastId() {

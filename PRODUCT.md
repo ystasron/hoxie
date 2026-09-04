@@ -1,4 +1,4 @@
-# Hoxie
+# Hoxiee
 
 **What it is:** A web app where logged-in users answer simple math questions and earn points.
 

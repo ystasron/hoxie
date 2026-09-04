@@ -1,5 +1,5 @@
 -- ============================================================
--- Hoxie — Supabase setup (v12: daily login rewards — v11: stateless signed questions)
+-- Hoxiee — Supabase setup (v12: daily login rewards — v11: stateless signed questions)
 -- Run this in: Supabase Dashboard → SQL Editor → New query
 -- Safe to re-run: every statement is idempotent.
 -- ============================================================
@@ -315,7 +315,7 @@ create or replace function public.question_secret()
 returns text
 language sql
 immutable
-as $$ select 'hoxie-question-signing-key-9f2c1e' $$;
+as $$ select 'hoxiee-question-signing-key-9f2c1e' $$;
 
 revoke execute on function public.question_secret() from anon, authenticated, public;
 

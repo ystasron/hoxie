@@ -1,5 +1,5 @@
 ---
-name: Hoxie
+name: Hoxiee
 description: Dark adaptation of the Claude.ai visual identity — warm charcoal surfaces, serif display, coral accent.
 colors:
   claude-bg: "#262624"
@@ -86,13 +86,13 @@ components:
     backgroundColor: "{colors.surface}"
     rounded: "{rounded.card}"
 ---
-# Design System: Hoxie
+# Design System: Hoxiee
 
 ## Overview
 
 **Creative North Star: "The Coral Ledger"**
 
-Hoxie is a dark adaptation of Claude.ai's visual identity: warm charcoal surfaces that never go pure black, a serif voice for the arithmetic itself, and a single coral accent reserved for action and earning. The interface reads like a quiet desk lamp over paper — every surface is a warm neutral, borders are hairline, and the only saturated thing in the room is the coral that marks what you can do and what you have earned. Motion is restrained: entrances fade up gently, the question slides in as if turned over, and a correct answer gives a single quiet pulse rather than a celebration.
+Hoxiee is a dark adaptation of Claude.ai's visual identity: warm charcoal surfaces that never go pure black, a serif voice for the arithmetic itself, and a single coral accent reserved for action and earning. The interface reads like a quiet desk lamp over paper — every surface is a warm neutral, borders are hairline, and the only saturated thing in the room is the coral that marks what you can do and what you have earned. Motion is restrained: entrances fade up gently, the question slides in as if turned over, and a correct answer gives a single quiet pulse rather than a celebration.
 
 The product is a daily drill, so the mode is **Operate**: scanability and calm win over expression. Depth comes from layered warm-black shadows and hairline borders, never gradients or glow. The math problem is the hero — big, serif, centered — because it is the entire product at the moment of use.
 
@@ -129,7 +129,7 @@ A warm dark neutral ground with one coral accent, adapted from Claude.ai's dark 
 **Display Font:** Source Serif 4 (with Georgia, serif fallback)
 **Body Font:** Schibsted Grotesk (with system-ui fallback)
 
-**Character:** A literary serif for the arithmetic — the math problem is typeset like a line of prose — against a neutral, confident sans for the interface around it. The pairing gives the numbers warmth and the controls quiet authority. The brand is the rectangular Hoxie logo alone; no wordmark is typeset.
+**Character:** A literary serif for the arithmetic — the math problem is typeset like a line of prose — against a neutral, confident sans for the interface around it. The pairing gives the numbers warmth and the controls quiet authority. The brand is the rectangular Hoxiee logo alone; no wordmark is typeset.
 
 ### Hierarchy
 - **Display** (600, clamp(2.5rem, 10vw, 3.5rem), 1.1): The math question. Centered, tabular numerals.

@@ -7,7 +7,7 @@
 //   GEMINI_API_KEY    your Google AI Studio / Gemini API key
 //   GEMINI_MODEL      optional override; defaults to gemini-2.5-flash
 //   ALLOWED_ORIGINS   optional comma-separated origins permitted to
-//                     call this function (e.g. "https://hoxie.example").
+//                     call this function (e.g. "https://hoxiee.example").
 //                     Defaults to "*" (any origin) — auth is still
 //                     required, so only holders of a valid user JWT
 //                     can get a reply.
@@ -37,11 +37,11 @@ const RATE_MAX = 20;
 
 // The assistant's role — edit freely. Gemini supports system
 // instructions on every plan, including the free tier.
-const SYSTEM_INSTRUCTIONS = `You are the friendly support assistant for Hoxie, a fun math-quiz app where players answer quick questions to earn points they can withdraw as pesos.
+const SYSTEM_INSTRUCTIONS = `You are the friendly support assistant for Hoxiee, a fun math-quiz app where players answer quick questions to earn points they can withdraw as pesos.
 
 Your personality: warm, upbeat, and easy to talk to. Keep answers short and clear, use casual English (light Filipino sprinkling is fine), and never be preachy or robotic.
 
-What you know about Hoxie:
+What you know about Hoxiee:
 - Players earn a small amount for every correct quiz answer, and rewards stack up over the day.
 - There is a daily login reward: claim 3 pesos once per day, and claiming 6 days in a row unlocks a permanent per-question rate bonus on the 7th day. Missing a day resets the streak.
 - There are referral codes — entering one gives a bonus, and referring friends earns you more.

@@ -1,6 +1,6 @@
 # Minimal config for deploying the help-ai Edge Function.
 # Real project id is passed to the CLI with --project-ref at deploy time.
-project_id = "hoxie"
+project_id = "hoxiee"
 
 [functions.help-ai]
 verify_jwt = false

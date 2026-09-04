@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#262624" />
-  <title>Hoxie — Answer & Earn ₱0.025</title>
-  <link rel="icon" type="image/jpeg" href="img/hoxie.jpg" />
+  <title>Hoxiee — Answer & Earn ₱0.025</title>
+  <link rel="icon" type="image/jpeg" href="img/hoxiee.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -19,7 +19,7 @@
   <div class="app" id="authView">
     <div class="auth-card">
       <div class="auth-brand">
-        <img src="img/hoxie.jpg" alt="Hoxie logo" class="auth-logo" />
+        <img src="img/hoxiee.jpg" alt="Hoxiee logo" class="auth-logo" />
       </div>
       <p class="auth-sub">Answer math questions, earn ₱0.025 each</p>
 
@@ -61,20 +61,10 @@
   <div class="app" id="quizView" hidden>
     <header class="topbar">
       <div class="brand">
-        <img src="img/hoxie.jpg" alt="Hoxie" class="brand-logo" />
+        <img src="img/hoxiee.jpg" alt="Hoxiee" class="brand-logo" />
       </div>
       <div class="user-bar">
         <span id="userEmail"></span>
-        <button type="button" id="leaderboardBtn" class="icon-btn" aria-label="Leaderboard" title="Leaderboard">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2" />
-            <path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2" />
-            <path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3" />
-            <path d="M4 22h16" />
-            <path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z" />
-            <path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3" />
-          </svg>
-        </button>
         <button type="button" id="bountyBtn" class="icon-btn" aria-label="Bounty" title="Bounty">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 7v14" />
@@ -84,10 +74,14 @@
           </svg>
           <span class="icon-dot" id="bountyDot" hidden aria-hidden="true"></span>
         </button>
-        <button type="button" id="profileBtn" class="icon-btn" aria-label="Profile" title="Profile">
+        <button type="button" id="leaderboardBtn" class="icon-btn" aria-label="Leaderboard" title="Leaderboard">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-            <circle cx="12" cy="7" r="4" />
+            <path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2" />
+            <path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2" />
+            <path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3" />
+            <path d="M4 22h16" />
+            <path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z" />
+            <path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3" />
           </svg>
         </button>
         <button type="button" id="notificationsBtn" class="icon-btn" aria-label="Notifications" title="Notifications">
@@ -100,6 +94,12 @@
         <button type="button" id="helpBtn" class="icon-btn" aria-label="Help" title="Help">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
+          </svg>
+        </button>
+        <button type="button" id="profileBtn" class="icon-btn" aria-label="Profile" title="Profile">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
           </svg>
         </button>
         <button type="button" id="logoutBtn" class="logout-btn">Logout</button>
@@ -163,7 +163,7 @@
   <div class="app" id="subscribeView" hidden>
     <header class="topbar">
       <div class="brand">
-        <img src="img/hoxie.jpg" alt="Hoxie" class="brand-logo" />
+        <img src="img/hoxiee.jpg" alt="Hoxiee" class="brand-logo" />
       </div>
       <div class="user-bar">
         <button type="button" class="logout-btn">Logout</button>
@@ -207,7 +207,7 @@
   <div class="app" id="profileView" hidden>
     <header class="topbar">
       <div class="brand">
-        <img src="img/hoxie.jpg" alt="Hoxie" class="brand-logo" />
+        <img src="img/hoxiee.jpg" alt="Hoxiee" class="brand-logo" />
       </div>
       <div class="user-bar">
         <button type="button" id="profileBackBtn" class="ghost-btn">← Quiz</button>
@@ -275,7 +275,7 @@
   <div class="app" id="withdrawView" hidden>
     <header class="topbar">
       <div class="brand">
-        <img src="img/hoxie.jpg" alt="Hoxie" class="brand-logo" />
+        <img src="img/hoxiee.jpg" alt="Hoxiee" class="brand-logo" />
       </div>
       <div class="user-bar">
         <button type="button" id="withdrawBackBtn" class="ghost-btn">← Quiz</button>
@@ -349,7 +349,7 @@
   <div class="app" id="bountyView" hidden>
     <header class="topbar">
       <div class="brand">
-        <img src="img/hoxie.jpg" alt="Hoxie" class="brand-logo" />
+        <img src="img/hoxiee.jpg" alt="Hoxiee" class="brand-logo" />
       </div>
       <div class="user-bar">
         <button type="button" id="bountyBackBtn" class="ghost-btn">← Quiz</button>
@@ -454,7 +454,7 @@
   <div class="app" id="leaderboardView" hidden>
     <header class="topbar">
       <div class="brand">
-        <img src="img/hoxie.jpg" alt="Hoxie" class="brand-logo" />
+        <img src="img/hoxiee.jpg" alt="Hoxiee" class="brand-logo" />
       </div>
       <div class="user-bar">
         <button type="button" id="leaderboardBackBtn" class="ghost-btn">← Quiz</button>
@@ -484,7 +484,7 @@
   <div class="app" id="helpView" hidden>
     <header class="topbar">
       <div class="brand">
-        <img src="img/hoxie.jpg" alt="Hoxie" class="brand-logo" />
+        <img src="img/hoxiee.jpg" alt="Hoxiee" class="brand-logo" />
       </div>
       <div class="user-bar">
         <button type="button" id="helpBackBtn" class="ghost-btn">← Quiz</button>

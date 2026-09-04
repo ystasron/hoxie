@@ -1,5 +1,5 @@
 // ============================================================
-// Hoxie — Supabase configuration
+// Hoxiee — Supabase configuration
 //
 // 1. Go to your Supabase dashboard → Project Settings → API
 // 2. Copy the "Project URL" into url below

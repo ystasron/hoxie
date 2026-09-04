@@ -1,4 +1,4 @@
-# Hoxie
+# Hoxiee
 
 A simple math quiz where users log in / sign up, answer up to **20,000 questions per day**, and earn **₱0.025 per correct answer**. Accounts, profiles, and points are saved to Supabase.
 
@@ -6,7 +6,7 @@ A simple math quiz where users log in / sign up, answer up to **20,000 questions
 
 | File        | Purpose                                              |
 | ----------- | ---------------------------------------------------- |
-| `index.html`| Login/signup page + quiz page (brand: Hoxie, logo in `img/hoxie.jpg`) |
+| `index.html`| Login/signup page + quiz page (brand: Hoxiee, logo in `img/hoxiee.jpg`) |
 | `style.css` | Styling                                             |
 | `script.js` | Auth, quiz logic, daily limit, Supabase saves        |
 | `config.js` | **Your Supabase URL + anon key go here**             |
