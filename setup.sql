@@ -453,9 +453,9 @@ begin
 
   v_correct := (p_answer = v_answer);
 
-  -- Rate = base ₱0.025 (keep in sync with RATE_PER_QUESTION in script.js)
+  -- Rate = base ₱0.04 (keep in sync with RATE_PER_QUESTION in script.js)
   -- plus the user's permanent bounty bonus (referrals + approved comments).
-  select 0.025 + coalesce(rate_bonus, 0) into v_rate
+  select 0.04 + coalesce(rate_bonus, 0) into v_rate
   from public.profiles
   where id = auth.uid();
 

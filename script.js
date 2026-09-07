@@ -1,11 +1,11 @@
 // ============================================================
-// Hoxiee — answer math questions, earn ₱0.025 per correct answer,
+// Hoxiee — answer math questions, earn ₱0.04 per correct answer,
 // up to 20,000 questions per day. Users log in / sign up with
 // Supabase Auth; profiles and points live in Supabase.
 // ============================================================
 
 const DAILY_LIMIT = 20000;
-const RATE_PER_QUESTION = 0.025; // ₱ per correct answer
+const RATE_PER_QUESTION = 0.04; // ₱ per correct answer
 const MIN_WITHDRAWAL = 100;     // ₱ minimum balance needed to withdraw
 const REFERRAL_RATE_BONUS = 0.01; // ₱ added per question per referred friend
 const REFERRAL_PESO = 20;         // ₱ instantly earned per referral
