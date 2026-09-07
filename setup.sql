@@ -905,6 +905,47 @@ $$;
 grant execute on function public.claim_login_reward() to authenticated;
 
 -- ------------------------------------------------------------
+-- v13 — System notices (admin-editable, no redeploy needed)
+--   Insert / update rows via the Supabase Dashboard → Table Editor.
+--   Clients fetch them read-only; RLS blocks user writes.
+-- ------------------------------------------------------------
+create table if not exists public.system_notices (
+  id         integer      primary key,
+  emoji      text         not null default '📢',
+  title      text         not null,
+  text       text         not null default '',
+  posted_at  timestamptz  not null default now()
+);
+
+-- Anyone logged in can read notices; nobody writes from the client.
+alter table public.system_notices enable row level security;
+
+create policy "Authenticated users can read system notices"
+  on public.system_notices for select
+  to authenticated
+  using (true);
+
+-- Seed the current notices so existing users see them immediately.
+insert into public.system_notices (id, emoji, title, text, posted_at) values
+  (4, '💰', 'We heard you! Base rate is now ₱0.04!',
+   'We''ve increased the base rate from ₱0.025 to ₱0.04 per correct answer! Your hard work deserves better rewards. Bounty bonuses (referrals, approved comments, and daily login streaks) still stack on top of the new rate.',
+   now()),
+  (3, '🛠️', 'Scheduled maintenance this Sunday',
+   'Hoxiee will be briefly offline on Sunday from 1:00 to 2:00 AM Philippine time while we upgrade the servers. Your balance and streak are safe. Follow [Hoxiee on Facebook](https://www.facebook.com/hoxiee) for live updates.',
+   now() - interval '2 days'),
+  (2, '🔒', 'Keep your account safe',
+   'Hoxiee will never ask for your password or your GCash PIN, in chat or anywhere else. If someone does, report it to [support@hoxiee.ph](mailto:support@hoxiee.ph).',
+   now() - interval '2 weeks'),
+  (1, '⚙️', 'Withdrawal requests are reviewed daily',
+   'Payouts are processed in batches and sent once your request is approved. If a payout takes longer than a few days, email [support@hoxiee.ph](mailto:support@hoxiee.ph).',
+   now() - interval '6 weeks')
+on conflict (id) do update
+  set emoji     = excluded.emoji,
+      title     = excluded.title,
+      text      = excluded.text,
+      posted_at = excluded.posted_at;
+
+-- ------------------------------------------------------------
 -- Optional: list all users, totals, and balances (SQL Editor)
 -- ------------------------------------------------------------
 -- select email, name, account_status, total_points, current_points, gcash_number

@@ -383,6 +383,7 @@ async function enterQuiz(user) {
   }
   await loadLoginRewards(); // drives the red dot on the Bounty icon
   updateBountyDot();
+  await loadNotices();
   updateNoticeDot(); // red dot on the bell while notices are unread
   render();
   await syncDailyTally(); // server-authoritative daily count
@@ -1502,39 +1503,22 @@ document.addEventListener("keydown", (e) => {
 });
 
 // ------------------------------------------------------------
-// Notifications: the System Notice modal. The feed is a static,
-// easy-to-edit list of system announcements — to publish a new
-// notice, add an entry with a higher id than the newest one. Users
-// who already closed the modal will see the bell red dot again (and
-// the new item highlighted as unread) because their "last seen" id
-// is lower.
+// Notifications: the System Notice modal. Notices live in the
+// `system_notices` table in Supabase — add / edit rows there via
+// the Dashboard (no redeploy needed). Clients fetch them read-only.
 //   text may contain [label](url) links, styled inline.
-//   ageMin = how many minutes ago the notice was "posted" (relative,
-//   so it always looks fresh and feeds the time label).
 // ------------------------------------------------------------
-const SYSTEM_NOTICES = [
-  {
-    id: 3,
-    emoji: "🛠️",
-    title: "Scheduled maintenance this Sunday",
-    text: "Hoxiee will be briefly offline on Sunday from 1:00 to 2:00 AM Philippine time while we upgrade the servers. Your balance and streak are safe. Follow [Hoxiee on Facebook](https://www.facebook.com/hoxiee) for live updates.",
-    ageMin: 150,
-  },
-  {
-    id: 2,
-    emoji: "🔒",
-    title: "Keep your account safe",
-    text: "Hoxiee will never ask for your password or your GCash PIN, in chat or anywhere else. If someone does, report it to [support@hoxiee.ph](mailto:support@hoxiee.ph).",
-    ageMin: 2900,
-  },
-  {
-    id: 1,
-    emoji: "⚙️",
-    title: "Withdrawal requests are reviewed daily",
-    text: "Payouts are processed in batches and sent once your request is approved. If a payout takes longer than a few days, email [support@hoxiee.ph](mailto:support@hoxiee.ph).",
-    ageMin: 8700,
-  },
-];
+let systemNotices = [];
+
+async function loadNotices() {
+  if (!supabaseClient) return;
+  const { data, error } = await supabaseClient
+    .from("system_notices")
+    .select("id, emoji, title, text, posted_at")
+    .order("id", { ascending: false });
+  systemNotices = error ? [] : (data || []);
+  updateNoticeDot();
+}
 
 function noticeLastIdKey() {
   return "hoxiee_notice_seen_" + currentUser.id;
@@ -1554,7 +1538,7 @@ function writeNoticeLastId(n) {
 }
 
 function noticeNewestId() {
-  return SYSTEM_NOTICES.reduce((max, n) => Math.max(max, n.id), 0);
+  return systemNotices.reduce((max, n) => Math.max(max, n.id), 0);
 }
 
 function hasUnreadNotices() {
@@ -1603,7 +1587,7 @@ function timeAgoLabel(at) {
 // get a coral node.
 function renderNoticeTimeline() {
   const unseen = readNoticeLastId();
-  const items = SYSTEM_NOTICES; // every entry is a system notice now
+  const items = systemNotices;
   noticeTimeline.textContent = "";
 
   if (items.length === 0) {
@@ -1615,7 +1599,7 @@ function renderNoticeTimeline() {
   }
 
   items.forEach((n, i) => {
-    const at = new Date(Date.now() - n.ageMin * 60000);
+    const at = new Date(n.posted_at);
 
     const row = document.createElement("div");
     row.className = "notice-item " + (i % 2 === 0 ? "on-right" : "on-left");
@@ -1658,8 +1642,9 @@ function renderNoticeTimeline() {
   noticeTimeline.scrollTop = 0;
 }
 
-function openNotifications() {
+async function openNotifications() {
   if (!isActive()) { showSubscribe(); return; }
+  await loadNotices();
   renderNoticeTimeline();
   noticeModal.hidden = false;
   document.body.style.overflow = "hidden"; // lock page scroll behind the modal
