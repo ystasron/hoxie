@@ -130,10 +130,10 @@
           </button>
         </div>
         <div class="category-picker" id="categoryPicker" role="group" aria-label="Categories">
-          <button type="button" class="category-card" data-subject="math" data-category="arithmetic" aria-pressed="false">
+          <button type="button" class="category-card" data-subject="math" data-category="arithmetic" aria-pressed="false" hidden>
             <strong>Arithmetic <span class="rate-pill">₱0.07</span></strong><small>Quick calculations</small>
           </button>
-          <button type="button" class="category-card" data-subject="math" data-category="algebra" aria-pressed="false">
+          <button type="button" class="category-card" data-subject="math" data-category="algebra" aria-pressed="false" hidden>
             <strong>Algebra <span class="rate-pill">₱0.5</span></strong><small>Solve for the unknown</small>
           </button>
           <button type="button" class="category-card" data-subject="english" data-category="grammar" aria-pressed="false" hidden>
@@ -196,7 +196,7 @@
         <h1 class="question" id="question">…</h1>
       </div>
 
-      <div class="select-subject-note hidden" id="selectSubjectNote">Please select a subject and category first</div>
+      <div class="select-subject-note hidden" id="selectSubjectNote">Pick a subject first!</div>
 
       <form id="answerForm" autocomplete="off">
         <input
