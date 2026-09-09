@@ -1,14 +1,7002 @@
 [
-  {"id": 1001, "subject": "math", "category": "algebra", "prompt": "2x + 6 = 14", "answer": "4"},
-  {"id": 1002, "subject": "math", "category": "algebra", "prompt": "5x - 10 = 15", "answer": "5"},
-  {"id": 1003, "subject": "math", "category": "algebra", "prompt": "x / 3 = 7", "answer": "21"},
-  {"id": 1004, "subject": "math", "category": "algebra", "prompt": "3(x + 2) = 18", "answer": "4"},
-  {"id": 2001, "subject": "english", "category": "grammar", "prompt": "She don't like rainy days.", "answer": "She doesn't like rainy days."},
-  {"id": 2002, "subject": "english", "category": "grammar", "prompt": "The dogs runs fast.", "answer": "The dogs run fast."},
-  {"id": 2003, "subject": "english", "category": "grammar", "prompt": "I has two pencils.", "answer": "I have two pencils."},
-  {"id": 2004, "subject": "english", "category": "grammar", "prompt": "They was ready.", "answer": "They were ready."},
-  {"id": 3001, "subject": "english", "category": "spelling", "prompt": "accomodate", "answer": "accommodate"},
-  {"id": 3002, "subject": "english", "category": "spelling", "prompt": "definately", "answer": "definitely"},
-  {"id": 3003, "subject": "english", "category": "spelling", "prompt": "seperate", "answer": "separate"},
-  {"id": 3004, "subject": "english", "category": "spelling", "prompt": "recieve", "answer": "receive"}
+  {
+    "id": 1001,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 2 = 18",
+    "answer": "8"
+  },
+  {
+    "id": 1002,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 2 = 28",
+    "answer": "15"
+  },
+  {
+    "id": 1003,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 3 = 21",
+    "answer": "12"
+  },
+  {
+    "id": 1004,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 1 = 15",
+    "answer": "8"
+  },
+  {
+    "id": 1005,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 1) = 18",
+    "answer": "8"
+  },
+  {
+    "id": 1006,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 5 = 7",
+    "answer": "1"
+  },
+  {
+    "id": 1007,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x - 1) = 8",
+    "answer": "5"
+  },
+  {
+    "id": 1008,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 2) = 18",
+    "answer": "7"
+  },
+  {
+    "id": 1009,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 2) = 8",
+    "answer": "2"
+  },
+  {
+    "id": 1010,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 2) = 14",
+    "answer": "5"
+  },
+  {
+    "id": 1011,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 4 = 16",
+    "answer": "6"
+  },
+  {
+    "id": 1012,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 2 = 4",
+    "answer": "1"
+  },
+  {
+    "id": 1013,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 4 = 24",
+    "answer": "10"
+  },
+  {
+    "id": 1014,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x - 1) = 4",
+    "answer": "3"
+  },
+  {
+    "id": 1015,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 1 = 7",
+    "answer": "3"
+  },
+  {
+    "id": 1016,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x - 2) = 8",
+    "answer": "6"
+  },
+  {
+    "id": 1017,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 1 = 9",
+    "answer": "5"
+  },
+  {
+    "id": 1018,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x - 1) = 26",
+    "answer": "14"
+  },
+  {
+    "id": 1019,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 1) = 14",
+    "answer": "6"
+  },
+  {
+    "id": 1020,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 4 = 26",
+    "answer": "11"
+  },
+  {
+    "id": 1021,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 2) = 26",
+    "answer": "11"
+  },
+  {
+    "id": 1022,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 4 = 12",
+    "answer": "4"
+  },
+  {
+    "id": 1023,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 2) = 12",
+    "answer": "4"
+  },
+  {
+    "id": 1024,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 1 = 3",
+    "answer": "1"
+  },
+  {
+    "id": 1025,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 2 = 16",
+    "answer": "7"
+  },
+  {
+    "id": 1026,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 1 = 37",
+    "answer": "19"
+  },
+  {
+    "id": 1027,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 2 = 24",
+    "answer": "13"
+  },
+  {
+    "id": 1028,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x - 2) = 6",
+    "answer": "5"
+  },
+  {
+    "id": 1029,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 2 = 20",
+    "answer": "9"
+  },
+  {
+    "id": 1030,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 3 = 21",
+    "answer": "9"
+  },
+  {
+    "id": 1031,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 1) = 24",
+    "answer": "11"
+  },
+  {
+    "id": 1032,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 2 = 10",
+    "answer": "6"
+  },
+  {
+    "id": 1033,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 3 = 11",
+    "answer": "7"
+  },
+  {
+    "id": 1034,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 3 = 31",
+    "answer": "17"
+  },
+  {
+    "id": 1035,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 2) = 6",
+    "answer": "1"
+  },
+  {
+    "id": 1036,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 2 = 20",
+    "answer": "11"
+  },
+  {
+    "id": 1037,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 1 = 9",
+    "answer": "4"
+  },
+  {
+    "id": 1038,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 2 = 3",
+    "answer": "6"
+  },
+  {
+    "id": 1039,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 1 = 31",
+    "answer": "16"
+  },
+  {
+    "id": 1040,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 3 = 25",
+    "answer": "11"
+  },
+  {
+    "id": 1041,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 1 = 17",
+    "answer": "9"
+  },
+  {
+    "id": 1042,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 2 = 10",
+    "answer": "4"
+  },
+  {
+    "id": 1043,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 1) = 26",
+    "answer": "12"
+  },
+  {
+    "id": 1044,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 2 = 38",
+    "answer": "20"
+  },
+  {
+    "id": 1045,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 3 = 17",
+    "answer": "10"
+  },
+  {
+    "id": 1046,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 1 = 39",
+    "answer": "20"
+  },
+  {
+    "id": 1047,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 3 = 33",
+    "answer": "18"
+  },
+  {
+    "id": 1048,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 2 = 6",
+    "answer": "4"
+  },
+  {
+    "id": 1049,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 1 = 19",
+    "answer": "10"
+  },
+  {
+    "id": 1050,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 2 = 4",
+    "answer": "3"
+  },
+  {
+    "id": 1051,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 3 = 23",
+    "answer": "13"
+  },
+  {
+    "id": 1052,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 2 = 12",
+    "answer": "24"
+  },
+  {
+    "id": 1053,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 3 = 5",
+    "answer": "15"
+  },
+  {
+    "id": 1054,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 2 = 2",
+    "answer": "2"
+  },
+  {
+    "id": 1055,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 2 = 14",
+    "answer": "6"
+  },
+  {
+    "id": 1056,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 1) = 12",
+    "answer": "5"
+  },
+  {
+    "id": 1057,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 2 = 14",
+    "answer": "28"
+  },
+  {
+    "id": 1058,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 1 = 33",
+    "answer": "17"
+  },
+  {
+    "id": 1059,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x - 1) = 6",
+    "answer": "4"
+  },
+  {
+    "id": 1060,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 3 = 11",
+    "answer": "4"
+  },
+  {
+    "id": 1061,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 2 = 10",
+    "answer": "20"
+  },
+  {
+    "id": 1062,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 2 = 16",
+    "answer": "9"
+  },
+  {
+    "id": 1063,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 2 = 8",
+    "answer": "3"
+  },
+  {
+    "id": 1064,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 2 = 11",
+    "answer": "22"
+  },
+  {
+    "id": 1065,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 3 = 15",
+    "answer": "6"
+  },
+  {
+    "id": 1066,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 2 = 4",
+    "answer": "8"
+  },
+  {
+    "id": 1067,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 2 = 22",
+    "answer": "12"
+  },
+  {
+    "id": 1068,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 1 = 13",
+    "answer": "7"
+  },
+  {
+    "id": 1069,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x - 1) = 2",
+    "answer": "2"
+  },
+  {
+    "id": 1070,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 1 = 11",
+    "answer": "5"
+  },
+  {
+    "id": 1071,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 3 = 35",
+    "answer": "19"
+  },
+  {
+    "id": 1072,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x - 1) = 18",
+    "answer": "10"
+  },
+  {
+    "id": 1073,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 4 = 22",
+    "answer": "9"
+  },
+  {
+    "id": 1074,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x - 2) = 14",
+    "answer": "9"
+  },
+  {
+    "id": 1075,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 2) = 10",
+    "answer": "3"
+  },
+  {
+    "id": 1076,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 1) = 30",
+    "answer": "14"
+  },
+  {
+    "id": 1077,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 3 = 25",
+    "answer": "14"
+  },
+  {
+    "id": 1078,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x - 1) = 12",
+    "answer": "7"
+  },
+  {
+    "id": 1079,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 1) = 20",
+    "answer": "9"
+  },
+  {
+    "id": 1080,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 3 = 23",
+    "answer": "10"
+  },
+  {
+    "id": 1081,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 1) = 4",
+    "answer": "1"
+  },
+  {
+    "id": 1082,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 2 = 24",
+    "answer": "11"
+  },
+  {
+    "id": 1083,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 1) = 8",
+    "answer": "3"
+  },
+  {
+    "id": 1084,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 1) = 16",
+    "answer": "7"
+  },
+  {
+    "id": 1085,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 1 = 21",
+    "answer": "10"
+  },
+  {
+    "id": 1086,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 2 = 36",
+    "answer": "19"
+  },
+  {
+    "id": 1087,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 4 = 8",
+    "answer": "2"
+  },
+  {
+    "id": 1088,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 3 = 3",
+    "answer": "3"
+  },
+  {
+    "id": 1089,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 1) = 28",
+    "answer": "13"
+  },
+  {
+    "id": 1090,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 1 = 1",
+    "answer": "1"
+  },
+  {
+    "id": 1091,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 1 = 5",
+    "answer": "3"
+  },
+  {
+    "id": 1092,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 2 = 22",
+    "answer": "10"
+  },
+  {
+    "id": 1093,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 2 = 8",
+    "answer": "16"
+  },
+  {
+    "id": 1094,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 2 = 34",
+    "answer": "18"
+  },
+  {
+    "id": 1095,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 1) = 6",
+    "answer": "2"
+  },
+  {
+    "id": 1096,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x - 2) = 4",
+    "answer": "4"
+  },
+  {
+    "id": 1097,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 3 = 3",
+    "answer": "9"
+  },
+  {
+    "id": 1098,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 2 = 6",
+    "answer": "2"
+  },
+  {
+    "id": 1099,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 3 = 37",
+    "answer": "20"
+  },
+  {
+    "id": 1100,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 3 = 2",
+    "answer": "6"
+  },
+  {
+    "id": 1101,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 2) = 22",
+    "answer": "9"
+  },
+  {
+    "id": 1102,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 3 = 29",
+    "answer": "16"
+  },
+  {
+    "id": 1103,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 3 = 19",
+    "answer": "8"
+  },
+  {
+    "id": 1104,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 3 = 1",
+    "answer": "2"
+  },
+  {
+    "id": 1105,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 1) = 10",
+    "answer": "4"
+  },
+  {
+    "id": 1106,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x - 1) = 20",
+    "answer": "11"
+  },
+  {
+    "id": 1107,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 3 = 13",
+    "answer": "8"
+  },
+  {
+    "id": 1108,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x - 1) = 10",
+    "answer": "6"
+  },
+  {
+    "id": 1109,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 2 = 18",
+    "answer": "10"
+  },
+  {
+    "id": 1110,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 1 = 3",
+    "answer": "2"
+  },
+  {
+    "id": 1111,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 2 = 9",
+    "answer": "18"
+  },
+  {
+    "id": 1112,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 2 = 30",
+    "answer": "16"
+  },
+  {
+    "id": 1113,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 2 = 32",
+    "answer": "17"
+  },
+  {
+    "id": 1114,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 2 = 5",
+    "answer": "10"
+  },
+  {
+    "id": 1115,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 4 = 14",
+    "answer": "5"
+  },
+  {
+    "id": 1116,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x - 2) = 16",
+    "answer": "10"
+  },
+  {
+    "id": 1117,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 1 = 23",
+    "answer": "11"
+  },
+  {
+    "id": 1118,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 1 = 7",
+    "answer": "4"
+  },
+  {
+    "id": 1119,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 3 = 4",
+    "answer": "12"
+  },
+  {
+    "id": 1120,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 2 = 12",
+    "answer": "5"
+  },
+  {
+    "id": 1121,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 2 = 8",
+    "answer": "5"
+  },
+  {
+    "id": 1122,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 1 = 27",
+    "answer": "14"
+  },
+  {
+    "id": 1123,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 3 = 19",
+    "answer": "11"
+  },
+  {
+    "id": 1124,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 1 = 13",
+    "answer": "6"
+  },
+  {
+    "id": 1125,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 2 = 2",
+    "answer": "4"
+  },
+  {
+    "id": 1126,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 4 = 6",
+    "answer": "1"
+  },
+  {
+    "id": 1127,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 2 = 26",
+    "answer": "14"
+  },
+  {
+    "id": 1128,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 3 = 9",
+    "answer": "6"
+  },
+  {
+    "id": 1129,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 3 = 15",
+    "answer": "9"
+  },
+  {
+    "id": 1130,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 3 = 9",
+    "answer": "3"
+  },
+  {
+    "id": 1131,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 3 = 27",
+    "answer": "15"
+  },
+  {
+    "id": 1132,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x - 1) = 16",
+    "answer": "9"
+  },
+  {
+    "id": 1133,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x - 2) = 2",
+    "answer": "3"
+  },
+  {
+    "id": 1134,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 3 = 5",
+    "answer": "4"
+  },
+  {
+    "id": 1135,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x - 1) = 24",
+    "answer": "13"
+  },
+  {
+    "id": 1136,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 4 = 18",
+    "answer": "7"
+  },
+  {
+    "id": 1137,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 2) = 20",
+    "answer": "8"
+  },
+  {
+    "id": 1138,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 3 = 7",
+    "answer": "5"
+  },
+  {
+    "id": 1139,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x - 1) = 22",
+    "answer": "12"
+  },
+  {
+    "id": 1140,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 4 = 20",
+    "answer": "8"
+  },
+  {
+    "id": 1141,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 1 = 5",
+    "answer": "2"
+  },
+  {
+    "id": 1142,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 2 = 14",
+    "answer": "8"
+  },
+  {
+    "id": 1143,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 2 = 13",
+    "answer": "26"
+  },
+  {
+    "id": 1144,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 1 = 23",
+    "answer": "12"
+  },
+  {
+    "id": 1145,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 2 = 6",
+    "answer": "12"
+  },
+  {
+    "id": 1146,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x - 1) = 28",
+    "answer": "15"
+  },
+  {
+    "id": 1147,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 1 = 11",
+    "answer": "6"
+  },
+  {
+    "id": 1148,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 2) = 24",
+    "answer": "10"
+  },
+  {
+    "id": 1149,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x - 2) = 12",
+    "answer": "8"
+  },
+  {
+    "id": 1150,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 1) = 22",
+    "answer": "10"
+  },
+  {
+    "id": 1151,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 1 = 29",
+    "answer": "15"
+  },
+  {
+    "id": 1152,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 1 = 21",
+    "answer": "11"
+  },
+  {
+    "id": 1153,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 3 = 7",
+    "answer": "2"
+  },
+  {
+    "id": 1154,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 1 = 17",
+    "answer": "8"
+  },
+  {
+    "id": 1155,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 1 = 19",
+    "answer": "9"
+  },
+  {
+    "id": 1156,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 2 = 7",
+    "answer": "14"
+  },
+  {
+    "id": 1157,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x - 1) = 14",
+    "answer": "8"
+  },
+  {
+    "id": 1158,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 3 = 5",
+    "answer": "1"
+  },
+  {
+    "id": 1159,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 2) = 16",
+    "answer": "6"
+  },
+  {
+    "id": 1160,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 3 = 13",
+    "answer": "5"
+  },
+  {
+    "id": 1161,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 4 = 10",
+    "answer": "3"
+  },
+  {
+    "id": 1162,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 1 = 25",
+    "answer": "13"
+  },
+  {
+    "id": 1163,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 1 = 35",
+    "answer": "18"
+  },
+  {
+    "id": 1164,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 2 = 12",
+    "answer": "7"
+  },
+  {
+    "id": 1165,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 1 = 15",
+    "answer": "7"
+  },
+  {
+    "id": 1166,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 3 = 17",
+    "answer": "7"
+  },
+  {
+    "id": 1167,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x - 2) = 10",
+    "answer": "7"
+  },
+  {
+    "id": 2001,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "We have took the bus.",
+    "answer": "We have taken the bus."
+  },
+  {
+    "id": 2002,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Their going to the park.",
+    "answer": "They're going to the park."
+  },
+  {
+    "id": 2003,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The car don't like the plan.",
+    "answer": "The car doesn't like the plan."
+  },
+  {
+    "id": 2004,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "She have went to the store.",
+    "answer": "She has gone to the store."
+  },
+  {
+    "id": 2005,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The engineer have a great idea.",
+    "answer": "The engineer has a great idea."
+  },
+  {
+    "id": 2006,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The dog run every morning.",
+    "answer": "The dog runs every morning."
+  },
+  {
+    "id": 2007,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The teachers runs fast.",
+    "answer": "The teachers run fast."
+  },
+  {
+    "id": 2008,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The journalists knows the answer.",
+    "answer": "The journalists know the answer."
+  },
+  {
+    "id": 2009,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The painters likes the new plan.",
+    "answer": "The painters like the new plan."
+  },
+  {
+    "id": 2010,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "She won't go nowhere.",
+    "answer": "She won't go anywhere."
+  },
+  {
+    "id": 2011,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The plumbers wants to help.",
+    "answer": "The plumbers want to help."
+  },
+  {
+    "id": 2012,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The chefs runs fast.",
+    "answer": "The chefs run fast."
+  },
+  {
+    "id": 2013,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "She singed a beautiful song.",
+    "answer": "She sang a beautiful song."
+  },
+  {
+    "id": 2014,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The managers runs fast.",
+    "answer": "The managers run fast."
+  },
+  {
+    "id": 2015,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "I have swam in that lake.",
+    "answer": "I have swum in that lake."
+  },
+  {
+    "id": 2016,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The birds runs fast.",
+    "answer": "The birds run fast."
+  },
+  {
+    "id": 2017,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Who's book is this?",
+    "answer": "Whose book is this?"
+  },
+  {
+    "id": 2018,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The photographers wants to help.",
+    "answer": "The photographers want to help."
+  },
+  {
+    "id": 2019,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Our neighbor have a great idea.",
+    "answer": "Our neighbor has a great idea."
+  },
+  {
+    "id": 2020,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "She didn't say nothing.",
+    "answer": "She didn't say anything."
+  },
+  {
+    "id": 2021,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Your going to love this movie.",
+    "answer": "You're going to love this movie."
+  },
+  {
+    "id": 2022,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Me and her like the same music.",
+    "answer": "She and I like the same music."
+  },
+  {
+    "id": 2023,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "She were the first to arrive.",
+    "answer": "She was the first to arrive."
+  },
+  {
+    "id": 2024,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "It was the most worst day ever.",
+    "answer": "It was the worst day ever."
+  },
+  {
+    "id": 2025,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The coaches wants to help.",
+    "answer": "The coaches want to help."
+  },
+  {
+    "id": 2026,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The student run every morning.",
+    "answer": "The student runs every morning."
+  },
+  {
+    "id": 2027,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The managers likes the new plan.",
+    "answer": "The managers like the new plan."
+  },
+  {
+    "id": 2028,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "We was at the park yesterday.",
+    "answer": "We were at the park yesterday."
+  },
+  {
+    "id": 2029,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "There house is on the corner.",
+    "answer": "Their house is on the corner."
+  },
+  {
+    "id": 2030,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Their coming over for dinner.",
+    "answer": "They're coming over for dinner."
+  },
+  {
+    "id": 2031,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "They have broke the vase.",
+    "answer": "They have broken the vase."
+  },
+  {
+    "id": 2032,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The pilot want to help.",
+    "answer": "The pilot wants to help."
+  },
+  {
+    "id": 2033,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "He throwed the ball far.",
+    "answer": "He threw the ball far."
+  },
+  {
+    "id": 2034,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "She catched the ball.",
+    "answer": "She caught the ball."
+  },
+  {
+    "id": 2035,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The manager don't like cold weather.",
+    "answer": "The manager doesn't like cold weather."
+  },
+  {
+    "id": 2036,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The cars runs fast.",
+    "answer": "The cars run fast."
+  },
+  {
+    "id": 2037,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The teacher run every morning.",
+    "answer": "The teacher runs every morning."
+  },
+  {
+    "id": 2038,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "This is the most easiest test.",
+    "answer": "This is the easiest test."
+  },
+  {
+    "id": 2039,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The kids was playing outside.",
+    "answer": "The kids were playing outside."
+  },
+  {
+    "id": 2040,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "She has wrote three letters.",
+    "answer": "She has written three letters."
+  },
+  {
+    "id": 2041,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Our neighbors runs fast.",
+    "answer": "Our neighbors run fast."
+  },
+  {
+    "id": 2042,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "They discussed about the plan.",
+    "answer": "They discussed the plan."
+  },
+  {
+    "id": 2043,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The students runs fast.",
+    "answer": "The students run fast."
+  },
+  {
+    "id": 2044,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The farmers runs fast.",
+    "answer": "The farmers run fast."
+  },
+  {
+    "id": 2045,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Me and him went to the store.",
+    "answer": "He and I went to the store."
+  },
+  {
+    "id": 2046,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The gardeners knows the answer.",
+    "answer": "The gardeners know the answer."
+  },
+  {
+    "id": 2047,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "They're car is parked outside.",
+    "answer": "Their car is parked outside."
+  },
+  {
+    "id": 2048,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "I knowed the answer.",
+    "answer": "I knew the answer."
+  },
+  {
+    "id": 2049,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "He apologized for his mistake to me.",
+    "answer": "He apologized to me for his mistake."
+  },
+  {
+    "id": 2050,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The plumber want to help.",
+    "answer": "The plumber wants to help."
+  },
+  {
+    "id": 2051,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The lawyer want to help.",
+    "answer": "The lawyer wants to help."
+  },
+  {
+    "id": 2052,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The painter have a great idea.",
+    "answer": "The painter has a great idea."
+  },
+  {
+    "id": 2053,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The pilots wants to help.",
+    "answer": "The pilots want to help."
+  },
+  {
+    "id": 2054,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The farmer run every morning.",
+    "answer": "The farmer runs every morning."
+  },
+  {
+    "id": 2055,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "My sister don't like the project.",
+    "answer": "My sister doesn't like the project."
+  },
+  {
+    "id": 2056,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The doctor run every morning.",
+    "answer": "The doctor runs every morning."
+  },
+  {
+    "id": 2057,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "He done his homework already.",
+    "answer": "He did his homework already."
+  },
+  {
+    "id": 2058,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The waiters knows the answer.",
+    "answer": "The waiters know the answer."
+  },
+  {
+    "id": 2059,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "She drawed a picture.",
+    "answer": "She drew a picture."
+  },
+  {
+    "id": 2060,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The musicians knows the answer.",
+    "answer": "The musicians know the answer."
+  },
+  {
+    "id": 2061,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "I depend of my parents for advice.",
+    "answer": "I depend on my parents for advice."
+  },
+  {
+    "id": 2062,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The books was on the table.",
+    "answer": "The books were on the table."
+  },
+  {
+    "id": 2063,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "This road is more curvier than the other.",
+    "answer": "This road is curvier than the other."
+  },
+  {
+    "id": 2064,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "There going to the park.",
+    "answer": "They're going to the park."
+  },
+  {
+    "id": 2065,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "She is more taller than him.",
+    "answer": "She is taller than him."
+  },
+  {
+    "id": 2066,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The pilot know the answer.",
+    "answer": "The pilot knows the answer."
+  },
+  {
+    "id": 2067,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "I saw a elephant at the zoo.",
+    "answer": "I saw an elephant at the zoo."
+  },
+  {
+    "id": 2068,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The doctor don't like spicy food.",
+    "answer": "The doctor doesn't like spicy food."
+  },
+  {
+    "id": 2069,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The drivers likes the new plan.",
+    "answer": "The drivers like the new plan."
+  },
+  {
+    "id": 2070,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "He were confused by the question.",
+    "answer": "He was confused by the question."
+  },
+  {
+    "id": 2071,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The lawyers wants to help.",
+    "answer": "The lawyers want to help."
+  },
+  {
+    "id": 2072,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The journalist want to help.",
+    "answer": "The journalist wants to help."
+  },
+  {
+    "id": 2073,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The chefs likes the new plan.",
+    "answer": "The chefs like the new plan."
+  },
+  {
+    "id": 2074,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "We have chose the winner.",
+    "answer": "We have chosen the winner."
+  },
+  {
+    "id": 2075,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The librarian want to help.",
+    "answer": "The librarian wants to help."
+  },
+  {
+    "id": 2076,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "They was not listening.",
+    "answer": "They were not listening."
+  },
+  {
+    "id": 2077,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The dogs runs fast.",
+    "answer": "The dogs run fast."
+  },
+  {
+    "id": 2078,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "I seen the movie last night.",
+    "answer": "I saw the movie last night."
+  },
+  {
+    "id": 2079,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "He didn't do nothing wrong.",
+    "answer": "He didn't do anything wrong."
+  },
+  {
+    "id": 2080,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The players was excited.",
+    "answer": "The players were excited."
+  },
+  {
+    "id": 2081,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "She is good in math.",
+    "answer": "She is good at math."
+  },
+  {
+    "id": 2082,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "He has spoke to the manager.",
+    "answer": "He has spoken to the manager."
+  },
+  {
+    "id": 2083,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The child run every morning.",
+    "answer": "The child runs every morning."
+  },
+  {
+    "id": 2084,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "He is the most tallest boy.",
+    "answer": "He is the tallest boy."
+  },
+  {
+    "id": 2085,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The doctor have a great idea.",
+    "answer": "The doctor has a great idea."
+  },
+  {
+    "id": 2086,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "I don't have no money.",
+    "answer": "I don't have any money."
+  },
+  {
+    "id": 2087,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The nurse know the answer.",
+    "answer": "The nurse knows the answer."
+  },
+  {
+    "id": 2088,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "She is afraid from spiders.",
+    "answer": "She is afraid of spiders."
+  },
+  {
+    "id": 2089,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Your the best friend I have.",
+    "answer": "You're the best friend I have."
+  },
+  {
+    "id": 2090,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The company run every morning.",
+    "answer": "The company runs every morning."
+  },
+  {
+    "id": 2091,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The librarian know the answer.",
+    "answer": "The librarian knows the answer."
+  },
+  {
+    "id": 2092,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "I have a umbrella with me.",
+    "answer": "I have an umbrella with me."
+  },
+  {
+    "id": 2093,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "This book is more better than that one.",
+    "answer": "This book is better than that one."
+  },
+  {
+    "id": 2094,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The dog don't like rainy days.",
+    "answer": "The dog doesn't like rainy days."
+  },
+  {
+    "id": 2095,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "I am agree with you.",
+    "answer": "I agree with you."
+  },
+  {
+    "id": 2096,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The nurse want to help.",
+    "answer": "The nurse wants to help."
+  },
+  {
+    "id": 2097,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The bird don't like the plan.",
+    "answer": "The bird doesn't like the plan."
+  },
+  {
+    "id": 2098,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The gardener want to help.",
+    "answer": "The gardener wants to help."
+  },
+  {
+    "id": 2099,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "She sings more beautifuller than me.",
+    "answer": "She sings more beautifully than me."
+  },
+  {
+    "id": 2100,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The farmers likes the new plan.",
+    "answer": "The farmers like the new plan."
+  },
+  {
+    "id": 2101,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The architects wants to help.",
+    "answer": "The architects want to help."
+  },
+  {
+    "id": 2102,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The engineers runs fast.",
+    "answer": "The engineers run fast."
+  },
+  {
+    "id": 2103,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The journalists wants to help.",
+    "answer": "The journalists want to help."
+  },
+  {
+    "id": 2104,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The photographers knows the answer.",
+    "answer": "The photographers know the answer."
+  },
+  {
+    "id": 2105,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "I have ran five miles.",
+    "answer": "I have run five miles."
+  },
+  {
+    "id": 2106,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The farmer don't like the new rules.",
+    "answer": "The farmer doesn't like the new rules."
+  },
+  {
+    "id": 2107,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The musician know the answer.",
+    "answer": "The musician knows the answer."
+  },
+  {
+    "id": 2108,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "We was happy.",
+    "answer": "We were happy."
+  },
+  {
+    "id": 2109,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "They have ate dinner already.",
+    "answer": "They have eaten dinner already."
+  },
+  {
+    "id": 2110,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The student don't like early mornings.",
+    "answer": "The student doesn't like early mornings."
+  },
+  {
+    "id": 2111,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The artist don't like the plan.",
+    "answer": "The artist doesn't like the plan."
+  },
+  {
+    "id": 2112,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "I were tired.",
+    "answer": "I was tired."
+  },
+  {
+    "id": 2113,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "I ain't got no time.",
+    "answer": "I don't have any time."
+  },
+  {
+    "id": 2114,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Me and my friend went shopping.",
+    "answer": "My friend and I went shopping."
+  },
+  {
+    "id": 2115,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "He is capable to do it.",
+    "answer": "He is capable of doing it."
+  },
+  {
+    "id": 2116,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The waiter know the answer.",
+    "answer": "The waiter knows the answer."
+  },
+  {
+    "id": 2117,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The child don't like long meetings.",
+    "answer": "The child doesn't like long meetings."
+  },
+  {
+    "id": 2118,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The dog wagged it's tail.",
+    "answer": "The dog wagged its tail."
+  },
+  {
+    "id": 2119,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The car run every morning.",
+    "answer": "The car runs every morning."
+  },
+  {
+    "id": 2120,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The children likes the new plan.",
+    "answer": "The children like the new plan."
+  },
+  {
+    "id": 2121,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The bird run every morning.",
+    "answer": "The bird runs every morning."
+  },
+  {
+    "id": 2122,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The baby have a great idea.",
+    "answer": "The baby has a great idea."
+  },
+  {
+    "id": 2123,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The plumber know the answer.",
+    "answer": "The plumber knows the answer."
+  },
+  {
+    "id": 2124,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The gardener know the answer.",
+    "answer": "The gardener knows the answer."
+  },
+  {
+    "id": 2125,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The architects knows the answer.",
+    "answer": "The architects know the answer."
+  },
+  {
+    "id": 2126,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "They was ready.",
+    "answer": "They were ready."
+  },
+  {
+    "id": 2127,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The architect want to help.",
+    "answer": "The architect wants to help."
+  },
+  {
+    "id": 2128,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The doctors runs fast.",
+    "answer": "The doctors run fast."
+  },
+  {
+    "id": 2129,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The coaches knows the answer.",
+    "answer": "The coaches know the answer."
+  },
+  {
+    "id": 2130,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "My brother have a great idea.",
+    "answer": "My brother has a great idea."
+  },
+  {
+    "id": 2131,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The pilots knows the answer.",
+    "answer": "The pilots know the answer."
+  },
+  {
+    "id": 2132,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "We didn't see nobody.",
+    "answer": "We didn't see anybody."
+  },
+  {
+    "id": 2133,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The coach know the answer.",
+    "answer": "The coach knows the answer."
+  },
+  {
+    "id": 2134,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The driver have a great idea.",
+    "answer": "The driver has a great idea."
+  },
+  {
+    "id": 2135,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The engineer don't like the new rules.",
+    "answer": "The engineer doesn't like the new rules."
+  },
+  {
+    "id": 2136,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Its a beautiful day.",
+    "answer": "It's a beautiful day."
+  },
+  {
+    "id": 2137,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "I can't hardly wait.",
+    "answer": "I can hardly wait."
+  },
+  {
+    "id": 2138,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The musician want to help.",
+    "answer": "The musician wants to help."
+  },
+  {
+    "id": 2139,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "He teached the class yesterday.",
+    "answer": "He taught the class yesterday."
+  },
+  {
+    "id": 2140,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Its raining outside.",
+    "answer": "It's raining outside."
+  },
+  {
+    "id": 2141,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The lawyers knows the answer.",
+    "answer": "The lawyers know the answer."
+  },
+  {
+    "id": 2142,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The chef have a great idea.",
+    "answer": "The chef has a great idea."
+  },
+  {
+    "id": 2143,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The children runs fast.",
+    "answer": "The children run fast."
+  },
+  {
+    "id": 2144,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "They don't never come on time.",
+    "answer": "They never come on time."
+  },
+  {
+    "id": 2145,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "She is interested on painting.",
+    "answer": "She is interested in painting."
+  },
+  {
+    "id": 2146,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The artists likes the new plan.",
+    "answer": "The artists like the new plan."
+  },
+  {
+    "id": 2147,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The nurses wants to help.",
+    "answer": "The nurses want to help."
+  },
+  {
+    "id": 2148,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "We arrived to the airport early.",
+    "answer": "We arrived at the airport early."
+  },
+  {
+    "id": 2149,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Our neighbor run every morning.",
+    "answer": "Our neighbor runs every morning."
+  },
+  {
+    "id": 2150,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The coach want to help.",
+    "answer": "The coach wants to help."
+  },
+  {
+    "id": 2151,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The photographer want to help.",
+    "answer": "The photographer wants to help."
+  },
+  {
+    "id": 2152,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The waiters wants to help.",
+    "answer": "The waiters want to help."
+  },
+  {
+    "id": 2153,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "You was late.",
+    "answer": "You were late."
+  },
+  {
+    "id": 2154,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The doctors likes the new plan.",
+    "answer": "The doctors like the new plan."
+  },
+  {
+    "id": 2155,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "He runs more faster than his brother.",
+    "answer": "He runs faster than his brother."
+  },
+  {
+    "id": 2156,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The photographer know the answer.",
+    "answer": "The photographer knows the answer."
+  },
+  {
+    "id": 2157,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "We had went there before.",
+    "answer": "We had gone there before."
+  },
+  {
+    "id": 2158,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The company don't like loud music.",
+    "answer": "The company doesn't like loud music."
+  },
+  {
+    "id": 2159,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The musicians wants to help.",
+    "answer": "The musicians want to help."
+  },
+  {
+    "id": 2160,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The journalist know the answer.",
+    "answer": "The journalist knows the answer."
+  },
+  {
+    "id": 2161,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The student have a great idea.",
+    "answer": "The student has a great idea."
+  },
+  {
+    "id": 2162,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The child have a great idea.",
+    "answer": "The child has a great idea."
+  },
+  {
+    "id": 2163,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The teacher don't like the project.",
+    "answer": "The teacher doesn't like the project."
+  },
+  {
+    "id": 2164,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Our neighbors likes the new plan.",
+    "answer": "Our neighbors like the new plan."
+  },
+  {
+    "id": 2165,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The architect know the answer.",
+    "answer": "The architect knows the answer."
+  },
+  {
+    "id": 2166,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The birds likes the new plan.",
+    "answer": "The birds like the new plan."
+  },
+  {
+    "id": 2167,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Her and I share a room.",
+    "answer": "She and I share a room."
+  },
+  {
+    "id": 3001,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "symptem",
+    "answer": "symptom"
+  },
+  {
+    "id": 3002,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "quantaty",
+    "answer": "quantity"
+  },
+  {
+    "id": 3003,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "inocculate",
+    "answer": "inoculate"
+  },
+  {
+    "id": 3004,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "perfom",
+    "answer": "perform"
+  },
+  {
+    "id": 3005,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "fascinatting",
+    "answer": "fascinating"
+  },
+  {
+    "id": 3006,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "collegue",
+    "answer": "colleague"
+  },
+  {
+    "id": 3007,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "interupt",
+    "answer": "interrupt"
+  },
+  {
+    "id": 3008,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "percieve",
+    "answer": "perceive"
+  },
+  {
+    "id": 3009,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "visable",
+    "answer": "visible"
+  },
+  {
+    "id": 3010,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "nineth",
+    "answer": "ninth"
+  },
+  {
+    "id": 3011,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "definately",
+    "answer": "definitely"
+  },
+  {
+    "id": 3012,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "thorogh",
+    "answer": "thorough"
+  },
+  {
+    "id": 3013,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "wheather",
+    "answer": "weather"
+  },
+  {
+    "id": 3014,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "fourty",
+    "answer": "forty"
+  },
+  {
+    "id": 3015,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "wich",
+    "answer": "which"
+  },
+  {
+    "id": 3016,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "strenght",
+    "answer": "strength"
+  },
+  {
+    "id": 3017,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "playright",
+    "answer": "playwright"
+  },
+  {
+    "id": 3018,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "tragady",
+    "answer": "tragedy"
+  },
+  {
+    "id": 3019,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "whereever",
+    "answer": "wherever"
+  },
+  {
+    "id": 3020,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "recipt",
+    "answer": "receipt"
+  },
+  {
+    "id": 3021,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "liesure",
+    "answer": "leisure"
+  },
+  {
+    "id": 3022,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "persaude",
+    "answer": "persuade"
+  },
+  {
+    "id": 3023,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "peculier",
+    "answer": "peculiar"
+  },
+  {
+    "id": 3024,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "likelyhood",
+    "answer": "likelihood"
+  },
+  {
+    "id": 3025,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "suprise",
+    "answer": "surprise"
+  },
+  {
+    "id": 3026,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "loosing",
+    "answer": "losing"
+  },
+  {
+    "id": 3027,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "memonto",
+    "answer": "memento"
+  },
+  {
+    "id": 3028,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "nickle",
+    "answer": "nickel"
+  },
+  {
+    "id": 3029,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "refrence",
+    "answer": "reference"
+  },
+  {
+    "id": 3030,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "comparitive",
+    "answer": "comparative"
+  },
+  {
+    "id": 3031,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "pronounciation",
+    "answer": "pronunciation"
+  },
+  {
+    "id": 3032,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "misspel",
+    "answer": "misspell"
+  },
+  {
+    "id": 3033,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "suspicous",
+    "answer": "suspicious"
+  },
+  {
+    "id": 3034,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "critisize",
+    "answer": "criticize"
+  },
+  {
+    "id": 3035,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "vengance",
+    "answer": "vengeance"
+  },
+  {
+    "id": 3036,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "sucess",
+    "answer": "success"
+  },
+  {
+    "id": 3037,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "undoubtedley",
+    "answer": "undoubtedly"
+  },
+  {
+    "id": 3038,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "existance",
+    "answer": "existence"
+  },
+  {
+    "id": 3039,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "villian",
+    "answer": "villain"
+  },
+  {
+    "id": 3040,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "payed",
+    "answer": "paid"
+  },
+  {
+    "id": 3041,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "questionaire",
+    "answer": "questionnaire"
+  },
+  {
+    "id": 3042,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "noticable",
+    "answer": "noticeable"
+  },
+  {
+    "id": 3043,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "becuase",
+    "answer": "because"
+  },
+  {
+    "id": 3044,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "tremendus",
+    "answer": "tremendous"
+  },
+  {
+    "id": 3045,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "shinning",
+    "answer": "shining"
+  },
+  {
+    "id": 3046,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "concious",
+    "answer": "conscious"
+  },
+  {
+    "id": 3047,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "libary",
+    "answer": "library"
+  },
+  {
+    "id": 3048,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "apparant",
+    "answer": "apparent"
+  },
+  {
+    "id": 3049,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "omision",
+    "answer": "omission"
+  },
+  {
+    "id": 3050,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "useage",
+    "answer": "usage"
+  },
+  {
+    "id": 3051,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "succesful",
+    "answer": "successful"
+  },
+  {
+    "id": 3052,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "laboratary",
+    "answer": "laboratory"
+  },
+  {
+    "id": 3053,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "commitee",
+    "answer": "committee"
+  },
+  {
+    "id": 3054,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "writting",
+    "answer": "writing"
+  },
+  {
+    "id": 3055,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "irresistable",
+    "answer": "irresistible"
+  },
+  {
+    "id": 3056,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "religous",
+    "answer": "religious"
+  },
+  {
+    "id": 3057,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "particulary",
+    "answer": "particularly"
+  },
+  {
+    "id": 3058,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "gague",
+    "answer": "gauge"
+  },
+  {
+    "id": 3059,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "therefor",
+    "answer": "therefore"
+  },
+  {
+    "id": 3060,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "principel",
+    "answer": "principle"
+  },
+  {
+    "id": 3061,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "zealus",
+    "answer": "zealous"
+  },
+  {
+    "id": 3062,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "occassion",
+    "answer": "occasion"
+  },
+  {
+    "id": 3063,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "offical",
+    "answer": "official"
+  },
+  {
+    "id": 3064,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "wemen",
+    "answer": "women"
+  },
+  {
+    "id": 3065,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "aquire",
+    "answer": "acquire"
+  },
+  {
+    "id": 3066,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "mysterius",
+    "answer": "mysterious"
+  },
+  {
+    "id": 3067,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "regaurd",
+    "answer": "regard"
+  },
+  {
+    "id": 3068,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "predictible",
+    "answer": "predictable"
+  },
+  {
+    "id": 3069,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "realy",
+    "answer": "really"
+  },
+  {
+    "id": 3070,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "liason",
+    "answer": "liaison"
+  },
+  {
+    "id": 3071,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "proceedure",
+    "answer": "procedure"
+  },
+  {
+    "id": 3072,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "parliment",
+    "answer": "parliament"
+  },
+  {
+    "id": 3073,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "stoped",
+    "answer": "stopped"
+  },
+  {
+    "id": 3074,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "opertunity",
+    "answer": "opportunity"
+  },
+  {
+    "id": 3075,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "occured",
+    "answer": "occurred"
+  },
+  {
+    "id": 3076,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "recieve",
+    "answer": "receive"
+  },
+  {
+    "id": 3077,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "embarass",
+    "answer": "embarrass"
+  },
+  {
+    "id": 3078,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "gaurd",
+    "answer": "guard"
+  },
+  {
+    "id": 3079,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "tornament",
+    "answer": "tournament"
+  },
+  {
+    "id": 3080,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "usualy",
+    "answer": "usually"
+  },
+  {
+    "id": 3081,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "independant",
+    "answer": "independent"
+  },
+  {
+    "id": 3082,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "susceptable",
+    "answer": "susceptible"
+  },
+  {
+    "id": 3083,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "neighbour",
+    "answer": "neighbor"
+  },
+  {
+    "id": 3084,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "millionair",
+    "answer": "millionaire"
+  },
+  {
+    "id": 3085,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "commited",
+    "answer": "committed"
+  },
+  {
+    "id": 3086,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "magnificant",
+    "answer": "magnificent"
+  },
+  {
+    "id": 3087,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "effect",
+    "answer": "affect"
+  },
+  {
+    "id": 3088,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "repitition",
+    "answer": "repetition"
+  },
+  {
+    "id": 3089,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "stratagy",
+    "answer": "strategy"
+  },
+  {
+    "id": 3090,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "morgage",
+    "answer": "mortgage"
+  },
+  {
+    "id": 3091,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "familliar",
+    "answer": "familiar"
+  },
+  {
+    "id": 3092,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "scenary",
+    "answer": "scenery"
+  },
+  {
+    "id": 3093,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "obstacal",
+    "answer": "obstacle"
+  },
+  {
+    "id": 3094,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "paralel",
+    "answer": "parallel"
+  },
+  {
+    "id": 3095,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "judgement",
+    "answer": "judgment"
+  },
+  {
+    "id": 3096,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "exagerate",
+    "answer": "exaggerate"
+  },
+  {
+    "id": 3097,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "propoganda",
+    "answer": "propaganda"
+  },
+  {
+    "id": 3098,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "rythm",
+    "answer": "rhythm"
+  },
+  {
+    "id": 3099,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "medievel",
+    "answer": "medieval"
+  },
+  {
+    "id": 3100,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "competant",
+    "answer": "competent"
+  },
+  {
+    "id": 3101,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "athelete",
+    "answer": "athlete"
+  },
+  {
+    "id": 3102,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "aquaintance",
+    "answer": "acquaintance"
+  },
+  {
+    "id": 3103,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "feirce",
+    "answer": "fierce"
+  },
+  {
+    "id": 3104,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "recomend",
+    "answer": "recommend"
+  },
+  {
+    "id": 3105,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "skying",
+    "answer": "skiing"
+  },
+  {
+    "id": 3106,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "lisence",
+    "answer": "license"
+  },
+  {
+    "id": 3107,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "nuisence",
+    "answer": "nuisance"
+  },
+  {
+    "id": 3108,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "temporery",
+    "answer": "temporary"
+  },
+  {
+    "id": 3109,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "hierachy",
+    "answer": "hierarchy"
+  },
+  {
+    "id": 3110,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "loniless",
+    "answer": "loneliness"
+  },
+  {
+    "id": 3111,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "wholey",
+    "answer": "wholly"
+  },
+  {
+    "id": 3112,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "tendancy",
+    "answer": "tendency"
+  },
+  {
+    "id": 3113,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "acheive",
+    "answer": "achieve"
+  },
+  {
+    "id": 3114,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "spontanious",
+    "answer": "spontaneous"
+  },
+  {
+    "id": 3115,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "Febuary",
+    "answer": "February"
+  },
+  {
+    "id": 3116,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "equiptment",
+    "answer": "equipment"
+  },
+  {
+    "id": 3117,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "correspondance",
+    "answer": "correspondence"
+  },
+  {
+    "id": 3118,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "severel",
+    "answer": "several"
+  },
+  {
+    "id": 3119,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "unfortunatly",
+    "answer": "unfortunately"
+  },
+  {
+    "id": 3120,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "statistic",
+    "answer": "statistics"
+  },
+  {
+    "id": 3121,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "goverment",
+    "answer": "government"
+  },
+  {
+    "id": 3122,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "definate",
+    "answer": "definite"
+  },
+  {
+    "id": 3123,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "vehical",
+    "answer": "vehicle"
+  },
+  {
+    "id": 3124,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "surrond",
+    "answer": "surround"
+  },
+  {
+    "id": 3125,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "usible",
+    "answer": "usable"
+  },
+  {
+    "id": 3126,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "prominant",
+    "answer": "prominent"
+  },
+  {
+    "id": 3127,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "satelite",
+    "answer": "satellite"
+  },
+  {
+    "id": 3128,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "sargent",
+    "answer": "sergeant"
+  },
+  {
+    "id": 3129,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "catagory",
+    "answer": "category"
+  },
+  {
+    "id": 3130,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "arguement",
+    "answer": "argument"
+  },
+  {
+    "id": 3131,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "intresting",
+    "answer": "interesting"
+  },
+  {
+    "id": 3132,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "passtime",
+    "answer": "pastime"
+  },
+  {
+    "id": 3133,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "personel",
+    "answer": "personnel"
+  },
+  {
+    "id": 3134,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "pleasent",
+    "answer": "pleasant"
+  },
+  {
+    "id": 3135,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "Wendsday",
+    "answer": "Wednesday"
+  },
+  {
+    "id": 3136,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "veiw",
+    "answer": "view"
+  },
+  {
+    "id": 3137,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "prefered",
+    "answer": "preferred"
+  },
+  {
+    "id": 3138,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "perspiretion",
+    "answer": "perspiration"
+  },
+  {
+    "id": 3139,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "moveable",
+    "answer": "movable"
+  },
+  {
+    "id": 3140,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "valuble",
+    "answer": "valuable"
+  },
+  {
+    "id": 3141,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "optimisim",
+    "answer": "optimism"
+  },
+  {
+    "id": 3142,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "variaty",
+    "answer": "variety"
+  },
+  {
+    "id": 3143,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "tyrany",
+    "answer": "tyranny"
+  },
+  {
+    "id": 3144,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "persistant",
+    "answer": "persistent"
+  },
+  {
+    "id": 3145,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "experiance",
+    "answer": "experience"
+  },
+  {
+    "id": 3146,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "permanant",
+    "answer": "permanent"
+  },
+  {
+    "id": 3147,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "violance",
+    "answer": "violence"
+  },
+  {
+    "id": 3148,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "pamphlit",
+    "answer": "pamphlet"
+  },
+  {
+    "id": 3149,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "changable",
+    "answer": "changeable"
+  },
+  {
+    "id": 3150,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "decieve",
+    "answer": "deceive"
+  },
+  {
+    "id": 3151,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "indispensible",
+    "answer": "indispensable"
+  },
+  {
+    "id": 3152,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "quee",
+    "answer": "queue"
+  },
+  {
+    "id": 3153,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "wellcome",
+    "answer": "welcome"
+  },
+  {
+    "id": 3154,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "urgant",
+    "answer": "urgent"
+  },
+  {
+    "id": 3155,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "outragous",
+    "answer": "outrageous"
+  },
+  {
+    "id": 3156,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "secretery",
+    "answer": "secretary"
+  },
+  {
+    "id": 3157,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "unforseen",
+    "answer": "unforeseen"
+  },
+  {
+    "id": 3158,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "immediatly",
+    "answer": "immediately"
+  },
+  {
+    "id": 3159,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "alot",
+    "answer": "a lot"
+  },
+  {
+    "id": 3160,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "posess",
+    "answer": "possess"
+  },
+  {
+    "id": 3161,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "ninty",
+    "answer": "ninety"
+  },
+  {
+    "id": 3162,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "socity",
+    "answer": "society"
+  },
+  {
+    "id": 3163,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "miscelaneous",
+    "answer": "miscellaneous"
+  },
+  {
+    "id": 3164,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "yeild",
+    "answer": "yield"
+  },
+  {
+    "id": 3165,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "pneumonya",
+    "answer": "pneumonia"
+  },
+  {
+    "id": 3166,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "dissapoint",
+    "answer": "disappoint"
+  },
+  {
+    "id": 1168,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 6 = 12",
+    "answer": "3"
+  },
+  {
+    "id": 1169,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 5 = 9",
+    "answer": "2"
+  },
+  {
+    "id": 1170,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 3 = 10",
+    "answer": "30"
+  },
+  {
+    "id": 1171,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 3 = 35",
+    "answer": "16"
+  },
+  {
+    "id": 1172,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 6 = 10",
+    "answer": "2"
+  },
+  {
+    "id": 1173,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 6 = 18",
+    "answer": "6"
+  },
+  {
+    "id": 1174,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 2 = 1x + 4",
+    "answer": "1"
+  },
+  {
+    "id": 1175,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 1) = 40",
+    "answer": "19"
+  },
+  {
+    "id": 1176,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 4 = 24",
+    "answer": "14"
+  },
+  {
+    "id": 1177,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 5 = 27",
+    "answer": "11"
+  },
+  {
+    "id": 1178,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 3 = 27",
+    "answer": "12"
+  },
+  {
+    "id": 1179,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 4 = 34",
+    "answer": "19"
+  },
+  {
+    "id": 1180,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 1 = 1x + 3",
+    "answer": "1"
+  },
+  {
+    "id": 1181,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 1 = 37",
+    "answer": "18"
+  },
+  {
+    "id": 1182,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 2 = 15",
+    "answer": "30"
+  },
+  {
+    "id": 1183,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 2 = 17",
+    "answer": "34"
+  },
+  {
+    "id": 1184,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 4 = 26",
+    "answer": "15"
+  },
+  {
+    "id": 1185,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 6 = 36",
+    "answer": "15"
+  },
+  {
+    "id": 1186,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 5 = 11",
+    "answer": "3"
+  },
+  {
+    "id": 1187,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 6 = 8",
+    "answer": "1"
+  },
+  {
+    "id": 1188,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 3 = 7",
+    "answer": "21"
+  },
+  {
+    "id": 1189,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 1 = 25",
+    "answer": "12"
+  },
+  {
+    "id": 1190,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 5 = 13",
+    "answer": "9"
+  },
+  {
+    "id": 1191,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 3 = 15",
+    "answer": "45"
+  },
+  {
+    "id": 1192,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 3 = 18",
+    "answer": "54"
+  },
+  {
+    "id": 1193,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 7 = 1x + 9",
+    "answer": "1"
+  },
+  {
+    "id": 1194,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 2) = 28",
+    "answer": "12"
+  },
+  {
+    "id": 1195,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 1 = 29",
+    "answer": "14"
+  },
+  {
+    "id": 1196,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 1 = 33",
+    "answer": "16"
+  },
+  {
+    "id": 1197,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 3 = 13",
+    "answer": "39"
+  },
+  {
+    "id": 1198,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 8 = 1x + 10",
+    "answer": "1"
+  },
+  {
+    "id": 1199,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 2) = 32",
+    "answer": "14"
+  },
+  {
+    "id": 1200,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 2 = 16",
+    "answer": "32"
+  },
+  {
+    "id": 1201,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 3 = 17",
+    "answer": "51"
+  },
+  {
+    "id": 1202,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 5 = 19",
+    "answer": "7"
+  },
+  {
+    "id": 1203,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 4 = 34",
+    "answer": "15"
+  },
+  {
+    "id": 1204,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 4 = 1x + 6",
+    "answer": "1"
+  },
+  {
+    "id": 1205,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 12 = 1x + 16",
+    "answer": "2"
+  },
+  {
+    "id": 1206,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 5 = 15",
+    "answer": "5"
+  },
+  {
+    "id": 1207,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 4 = 16",
+    "answer": "10"
+  },
+  {
+    "id": 1208,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 4 = 36",
+    "answer": "16"
+  },
+  {
+    "id": 1209,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 4 = 32",
+    "answer": "18"
+  },
+  {
+    "id": 1210,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 3) = 8",
+    "answer": "1"
+  },
+  {
+    "id": 1211,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 4 = 30",
+    "answer": "17"
+  },
+  {
+    "id": 1212,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 5 = 35",
+    "answer": "15"
+  },
+  {
+    "id": 1213,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 4 = 30",
+    "answer": "13"
+  },
+  {
+    "id": 1214,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 5 = 9",
+    "answer": "7"
+  },
+  {
+    "id": 1215,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 5 = 39",
+    "answer": "17"
+  },
+  {
+    "id": 1216,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 3 = 14",
+    "answer": "42"
+  },
+  {
+    "id": 1217,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 2) = 36",
+    "answer": "16"
+  },
+  {
+    "id": 1218,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 4 = 14",
+    "answer": "9"
+  },
+  {
+    "id": 1219,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 2 = 36",
+    "answer": "17"
+  },
+  {
+    "id": 1220,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 1 = 31",
+    "answer": "15"
+  },
+  {
+    "id": 1221,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 5 = 33",
+    "answer": "19"
+  },
+  {
+    "id": 1222,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 5 = 25",
+    "answer": "15"
+  },
+  {
+    "id": 1223,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 6 = 40",
+    "answer": "17"
+  },
+  {
+    "id": 1224,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 2 = 18",
+    "answer": "36"
+  },
+  {
+    "id": 1225,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 4 = 2",
+    "answer": "3"
+  },
+  {
+    "id": 1226,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 4 = 38",
+    "answer": "17"
+  },
+  {
+    "id": 1227,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 1 = 27",
+    "answer": "13"
+  },
+  {
+    "id": 1228,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 1) = 32",
+    "answer": "15"
+  },
+  {
+    "id": 1229,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 5 = 29",
+    "answer": "12"
+  },
+  {
+    "id": 1230,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 14 = 1x + 16",
+    "answer": "1"
+  },
+  {
+    "id": 1231,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 5 = 43",
+    "answer": "19"
+  },
+  {
+    "id": 1232,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 3 = 1x + 5",
+    "answer": "1"
+  },
+  {
+    "id": 1233,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 5 = 17",
+    "answer": "11"
+  },
+  {
+    "id": 1234,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 5 = 23",
+    "answer": "9"
+  },
+  {
+    "id": 1235,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 3 = 19",
+    "answer": "57"
+  },
+  {
+    "id": 1236,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 4 = 2",
+    "answer": "8"
+  },
+  {
+    "id": 1237,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 6 = 28",
+    "answer": "11"
+  },
+  {
+    "id": 1238,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 12 = 1x + 14",
+    "answer": "1"
+  },
+  {
+    "id": 1239,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 2) = 34",
+    "answer": "15"
+  },
+  {
+    "id": 1240,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 4 = 3",
+    "answer": "12"
+  },
+  {
+    "id": 1241,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 3 = 8",
+    "answer": "24"
+  },
+  {
+    "id": 1242,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 14 = 1x + 18",
+    "answer": "2"
+  },
+  {
+    "id": 1243,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 5 = 23",
+    "answer": "14"
+  },
+  {
+    "id": 1244,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 5 = 33",
+    "answer": "14"
+  },
+  {
+    "id": 1245,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 5 = 1",
+    "answer": "3"
+  },
+  {
+    "id": 1246,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 3 = 11",
+    "answer": "33"
+  },
+  {
+    "id": 1247,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 5 = 29",
+    "answer": "17"
+  },
+  {
+    "id": 1248,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 4 = 6",
+    "answer": "5"
+  },
+  {
+    "id": 1249,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 4 = 4",
+    "answer": "16"
+  },
+  {
+    "id": 1250,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 1 = 35",
+    "answer": "17"
+  },
+  {
+    "id": 1251,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 5 = 5",
+    "answer": "5"
+  },
+  {
+    "id": 1252,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 6 = 32",
+    "answer": "13"
+  },
+  {
+    "id": 1253,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 3 = 33",
+    "answer": "15"
+  },
+  {
+    "id": 1254,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 5 = 21",
+    "answer": "13"
+  },
+  {
+    "id": 1255,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 3 = 37",
+    "answer": "17"
+  },
+  {
+    "id": 1256,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 6 = 14",
+    "answer": "4"
+  },
+  {
+    "id": 1257,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 6 = 38",
+    "answer": "16"
+  },
+  {
+    "id": 1258,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 9 = 1x + 13",
+    "answer": "2"
+  },
+  {
+    "id": 1259,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 1) = 34",
+    "answer": "16"
+  },
+  {
+    "id": 1260,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 4 = 18",
+    "answer": "11"
+  },
+  {
+    "id": 1261,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 9 = 1x + 11",
+    "answer": "1"
+  },
+  {
+    "id": 1262,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 4 = 1x + 8",
+    "answer": "2"
+  },
+  {
+    "id": 1263,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 2) = 30",
+    "answer": "13"
+  },
+  {
+    "id": 1264,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 5 = 31",
+    "answer": "13"
+  },
+  {
+    "id": 1265,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 3 = 16",
+    "answer": "48"
+  },
+  {
+    "id": 1266,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 6 = 42",
+    "answer": "18"
+  },
+  {
+    "id": 1267,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 8 = 1x + 12",
+    "answer": "2"
+  },
+  {
+    "id": 1268,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 4 = 10",
+    "answer": "7"
+  },
+  {
+    "id": 1269,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 2 = 30",
+    "answer": "14"
+  },
+  {
+    "id": 1270,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 10 = 1x + 12",
+    "answer": "1"
+  },
+  {
+    "id": 1271,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 3 = 12",
+    "answer": "36"
+  },
+  {
+    "id": 1272,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 5 = 7",
+    "answer": "6"
+  },
+  {
+    "id": 1273,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 10 = 1x + 14",
+    "answer": "2"
+  },
+  {
+    "id": 1274,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 2 = 1x + 6",
+    "answer": "2"
+  },
+  {
+    "id": 1275,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 5 = 1x + 9",
+    "answer": "2"
+  },
+  {
+    "id": 1276,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 2) = 42",
+    "answer": "19"
+  },
+  {
+    "id": 1277,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 6 = 1x + 8",
+    "answer": "1"
+  },
+  {
+    "id": 1278,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 6 = 24",
+    "answer": "9"
+  },
+  {
+    "id": 1279,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 11 = 1x + 13",
+    "answer": "1"
+  },
+  {
+    "id": 1280,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 6 = 26",
+    "answer": "10"
+  },
+  {
+    "id": 1281,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 5 = 25",
+    "answer": "10"
+  },
+  {
+    "id": 1282,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 5 = 27",
+    "answer": "16"
+  },
+  {
+    "id": 1283,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 1) = 36",
+    "answer": "17"
+  },
+  {
+    "id": 1284,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 6 = 44",
+    "answer": "19"
+  },
+  {
+    "id": 1285,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 5 = 3",
+    "answer": "4"
+  },
+  {
+    "id": 1286,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 6 = 34",
+    "answer": "14"
+  },
+  {
+    "id": 1287,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 1) = 38",
+    "answer": "18"
+  },
+  {
+    "id": 1288,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 4 = 22",
+    "answer": "13"
+  },
+  {
+    "id": 1289,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 1 = 39",
+    "answer": "19"
+  },
+  {
+    "id": 1290,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 4 = 8",
+    "answer": "6"
+  },
+  {
+    "id": 1291,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 2 = 26",
+    "answer": "12"
+  },
+  {
+    "id": 1292,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 5 = 11",
+    "answer": "8"
+  },
+  {
+    "id": 1293,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 4 = 4",
+    "answer": "4"
+  },
+  {
+    "id": 1294,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 1 = 1x + 5",
+    "answer": "2"
+  },
+  {
+    "id": 1295,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 5 = 19",
+    "answer": "12"
+  },
+  {
+    "id": 1296,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 5 = 41",
+    "answer": "18"
+  },
+  {
+    "id": 1297,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 4 = 32",
+    "answer": "14"
+  },
+  {
+    "id": 1298,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 5 = 37",
+    "answer": "16"
+  },
+  {
+    "id": 1299,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 4 = 20",
+    "answer": "12"
+  },
+  {
+    "id": 1300,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 4 = 40",
+    "answer": "18"
+  },
+  {
+    "id": 1301,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 5 = 17",
+    "answer": "6"
+  },
+  {
+    "id": 1302,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 13 = 1x + 17",
+    "answer": "2"
+  },
+  {
+    "id": 1303,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 4 = 12",
+    "answer": "8"
+  },
+  {
+    "id": 1304,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 5 = 13",
+    "answer": "4"
+  },
+  {
+    "id": 1305,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 2 = 32",
+    "answer": "15"
+  },
+  {
+    "id": 1306,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 6 = 20",
+    "answer": "7"
+  },
+  {
+    "id": 1307,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 2) = 38",
+    "answer": "17"
+  },
+  {
+    "id": 1308,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2(x + 2) = 40",
+    "answer": "18"
+  },
+  {
+    "id": 1309,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 7 = 1x + 11",
+    "answer": "2"
+  },
+  {
+    "id": 1310,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 6 = 22",
+    "answer": "8"
+  },
+  {
+    "id": 1311,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 4 = 42",
+    "answer": "19"
+  },
+  {
+    "id": 1312,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 6 = 1x + 10",
+    "answer": "2"
+  },
+  {
+    "id": 1313,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 2 = 40",
+    "answer": "19"
+  },
+  {
+    "id": 1314,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 3 = 6",
+    "answer": "18"
+  },
+  {
+    "id": 1315,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 3 = 1x + 7",
+    "answer": "2"
+  },
+  {
+    "id": 1316,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 3 = 41",
+    "answer": "19"
+  },
+  {
+    "id": 1317,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 6 = 30",
+    "answer": "12"
+  },
+  {
+    "id": 1318,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 3 = 29",
+    "answer": "13"
+  },
+  {
+    "id": 1319,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 2 = 19",
+    "answer": "38"
+  },
+  {
+    "id": 1320,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "x / 3 = 9",
+    "answer": "27"
+  },
+  {
+    "id": 1321,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 3 = 39",
+    "answer": "18"
+  },
+  {
+    "id": 1322,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 2 = 28",
+    "answer": "13"
+  },
+  {
+    "id": 1323,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 6 = 16",
+    "answer": "5"
+  },
+  {
+    "id": 1324,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 5 = 1x + 7",
+    "answer": "1"
+  },
+  {
+    "id": 1325,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 2 = 38",
+    "answer": "18"
+  },
+  {
+    "id": 1326,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 11 = 1x + 15",
+    "answer": "2"
+  },
+  {
+    "id": 1327,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 5 = 15",
+    "answer": "10"
+  },
+  {
+    "id": 1328,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 4 = 28",
+    "answer": "12"
+  },
+  {
+    "id": 1329,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "3x + 13 = 1x + 15",
+    "answer": "1"
+  },
+  {
+    "id": 1330,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 3 = 31",
+    "answer": "14"
+  },
+  {
+    "id": 1331,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 2 = 34",
+    "answer": "16"
+  },
+  {
+    "id": 1332,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 5 = 31",
+    "answer": "18"
+  },
+  {
+    "id": 1333,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x + 5 = 21",
+    "answer": "8"
+  },
+  {
+    "id": 1334,
+    "subject": "math",
+    "category": "algebra",
+    "prompt": "2x - 4 = 28",
+    "answer": "16"
+  },
+  {
+    "id": 2168,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The athlete have finished the task.",
+    "answer": "The athlete has finished the task."
+  },
+  {
+    "id": 2169,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Our friends doesn't enjoy the noise.",
+    "answer": "Our friends don't enjoy the noise."
+  },
+  {
+    "id": 2170,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The sculptor don't enjoy loud parties.",
+    "answer": "The sculptor doesn't enjoy loud parties."
+  },
+  {
+    "id": 2171,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The historian have finished the task.",
+    "answer": "The historian has finished the task."
+  },
+  {
+    "id": 2172,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Our friend go to work every day.",
+    "answer": "Our friend goes to work every day."
+  },
+  {
+    "id": 2173,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "She has went home already.",
+    "answer": "She has gone home already."
+  },
+  {
+    "id": 2174,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Each of the students are responsible.",
+    "answer": "Each of the students is responsible."
+  },
+  {
+    "id": 2175,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The mayor have finished the task.",
+    "answer": "The mayor has finished the task."
+  },
+  {
+    "id": 2176,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Neither of the answers are correct.",
+    "answer": "Neither of the answers is correct."
+  },
+  {
+    "id": 2177,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The baristas doesn't enjoy the noise.",
+    "answer": "The baristas don't enjoy the noise."
+  },
+  {
+    "id": 2178,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "They're bags are packed.",
+    "answer": "Their bags are packed."
+  },
+  {
+    "id": 2179,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "She can't never remember his name.",
+    "answer": "She can never remember his name."
+  },
+  {
+    "id": 2180,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The professors goes to work every day.",
+    "answer": "The professors go to work every day."
+  },
+  {
+    "id": 2181,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The puppy don't enjoy bright colors.",
+    "answer": "The puppy doesn't enjoy bright colors."
+  },
+  {
+    "id": 2182,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The technician have finished the task.",
+    "answer": "The technician has finished the task."
+  },
+  {
+    "id": 2183,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The captains doesn't enjoy the noise.",
+    "answer": "The captains don't enjoy the noise."
+  },
+  {
+    "id": 2184,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The historians has finished the task.",
+    "answer": "The historians have finished the task."
+  },
+  {
+    "id": 2185,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The puppies doesn't enjoy the noise.",
+    "answer": "The puppies don't enjoy the noise."
+  },
+  {
+    "id": 2186,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "She has flew to Paris twice.",
+    "answer": "She has flown to Paris twice."
+  },
+  {
+    "id": 2187,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The director have finished the task.",
+    "answer": "The director has finished the task."
+  },
+  {
+    "id": 2188,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "He has ate all the food.",
+    "answer": "He has eaten all the food."
+  },
+  {
+    "id": 2189,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The cat go to work every day.",
+    "answer": "The cat goes to work every day."
+  },
+  {
+    "id": 2190,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The surgeons has finished the task.",
+    "answer": "The surgeons have finished the task."
+  },
+  {
+    "id": 2191,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The vets doesn't enjoy the noise.",
+    "answer": "The vets don't enjoy the noise."
+  },
+  {
+    "id": 2192,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "There is many reasons to celebrate.",
+    "answer": "There are many reasons to celebrate."
+  },
+  {
+    "id": 2193,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "I have began the report.",
+    "answer": "I have begun the report."
+  },
+  {
+    "id": 2194,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Here is the results of the test.",
+    "answer": "Here are the results of the test."
+  },
+  {
+    "id": 2195,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The surgeon have finished the task.",
+    "answer": "The surgeon has finished the task."
+  },
+  {
+    "id": 2196,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Our friends goes to work every day.",
+    "answer": "Our friends go to work every day."
+  },
+  {
+    "id": 2197,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The director don't enjoy late nights.",
+    "answer": "The director doesn't enjoy late nights."
+  },
+  {
+    "id": 2198,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "She has drove here alone.",
+    "answer": "She has driven here alone."
+  },
+  {
+    "id": 2199,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "They have rode the train before.",
+    "answer": "They have ridden the train before."
+  },
+  {
+    "id": 2200,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The director go to work every day.",
+    "answer": "The director goes to work every day."
+  },
+  {
+    "id": 2201,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "We couldn't hardly see the road.",
+    "answer": "We could hardly see the road."
+  },
+  {
+    "id": 2202,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The puppy go to work every day.",
+    "answer": "The puppy goes to work every day."
+  },
+  {
+    "id": 2203,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The sculptor have finished the task.",
+    "answer": "The sculptor has finished the task."
+  },
+  {
+    "id": 2204,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Its been a long day.",
+    "answer": "It's been a long day."
+  },
+  {
+    "id": 2205,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The toddler go to work every day.",
+    "answer": "The toddler goes to work every day."
+  },
+  {
+    "id": 2206,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The toddler don't enjoy the final exam.",
+    "answer": "The toddler doesn't enjoy the final exam."
+  },
+  {
+    "id": 2207,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "There going to move to a new city.",
+    "answer": "They're going to move to a new city."
+  },
+  {
+    "id": 2208,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "He has forgot his keys again.",
+    "answer": "He has forgotten his keys again."
+  },
+  {
+    "id": 2209,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The team played good.",
+    "answer": "The team played well."
+  },
+  {
+    "id": 2210,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The vets has finished the task.",
+    "answer": "The vets have finished the task."
+  },
+  {
+    "id": 2211,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The vets goes to work every day.",
+    "answer": "The vets go to work every day."
+  },
+  {
+    "id": 2212,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The barista have finished the task.",
+    "answer": "The barista has finished the task."
+  },
+  {
+    "id": 2213,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The puppies has finished the task.",
+    "answer": "The puppies have finished the task."
+  },
+  {
+    "id": 2214,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The sculptor go to work every day.",
+    "answer": "The sculptor goes to work every day."
+  },
+  {
+    "id": 2215,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The buses goes to work every day.",
+    "answer": "The buses go to work every day."
+  },
+  {
+    "id": 2216,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The inventors doesn't enjoy the noise.",
+    "answer": "The inventors don't enjoy the noise."
+  },
+  {
+    "id": 2217,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Our friends has finished the task.",
+    "answer": "Our friends have finished the task."
+  },
+  {
+    "id": 2218,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The organization don't enjoy loud parties.",
+    "answer": "The organization doesn't enjoy loud parties."
+  },
+  {
+    "id": 2219,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The organization go to work every day.",
+    "answer": "The organization goes to work every day."
+  },
+  {
+    "id": 2220,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The toddlers doesn't enjoy the noise.",
+    "answer": "The toddlers don't enjoy the noise."
+  },
+  {
+    "id": 2221,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The instructions is clear.",
+    "answer": "The instructions are clear."
+  },
+  {
+    "id": 2222,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "He answered the question quick.",
+    "answer": "He answered the question quickly."
+  },
+  {
+    "id": 2223,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The news are surprising today.",
+    "answer": "The news is surprising today."
+  },
+  {
+    "id": 2224,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The surgeons doesn't enjoy the noise.",
+    "answer": "The surgeons don't enjoy the noise."
+  },
+  {
+    "id": 2225,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The inventors has finished the task.",
+    "answer": "The inventors have finished the task."
+  },
+  {
+    "id": 2226,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The fish doesn't enjoy the noise.",
+    "answer": "The fish don't enjoy the noise."
+  },
+  {
+    "id": 2227,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The scissors is on the desk.",
+    "answer": "The scissors are on the desk."
+  },
+  {
+    "id": 2228,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "There the ones who called us.",
+    "answer": "They're the ones who called us."
+  },
+  {
+    "id": 2229,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The sculptors goes to work every day.",
+    "answer": "The sculptors go to work every day."
+  },
+  {
+    "id": 2230,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "My uncle have finished the task.",
+    "answer": "My uncle has finished the task."
+  },
+  {
+    "id": 2231,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "My cousins doesn't enjoy the noise.",
+    "answer": "My cousins don't enjoy the noise."
+  },
+  {
+    "id": 2232,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "I haven't got no idea.",
+    "answer": "I haven't got any idea."
+  },
+  {
+    "id": 2233,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The captains has finished the task.",
+    "answer": "The captains have finished the task."
+  },
+  {
+    "id": 2234,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The novelist don't enjoy the new policy.",
+    "answer": "The novelist doesn't enjoy the new policy."
+  },
+  {
+    "id": 2235,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The technician go to work every day.",
+    "answer": "The technician goes to work every day."
+  },
+  {
+    "id": 2236,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The professor don't enjoy the morning routine.",
+    "answer": "The professor doesn't enjoy the morning routine."
+  },
+  {
+    "id": 2237,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "My cousin don't enjoy the morning routine.",
+    "answer": "My cousin doesn't enjoy the morning routine."
+  },
+  {
+    "id": 2238,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The baristas has finished the task.",
+    "answer": "The baristas have finished the task."
+  },
+  {
+    "id": 2239,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The inventor have finished the task.",
+    "answer": "The inventor has finished the task."
+  },
+  {
+    "id": 2240,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The captain have finished the task.",
+    "answer": "The captain has finished the task."
+  },
+  {
+    "id": 2241,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The athlete go to work every day.",
+    "answer": "The athlete goes to work every day."
+  },
+  {
+    "id": 2242,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The professor go to work every day.",
+    "answer": "The professor goes to work every day."
+  },
+  {
+    "id": 2243,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The pilot go to work every day.",
+    "answer": "The pilot goes to work every day."
+  },
+  {
+    "id": 2244,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "We have did our best.",
+    "answer": "We have done our best."
+  },
+  {
+    "id": 2245,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The pilots has finished the task.",
+    "answer": "The pilots have finished the task."
+  },
+  {
+    "id": 2246,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The cats has finished the task.",
+    "answer": "The cats have finished the task."
+  },
+  {
+    "id": 2247,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The historian don't enjoy long drives.",
+    "answer": "The historian doesn't enjoy long drives."
+  },
+  {
+    "id": 2248,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The bus don't enjoy loud parties.",
+    "answer": "The bus doesn't enjoy loud parties."
+  },
+  {
+    "id": 2249,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The cyclist don't enjoy loud parties.",
+    "answer": "The cyclist doesn't enjoy loud parties."
+  },
+  {
+    "id": 2250,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "I don't know nothing about it.",
+    "answer": "I don't know anything about it."
+  },
+  {
+    "id": 2251,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The captain don't enjoy the upcoming trip.",
+    "answer": "The captain doesn't enjoy the upcoming trip."
+  },
+  {
+    "id": 2252,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The mayors has finished the task.",
+    "answer": "The mayors have finished the task."
+  },
+  {
+    "id": 2253,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The children is playing outside.",
+    "answer": "The children are playing outside."
+  },
+  {
+    "id": 2254,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The toddler have finished the task.",
+    "answer": "The toddler has finished the task."
+  },
+  {
+    "id": 2255,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The cat have finished the task.",
+    "answer": "The cat has finished the task."
+  },
+  {
+    "id": 2256,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The pilot don't enjoy long drives.",
+    "answer": "The pilot doesn't enjoy long drives."
+  },
+  {
+    "id": 2257,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "My parents is coming over.",
+    "answer": "My parents are coming over."
+  },
+  {
+    "id": 2258,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The athletes has finished the task.",
+    "answer": "The athletes have finished the task."
+  },
+  {
+    "id": 2259,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Our friend have finished the task.",
+    "answer": "Our friend has finished the task."
+  },
+  {
+    "id": 2260,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The inventor don't enjoy crowded rooms.",
+    "answer": "The inventor doesn't enjoy crowded rooms."
+  },
+  {
+    "id": 2261,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "She isn't going nowhere tonight.",
+    "answer": "She isn't going anywhere tonight."
+  },
+  {
+    "id": 2262,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The vet go to work every day.",
+    "answer": "The vet goes to work every day."
+  },
+  {
+    "id": 2263,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "She sings beautiful.",
+    "answer": "She sings beautifully."
+  },
+  {
+    "id": 2264,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The children behaved bad.",
+    "answer": "The children behaved badly."
+  },
+  {
+    "id": 2265,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The barista don't enjoy the new policy.",
+    "answer": "The barista doesn't enjoy the new policy."
+  },
+  {
+    "id": 2266,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "He did the job perfect.",
+    "answer": "He did the job perfectly."
+  },
+  {
+    "id": 2267,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The cats goes to work every day.",
+    "answer": "The cats go to work every day."
+  },
+  {
+    "id": 2268,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The fish has finished the task.",
+    "answer": "The fish have finished the task."
+  },
+  {
+    "id": 2269,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "My cousins goes to work every day.",
+    "answer": "My cousins go to work every day."
+  },
+  {
+    "id": 2270,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The organizations has finished the task.",
+    "answer": "The organizations have finished the task."
+  },
+  {
+    "id": 2271,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The fish go to work every day.",
+    "answer": "The fish goes to work every day."
+  },
+  {
+    "id": 2272,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The cat don't enjoy the morning routine.",
+    "answer": "The cat doesn't enjoy the morning routine."
+  },
+  {
+    "id": 2273,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The buses has finished the task.",
+    "answer": "The buses have finished the task."
+  },
+  {
+    "id": 2274,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "He didn't have no reason to leave.",
+    "answer": "He didn't have any reason to leave."
+  },
+  {
+    "id": 2275,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Everyone are invited to the party.",
+    "answer": "Everyone is invited to the party."
+  },
+  {
+    "id": 2276,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Your right about that.",
+    "answer": "You're right about that."
+  },
+  {
+    "id": 2277,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "My uncles doesn't enjoy the noise.",
+    "answer": "My uncles don't enjoy the noise."
+  },
+  {
+    "id": 2278,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The cats doesn't enjoy the noise.",
+    "answer": "The cats don't enjoy the noise."
+  },
+  {
+    "id": 2279,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "He drives careless.",
+    "answer": "He drives carelessly."
+  },
+  {
+    "id": 2280,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "He don't have no friends here.",
+    "answer": "He doesn't have any friends here."
+  },
+  {
+    "id": 2281,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The technician don't enjoy crowded rooms.",
+    "answer": "The technician doesn't enjoy crowded rooms."
+  },
+  {
+    "id": 2282,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The buses doesn't enjoy the noise.",
+    "answer": "The buses don't enjoy the noise."
+  },
+  {
+    "id": 2283,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The vet don't enjoy late nights.",
+    "answer": "The vet doesn't enjoy late nights."
+  },
+  {
+    "id": 2284,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The tailors doesn't enjoy the noise.",
+    "answer": "The tailors don't enjoy the noise."
+  },
+  {
+    "id": 2285,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "They was swimming all day.",
+    "answer": "They were swimming all day."
+  },
+  {
+    "id": 2286,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "I have wrote a letter to her.",
+    "answer": "I have written a letter to her."
+  },
+  {
+    "id": 2287,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The bus go to work every day.",
+    "answer": "The bus goes to work every day."
+  },
+  {
+    "id": 2288,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The dog barked loud.",
+    "answer": "The dog barked loudly."
+  },
+  {
+    "id": 2289,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The historians doesn't enjoy the noise.",
+    "answer": "The historians don't enjoy the noise."
+  },
+  {
+    "id": 2290,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "My cousins has finished the task.",
+    "answer": "My cousins have finished the task."
+  },
+  {
+    "id": 2291,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "We have spoke about this before.",
+    "answer": "We have spoken about this before."
+  },
+  {
+    "id": 2292,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The mayor don't enjoy the new policy.",
+    "answer": "The mayor doesn't enjoy the new policy."
+  },
+  {
+    "id": 2293,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The organizations doesn't enjoy the noise.",
+    "answer": "The organizations don't enjoy the noise."
+  },
+  {
+    "id": 2294,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The vet have finished the task.",
+    "answer": "The vet has finished the task."
+  },
+  {
+    "id": 2295,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The tailor have finished the task.",
+    "answer": "The tailor has finished the task."
+  },
+  {
+    "id": 2296,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The puppies goes to work every day.",
+    "answer": "The puppies go to work every day."
+  },
+  {
+    "id": 2297,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The fish don't enjoy the final exam.",
+    "answer": "The fish doesn't enjoy the final exam."
+  },
+  {
+    "id": 2298,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The keys is missing.",
+    "answer": "The keys are missing."
+  },
+  {
+    "id": 2299,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The pilots goes to work every day.",
+    "answer": "The pilots go to work every day."
+  },
+  {
+    "id": 2300,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The professor have finished the task.",
+    "answer": "The professor has finished the task."
+  },
+  {
+    "id": 2301,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The organization have finished the task.",
+    "answer": "The organization has finished the task."
+  },
+  {
+    "id": 2302,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "My cousin go to work every day.",
+    "answer": "My cousin goes to work every day."
+  },
+  {
+    "id": 2303,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The pilot have finished the task.",
+    "answer": "The pilot has finished the task."
+  },
+  {
+    "id": 2304,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The mayors doesn't enjoy the noise.",
+    "answer": "The mayors don't enjoy the noise."
+  },
+  {
+    "id": 2305,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The books is on the shelf.",
+    "answer": "The books are on the shelf."
+  },
+  {
+    "id": 2306,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The toddlers has finished the task.",
+    "answer": "The toddlers have finished the task."
+  },
+  {
+    "id": 2307,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The technicians goes to work every day.",
+    "answer": "The technicians go to work every day."
+  },
+  {
+    "id": 2308,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "They finished the race quick.",
+    "answer": "They finished the race quickly."
+  },
+  {
+    "id": 2309,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "He walked slow down the hall.",
+    "answer": "He walked slowly down the hall."
+  },
+  {
+    "id": 2310,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The fish have finished the task.",
+    "answer": "The fish has finished the task."
+  },
+  {
+    "id": 2311,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The cyclists has finished the task.",
+    "answer": "The cyclists have finished the task."
+  },
+  {
+    "id": 2312,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The novelists doesn't enjoy the noise.",
+    "answer": "The novelists don't enjoy the noise."
+  },
+  {
+    "id": 2313,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "He has took the wrong turn.",
+    "answer": "He has taken the wrong turn."
+  },
+  {
+    "id": 2314,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Whose coming to the party tonight?",
+    "answer": "Who's coming to the party tonight?"
+  },
+  {
+    "id": 2315,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The cyclist have finished the task.",
+    "answer": "The cyclist has finished the task."
+  },
+  {
+    "id": 2316,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The surgeon don't enjoy bright colors.",
+    "answer": "The surgeon doesn't enjoy bright colors."
+  },
+  {
+    "id": 2317,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The professors has finished the task.",
+    "answer": "The professors have finished the task."
+  },
+  {
+    "id": 2318,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Its time to go.",
+    "answer": "It's time to go."
+  },
+  {
+    "id": 2319,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The athlete don't enjoy the new policy.",
+    "answer": "The athlete doesn't enjoy the new policy."
+  },
+  {
+    "id": 2320,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "She spoke soft during the meeting.",
+    "answer": "She spoke softly during the meeting."
+  },
+  {
+    "id": 2321,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The sculptors doesn't enjoy the noise.",
+    "answer": "The sculptors don't enjoy the noise."
+  },
+  {
+    "id": 2322,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The novelists has finished the task.",
+    "answer": "The novelists have finished the task."
+  },
+  {
+    "id": 2323,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "She smiled happy.",
+    "answer": "She smiled happily."
+  },
+  {
+    "id": 2324,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "My cousin have finished the task.",
+    "answer": "My cousin has finished the task."
+  },
+  {
+    "id": 2325,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "Our friend don't enjoy the morning routine.",
+    "answer": "Our friend doesn't enjoy the morning routine."
+  },
+  {
+    "id": 2326,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "They worked quiet.",
+    "answer": "They worked quietly."
+  },
+  {
+    "id": 2327,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The cyclists doesn't enjoy the noise.",
+    "answer": "The cyclists don't enjoy the noise."
+  },
+  {
+    "id": 2328,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "They don't want no trouble.",
+    "answer": "They don't want any trouble."
+  },
+  {
+    "id": 2329,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The novelist have finished the task.",
+    "answer": "The novelist has finished the task."
+  },
+  {
+    "id": 2330,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The sculptors has finished the task.",
+    "answer": "The sculptors have finished the task."
+  },
+  {
+    "id": 2331,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The professors doesn't enjoy the noise.",
+    "answer": "The professors don't enjoy the noise."
+  },
+  {
+    "id": 2332,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The pilots doesn't enjoy the noise.",
+    "answer": "The pilots don't enjoy the noise."
+  },
+  {
+    "id": 2333,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The tailor don't enjoy loud parties.",
+    "answer": "The tailor doesn't enjoy loud parties."
+  },
+  {
+    "id": 2334,
+    "subject": "english",
+    "category": "grammar",
+    "prompt": "The directors has finished the task.",
+    "answer": "The directors have finished the task."
+  },
+  {
+    "id": 3167,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "improev",
+    "answer": "improve"
+  },
+  {
+    "id": 3168,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "lengthh",
+    "answer": "length"
+  },
+  {
+    "id": 3169,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "machnie",
+    "answer": "machine"
+  },
+  {
+    "id": 3170,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "dcision",
+    "answer": "decision"
+  },
+  {
+    "id": 3171,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "ceiliing",
+    "answer": "ceiling"
+  },
+  {
+    "id": 3172,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "edsperate",
+    "answer": "desperate"
+  },
+  {
+    "id": 3173,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "preseence",
+    "answer": "presence"
+  },
+  {
+    "id": 3174,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "mmuscle",
+    "answer": "muscle"
+  },
+  {
+    "id": 3175,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "mnimum",
+    "answer": "minimum"
+  },
+  {
+    "id": 3176,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "accidantally",
+    "answer": "accidentally"
+  },
+  {
+    "id": 3177,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "protcet",
+    "answer": "protect"
+  },
+  {
+    "id": 3178,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "adolesecnt",
+    "answer": "adolescent"
+  },
+  {
+    "id": 3179,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "connnect",
+    "answer": "connect"
+  },
+  {
+    "id": 3180,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "contriubte",
+    "answer": "contribute"
+  },
+  {
+    "id": 3181,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "immenes",
+    "answer": "immense"
+  },
+  {
+    "id": 3182,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "complte",
+    "answer": "complete"
+  },
+  {
+    "id": 3183,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "ppurchase",
+    "answer": "purchase"
+  },
+  {
+    "id": 3184,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "oprate",
+    "answer": "operate"
+  },
+  {
+    "id": 3185,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "identityy",
+    "answer": "identity"
+  },
+  {
+    "id": 3186,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "leaarning",
+    "answer": "learning"
+  },
+  {
+    "id": 3187,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "hhappening",
+    "answer": "happening"
+  },
+  {
+    "id": 3188,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "innformation",
+    "answer": "information"
+  },
+  {
+    "id": 3189,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "passsage",
+    "answer": "passage"
+  },
+  {
+    "id": 3190,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "vegetble",
+    "answer": "vegetable"
+  },
+  {
+    "id": 3191,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "imoprtant",
+    "answer": "important"
+  },
+  {
+    "id": 3192,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "pressident",
+    "answer": "president"
+  },
+  {
+    "id": 3193,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "effciient",
+    "answer": "efficient"
+  },
+  {
+    "id": 3194,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "medicien",
+    "answer": "medicine"
+  },
+  {
+    "id": 3195,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "advetrisement",
+    "answer": "advertisement"
+  },
+  {
+    "id": 3196,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "nnarrow",
+    "answer": "narrow"
+  },
+  {
+    "id": 3197,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "bbeginning",
+    "answer": "beginning"
+  },
+  {
+    "id": 3198,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "leegant",
+    "answer": "elegant"
+  },
+  {
+    "id": 3199,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "mlitary",
+    "answer": "military"
+  },
+  {
+    "id": 3200,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "peoplle",
+    "answer": "people"
+  },
+  {
+    "id": 3201,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "aaccurate",
+    "answer": "accurate"
+  },
+  {
+    "id": 3202,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "pleasatn",
+    "answer": "pleasant"
+  },
+  {
+    "id": 3203,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "famly",
+    "answer": "family"
+  },
+  {
+    "id": 3204,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "pacckage",
+    "answer": "package"
+  },
+  {
+    "id": 3205,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "increse",
+    "answer": "increase"
+  },
+  {
+    "id": 3206,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "inddustry",
+    "answer": "industry"
+  },
+  {
+    "id": 3207,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "persnal",
+    "answer": "personal"
+  },
+  {
+    "id": 3208,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "beaautiful",
+    "answer": "beautiful"
+  },
+  {
+    "id": 3209,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "lectrue",
+    "answer": "lecture"
+  },
+  {
+    "id": 3210,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "directoin",
+    "answer": "direction"
+  },
+  {
+    "id": 3211,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "opsitive",
+    "answer": "positive"
+  },
+  {
+    "id": 3212,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "matterial",
+    "answer": "material"
+  },
+  {
+    "id": 3213,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "concentraate",
+    "answer": "concentrate"
+  },
+  {
+    "id": 3214,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "discipliine",
+    "answer": "discipline"
+  },
+  {
+    "id": 3215,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "analzye",
+    "answer": "analyze"
+  },
+  {
+    "id": 3216,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "honst",
+    "answer": "honest"
+  },
+  {
+    "id": 3217,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "naturall",
+    "answer": "natural"
+  },
+  {
+    "id": 3218,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "influencce",
+    "answer": "influence"
+  },
+  {
+    "id": 3219,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "provdie",
+    "answer": "provide"
+  },
+  {
+    "id": 3220,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "proudce",
+    "answer": "produce"
+  },
+  {
+    "id": 3221,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "genine",
+    "answer": "genuine"
+  },
+  {
+    "id": 3222,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "xeample",
+    "answer": "example"
+  },
+  {
+    "id": 3223,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "eveyrbody",
+    "answer": "everybody"
+  },
+  {
+    "id": 3224,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "prooperty",
+    "answer": "property"
+  },
+  {
+    "id": 3225,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "wonderufl",
+    "answer": "wonderful"
+  },
+  {
+    "id": 3226,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "felxible",
+    "answer": "flexible"
+  },
+  {
+    "id": 3227,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "faavorite",
+    "answer": "favorite"
+  },
+  {
+    "id": 3228,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "insurnce",
+    "answer": "insurance"
+  },
+  {
+    "id": 3229,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "cnfidence",
+    "answer": "confidence"
+  },
+  {
+    "id": 3230,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "eagr",
+    "answer": "eager"
+  },
+  {
+    "id": 3231,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "islaand",
+    "answer": "island"
+  },
+  {
+    "id": 3232,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "prrimary",
+    "answer": "primary"
+  },
+  {
+    "id": 3233,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "generrous",
+    "answer": "generous"
+  },
+  {
+    "id": 3234,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "poistion",
+    "answer": "position"
+  },
+  {
+    "id": 3235,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "educationn",
+    "answer": "education"
+  },
+  {
+    "id": 3236,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "pirsoner",
+    "answer": "prisoner"
+  },
+  {
+    "id": 3237,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "prmoise",
+    "answer": "promise"
+  },
+  {
+    "id": 3238,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "progrress",
+    "answer": "progress"
+  },
+  {
+    "id": 3239,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "ooccasion",
+    "answer": "occasion"
+  },
+  {
+    "id": 3240,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "severl",
+    "answer": "several"
+  },
+  {
+    "id": 3241,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "saandwich",
+    "answer": "sandwich"
+  },
+  {
+    "id": 3242,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "excat",
+    "answer": "exact"
+  },
+  {
+    "id": 3243,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "idsaster",
+    "answer": "disaster"
+  },
+  {
+    "id": 3244,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "quesstion",
+    "answer": "question"
+  },
+  {
+    "id": 3245,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "instrucct",
+    "answer": "instruct"
+  },
+  {
+    "id": 3246,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "proejct",
+    "answer": "project"
+  },
+  {
+    "id": 3247,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "appreicate",
+    "answer": "appreciate"
+  },
+  {
+    "id": 3248,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "mlilion",
+    "answer": "million"
+  },
+  {
+    "id": 3249,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "entertani",
+    "answer": "entertain"
+  },
+  {
+    "id": 3250,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "handlle",
+    "answer": "handle"
+  },
+  {
+    "id": 3251,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "brillaint",
+    "answer": "brilliant"
+  },
+  {
+    "id": 3252,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "cicrumstance",
+    "answer": "circumstance"
+  },
+  {
+    "id": 3253,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "opinon",
+    "answer": "opinion"
+  },
+  {
+    "id": 3254,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "graddual",
+    "answer": "gradual"
+  },
+  {
+    "id": 3255,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "librty",
+    "answer": "liberty"
+  },
+  {
+    "id": 3256,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "mentin",
+    "answer": "mention"
+  },
+  {
+    "id": 3257,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "gravvity",
+    "answer": "gravity"
+  },
+  {
+    "id": 3258,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "histoory",
+    "answer": "history"
+  },
+  {
+    "id": 3259,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "thhough",
+    "answer": "though"
+  },
+  {
+    "id": 3260,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "differnet",
+    "answer": "different"
+  },
+  {
+    "id": 3261,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "aabsence",
+    "answer": "absence"
+  },
+  {
+    "id": 3262,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "outsiide",
+    "answer": "outside"
+  },
+  {
+    "id": 3263,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "rpogram",
+    "answer": "program"
+  },
+  {
+    "id": 3264,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "poocket",
+    "answer": "pocket"
+  },
+  {
+    "id": 3265,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "paragrahp",
+    "answer": "paragraph"
+  },
+  {
+    "id": 3266,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "ntaion",
+    "answer": "nation"
+  },
+  {
+    "id": 3267,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "troubble",
+    "answer": "trouble"
+  },
+  {
+    "id": 3268,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "involvee",
+    "answer": "involve"
+  },
+  {
+    "id": 3269,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "employeee",
+    "answer": "employee"
+  },
+  {
+    "id": 3270,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "qualityy",
+    "answer": "quality"
+  },
+  {
+    "id": 3271,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "prretend",
+    "answer": "pretend"
+  },
+  {
+    "id": 3272,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "prpeare",
+    "answer": "prepare"
+  },
+  {
+    "id": 3273,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "pllanet",
+    "answer": "planet"
+  },
+  {
+    "id": 3274,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "reaason",
+    "answer": "reason"
+  },
+  {
+    "id": 3275,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "messgae",
+    "answer": "message"
+  },
+  {
+    "id": 3276,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "guses",
+    "answer": "guess"
+  },
+  {
+    "id": 3277,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "nistance",
+    "answer": "instance"
+  },
+  {
+    "id": 3278,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "picturre",
+    "answer": "picture"
+  },
+  {
+    "id": 3279,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "imaagine",
+    "answer": "imagine"
+  },
+  {
+    "id": 3280,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "sepcial",
+    "answer": "special"
+  },
+  {
+    "id": 3281,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "disccover",
+    "answer": "discover"
+  },
+  {
+    "id": 3282,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "hansdome",
+    "answer": "handsome"
+  },
+  {
+    "id": 3283,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "frieend",
+    "answer": "friend"
+  },
+  {
+    "id": 3284,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "lnguage",
+    "answer": "language"
+  },
+  {
+    "id": 3285,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "conveinent",
+    "answer": "convenient"
+  },
+  {
+    "id": 3286,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "throughh",
+    "answer": "through"
+  },
+  {
+    "id": 3287,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "ppattern",
+    "answer": "pattern"
+  },
+  {
+    "id": 3288,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "frequeent",
+    "answer": "frequent"
+  },
+  {
+    "id": 3289,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "aannual",
+    "answer": "annual"
+  },
+  {
+    "id": 3290,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "quentity",
+    "answer": "quantity"
+  },
+  {
+    "id": 3291,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "yestedray",
+    "answer": "yesterday"
+  },
+  {
+    "id": 3292,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "chooclate",
+    "answer": "chocolate"
+  },
+  {
+    "id": 3293,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "kitchhen",
+    "answer": "kitchen"
+  },
+  {
+    "id": 3294,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "physiical",
+    "answer": "physical"
+  },
+  {
+    "id": 3295,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "invetnion",
+    "answer": "invention"
+  },
+  {
+    "id": 3296,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "oriignal",
+    "answer": "original"
+  },
+  {
+    "id": 3297,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "orgainze",
+    "answer": "organize"
+  },
+  {
+    "id": 3298,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "investigatee",
+    "answer": "investigate"
+  },
+  {
+    "id": 3299,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "inittial",
+    "answer": "initial"
+  },
+  {
+    "id": 3300,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "nerovus",
+    "answer": "nervous"
+  },
+  {
+    "id": 3301,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "llocation",
+    "answer": "location"
+  },
+  {
+    "id": 3302,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "columnn",
+    "answer": "column"
+  },
+  {
+    "id": 3303,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "popluar",
+    "answer": "popular"
+  },
+  {
+    "id": 3304,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "innoecnt",
+    "answer": "innocent"
+  },
+  {
+    "id": 3305,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "insttrument",
+    "answer": "instrument"
+  },
+  {
+    "id": 3306,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "nationaal",
+    "answer": "national"
+  },
+  {
+    "id": 3307,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "ccommunity",
+    "answer": "community"
+  },
+  {
+    "id": 3308,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "porbably",
+    "answer": "probably"
+  },
+  {
+    "id": 3309,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "deliciouss",
+    "answer": "delicious"
+  },
+  {
+    "id": 3310,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "guiadnce",
+    "answer": "guidance"
+  },
+  {
+    "id": 3311,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "lauughter",
+    "answer": "laughter"
+  },
+  {
+    "id": 3312,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "howevre",
+    "answer": "however"
+  },
+  {
+    "id": 3313,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "unusula",
+    "answer": "unusual"
+  },
+  {
+    "id": 3314,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "prfect",
+    "answer": "perfect"
+  },
+  {
+    "id": 3315,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "prdouct",
+    "answer": "product"
+  },
+  {
+    "id": 3316,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "expplanation",
+    "answer": "explanation"
+  },
+  {
+    "id": 3317,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "thoughht",
+    "answer": "thought"
+  },
+  {
+    "id": 3318,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "itnelligent",
+    "answer": "intelligent"
+  },
+  {
+    "id": 3319,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "accompanyy",
+    "answer": "accompany"
+  },
+  {
+    "id": 3320,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "llisten",
+    "answer": "listen"
+  },
+  {
+    "id": 3321,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "comfortabble",
+    "answer": "comfortable"
+  },
+  {
+    "id": 3322,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "coollect",
+    "answer": "collect"
+  },
+  {
+    "id": 3323,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "poossible",
+    "answer": "possible"
+  },
+  {
+    "id": 3324,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "rmeember",
+    "answer": "remember"
+  },
+  {
+    "id": 3325,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "autunm",
+    "answer": "autumn"
+  },
+  {
+    "id": 3326,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "sciennce",
+    "answer": "science"
+  },
+  {
+    "id": 3327,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "oppositee",
+    "answer": "opposite"
+  },
+  {
+    "id": 3328,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "omvement",
+    "answer": "movement"
+  },
+  {
+    "id": 3329,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "cnogratulate",
+    "answer": "congratulate"
+  },
+  {
+    "id": 3330,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "knowledeg",
+    "answer": "knowledge"
+  },
+  {
+    "id": 3331,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "healthhy",
+    "answer": "healthy"
+  },
+  {
+    "id": 3332,
+    "subject": "english",
+    "category": "spelling",
+    "prompt": "describbe",
+    "answer": "describe"
+  }
 ]
