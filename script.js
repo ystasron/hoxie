@@ -6,9 +6,9 @@
 
 const DAILY_LIMIT = 20000;
 const RATE_PER_QUESTION = 0.07; // ₱ per correct answer
-const MIN_WITHDRAWAL = 100;     // ₱ minimum balance needed to withdraw
+const MIN_WITHDRAWAL = 100; // ₱ minimum balance needed to withdraw
 const REFERRAL_RATE_BONUS = 0.01; // ₱ added per question per referred friend
-const REFERRAL_PESO = 20;         // ₱ instantly earned per referral
+const REFERRAL_PESO = 20; // ₱ instantly earned per referral
 const COMMENT_RATE_BONUS = 0.005; // ₱ added per question per approved comment
 
 const CONFIG_OK =
@@ -18,7 +18,7 @@ let supabaseClient = null;
 if (CONFIG_OK) {
   supabaseClient = window.supabase.createClient(
     SUPABASE_CONFIG.url,
-    SUPABASE_CONFIG.anonKey
+    SUPABASE_CONFIG.anonKey,
   );
 }
 
@@ -31,18 +31,18 @@ if (CONFIG_OK) {
 // ------------------------------------------------------------
 // App state
 // ------------------------------------------------------------
-let currentUser = null;      // { id, email }
-let profile = null;          // profile row from Supabase
-let state = null;            // today's server tally { answered, correct }
-let currentQuestion = null;  // { id, question } issued by get_question RPC
+let currentUser = null; // { id, email }
+let profile = null; // profile row from Supabase
+let state = null; // today's server tally { answered, correct }
+let currentQuestion = null; // { id, question } issued by get_question RPC
 let busy = false;
-let withdrawals = [];        // withdrawal history from Supabase
+let withdrawals = []; // withdrawal history from Supabase
 let withdrawBusy = false;
-let commentLinks = [];       // comment link submissions from Supabase
+let commentLinks = []; // comment link submissions from Supabase
 let bountyBusy = false;
-let loginRewards = null;     // daily login reward state from get_login_rewards
-let helpTranscript = [];     // help chat history sent to the assistant
-let midnightTimer = null;    // real-time daily reset at 12:00 AM PHT
+let loginRewards = null; // daily login reward state from get_login_rewards
+let helpTranscript = []; // help chat history sent to the assistant
+let midnightTimer = null; // real-time daily reset at 12:00 AM PHT
 
 // ------------------------------------------------------------
 // DOM refs
@@ -93,7 +93,9 @@ const profileRank = document.getElementById("profileRank");
 const profileReferredBy = document.getElementById("profileReferredBy");
 const profileWithdrawal = document.getElementById("profileWithdrawal");
 const profileRedeemBtn = document.getElementById("profileRedeemBtn");
-const profileWithdrawSetupBtn = document.getElementById("profileWithdrawSetupBtn");
+const profileWithdrawSetupBtn = document.getElementById(
+  "profileWithdrawSetupBtn",
+);
 const withdrawBtn = document.getElementById("withdrawBtn");
 const withdrawView = document.getElementById("withdrawView");
 const withdrawBackBtn = document.getElementById("withdrawBackBtn");
@@ -167,7 +169,12 @@ const selectSubjectNote = document.getElementById("selectSubjectNote");
 let quizSubject = null;
 let quizCategory = null;
 let hasSelected = false;
-const BASE_RATES = { arithmetic: 0.07, algebra: 0.5, grammar: 0.3, spelling: 0.06 };
+const BASE_RATES = {
+  arithmetic: 0.07,
+  algebra: 0.5,
+  grammar: 0.3,
+  spelling: 0.06,
+};
 
 function focusAnswerInput() {
   // Do not force the mobile keyboard open when a view loads.
@@ -266,19 +273,26 @@ function setQuizMode(subject, category, { collapse = false } = {}) {
     card.classList.toggle("active", selected);
     card.setAttribute("aria-pressed", String(selected));
   });
-  categoryPicker.setAttribute("aria-label", `${subject === "math" ? "Math" : "English"} categories`);
+  categoryPicker.setAttribute(
+    "aria-label",
+    `${subject === "math" ? "Math" : "English"} categories`,
+  );
   const modeText = `${subject === "math" ? "Math" : "English"} · ${category[0].toUpperCase()}${category.slice(1)}`;
   modeCurrent.textContent = modeText;
   if (modeCurrentInline) modeCurrentInline.textContent = modeText;
   const textMode = subject === "english";
   questionLabel.textContent = textMode
     ? `Correct the ${category}`
-    : category === "algebra" ? "Solve for x" : "Solve the math problem";
+    : category === "algebra"
+      ? "Solve for x"
+      : "Solve the math problem";
   answerNote.hidden = category !== "grammar";
   answerInput.type = textMode ? "text" : "number";
   answerInput.inputMode = textMode ? "text" : "numeric";
   answerInput.classList.toggle("text-answer", textMode);
-  answerInput.placeholder = textMode ? "Type the correct answer" : "Your answer";
+  answerInput.placeholder = textMode
+    ? "Type the correct answer"
+    : "Your answer";
   currentQuestion = null;
   showFeedback("", "");
   if (collapse && currentUser && isActive()) {
@@ -300,9 +314,13 @@ function showSubjectCategories(subject) {
     card.classList.remove("active");
     card.setAttribute("aria-pressed", "false");
   });
-  categoryPicker.setAttribute("aria-label", `${subject === "math" ? "Math" : "English"} categories`);
+  categoryPicker.setAttribute(
+    "aria-label",
+    `${subject === "math" ? "Math" : "English"} categories`,
+  );
   modeCurrent.textContent = `Pick a ${subject === "math" ? "Math" : "English"} category`;
-  if (modeCurrentInline) modeCurrentInline.textContent = modeCurrent.textContent;
+  if (modeCurrentInline)
+    modeCurrentInline.textContent = modeCurrent.textContent;
 }
 
 function collapsePicker() {
@@ -330,12 +348,16 @@ updateBlurState();
 
 changeSubjectBtn.addEventListener("click", expandPicker);
 
-subjectCards.forEach((card) => card.addEventListener("click", () => {
-  showSubjectCategories(card.dataset.subject);
-}));
-categoryCards.forEach((card) => card.addEventListener("click", () => {
-  setQuizMode(quizSubject, card.dataset.category, { collapse: true });
-}));
+subjectCards.forEach((card) =>
+  card.addEventListener("click", () => {
+    showSubjectCategories(card.dataset.subject);
+  }),
+);
+categoryCards.forEach((card) =>
+  card.addEventListener("click", () => {
+    setQuizMode(quizSubject, card.dataset.category, { collapse: true });
+  }),
+);
 
 function setAuthMsg(message, kind) {
   authMsg.textContent = message;
@@ -362,10 +384,14 @@ function friendlyAuthError(message) {
     return "Email login is disabled in your Supabase project. Enable it: Authentication → Providers → Email.";
   if (m.includes("email signups are disabled"))
     return "Email signup is disabled in your Supabase project. Enable it: Authentication → Providers → Email.";
-  if (m.includes("invalid login credentials")) return "Wrong email or password.";
-  if (m.includes("already registered")) return "That email is already registered. Try logging in.";
-  if (m.includes("email not confirmed")) return "Please confirm your email first (check your inbox).";
-  if (m.includes("rate limit")) return "Too many attempts. Wait a moment and try again.";
+  if (m.includes("invalid login credentials"))
+    return "Wrong email or password.";
+  if (m.includes("already registered"))
+    return "That email is already registered. Try logging in.";
+  if (m.includes("email not confirmed"))
+    return "Please confirm your email first (check your inbox).";
+  if (m.includes("rate limit"))
+    return "Too many attempts. Wait a moment and try again.";
   return message;
 }
 
@@ -382,7 +408,11 @@ function manilaDateParts() {
   }).formatToParts(new Date());
   const map = {};
   for (const p of parts) map[p.type] = p.value;
-  return { year: Number(map.year), month: Number(map.month), day: Number(map.day) };
+  return {
+    year: Number(map.year),
+    month: Number(map.month),
+    day: Number(map.day),
+  };
 }
 
 function todayKey() {
@@ -394,8 +424,7 @@ function todayKey() {
 // can roll over in real time even if the page stays open overnight.
 function msUntilManilaMidnight() {
   const { year, month, day } = manilaDateParts();
-  const nextMidnightUtc =
-    Date.UTC(year, month - 1, day + 1) - 8 * 3600 * 1000; // Manila = UTC+8
+  const nextMidnightUtc = Date.UTC(year, month - 1, day + 1) - 8 * 3600 * 1000; // Manila = UTC+8
   return nextMidnightUtc - Date.now();
 }
 
@@ -421,7 +450,10 @@ function scheduleMidnightRefresh() {
       syncDailyTally();
       nextQuestion();
       feedbackEl.className = "feedback";
-      showFeedback(`🌅 New day! Your ${DAILY_LIMIT.toLocaleString()}-question limit has reset.`, "");
+      showFeedback(
+        `🌅 New day! Your ${DAILY_LIMIT.toLocaleString()}-question limit has reset.`,
+        "",
+      );
     }
     // Refresh today's login-reward state so the Bounty red dot (and an
     // open reward card) flip over exactly at midnight, not on next load.
@@ -442,7 +474,11 @@ function loadState() {
   try {
     const raw = JSON.parse(localStorage.getItem(storageKey()));
     if (raw && raw.date === todayKey()) {
-      return { date: raw.date, answered: raw.answered || 0, correct: raw.correct || 0 };
+      return {
+        date: raw.date,
+        answered: raw.answered || 0,
+        correct: raw.correct || 0,
+      };
     }
   } catch (e) {
     /* corrupted storage — start fresh */
@@ -469,7 +505,10 @@ function formatRate(rate) {
 
 // The user's effective rate = base rate + permanent bounty bonus.
 function effectiveRate() {
-  return (BASE_RATES[quizCategory] || RATE_PER_QUESTION) + Number(profile && profile.rate_bonus ? profile.rate_bonus : 0);
+  return (
+    (BASE_RATES[quizCategory] || RATE_PER_QUESTION) +
+    Number(profile && profile.rate_bonus ? profile.rate_bonus : 0)
+  );
 }
 
 // ------------------------------------------------------------
@@ -544,7 +583,9 @@ function leaveQuiz() {
 async function loadProfile() {
   const { data, error } = await supabaseClient
     .from("profiles")
-    .select("id, email, current_points, total_points, name, account_status, birthday, created_at, withdrawal_method, gcash_number, referral_code, rate_bonus, referred_by, referral_count")
+    .select(
+      "id, email, current_points, total_points, name, account_status, birthday, created_at, withdrawal_method, gcash_number, referral_code, rate_bonus, referred_by, referral_count",
+    )
     .eq("id", currentUser.id)
     .maybeSingle();
 
@@ -580,7 +621,7 @@ async function loadProfile() {
     .from("profiles")
     .upsert(
       { id: currentUser.id, email: currentUser.email },
-      { onConflict: "id", ignoreDuplicates: true }
+      { onConflict: "id", ignoreDuplicates: true },
     );
   if (insErr) console.warn("Profile create failed:", insErr.message);
   profile = {
@@ -632,7 +673,10 @@ loginForm.addEventListener("submit", async (e) => {
   }
 
   setAuthMsg("Logging in…", "");
-  const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+  const { error } = await supabaseClient.auth.signInWithPassword({
+    email,
+    password,
+  });
   if (error) {
     setAuthMsg(friendlyAuthError(error.message), "error");
     return;
@@ -670,7 +714,7 @@ signupForm.addEventListener("submit", async (e) => {
     // Email confirmation is enabled — the user must confirm first.
     setAuthMsg(
       "Account created! Check your email to confirm, then log in.",
-      "success"
+      "success",
     );
     loginEmail.value = email;
     switchTab("login");
@@ -681,14 +725,15 @@ signupForm.addEventListener("submit", async (e) => {
 
 googleBtn.addEventListener("click", async () => {
   const isHttp =
-    window.location.protocol === "http:" || window.location.protocol === "https:";
+    window.location.protocol === "http:" ||
+    window.location.protocol === "https:";
 
   if (!isHttp) {
     // OAuth cannot redirect back to a file:// page — the app must be
     // served over http(s) for Google sign-in to work.
     setAuthMsg(
       "Google sign-in needs the app served over http(s). Run a local server (e.g. `npx serve`) and whitelist its URL in Supabase → Auth → URL Configuration → Redirect URLs.",
-      "error"
+      "error",
     );
     return;
   }
@@ -736,7 +781,10 @@ function setProfileMsg(message, kind) {
 }
 
 async function openProfile() {
-  if (!isActive()) { showSubscribe(); return; }
+  if (!isActive()) {
+    showSubscribe();
+    return;
+  }
   await loadProfile(); // refresh points + profile fields from Supabase
   showProfile();
   renderProfile();
@@ -753,7 +801,8 @@ async function refreshProfileExtras() {
   if (supabaseClient && currentUser) {
     const { data: lb } = await supabaseClient.rpc("get_leaderboard");
     const rank = Number((lb && lb.me && lb.me.rank) || 0);
-    profileRank.textContent = rank > 0 ? `#${rank.toLocaleString()}` : "Unranked";
+    profileRank.textContent =
+      rank > 0 ? `#${rank.toLocaleString()}` : "Unranked";
   }
 
   // Referred by — show the referrer's name, or a CTA to redeem a code.
@@ -839,13 +888,16 @@ profileWithdrawSetupBtn.addEventListener("click", () => {
 // Function (the API key stays server-side in function secrets).
 // ------------------------------------------------------------
 function openHelp() {
-  if (!isActive()) { showSubscribe(); return; }
+  if (!isActive()) {
+    showSubscribe();
+    return;
+  }
   showHelp();
   if (helpMessages.children.length === 0) {
     helpTranscript = [];
     addHelpBubble(
-      "Hi! I'm the Hoxiee assistant. Ask me about earning, your balance, withdrawals, referrals — or anything else.",
-      "bot"
+      "Hi! I'm the Hoxiee assistant. Ask me about earning, your balance, withdrawals, referrals, or anything else.",
+      "bot",
     );
   }
 }
@@ -862,10 +914,18 @@ function scrollHelpToBottom() {
   helpMessages.scrollTop = helpMessages.scrollHeight;
 }
 
+function parseMarkdown(text) {
+  return text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+}
+
 function addHelpBubble(text, kind) {
   const bubble = document.createElement("div");
   bubble.className = "help-msg " + kind;
-  bubble.textContent = text;
+  if (kind === "bot" || kind === "error") {
+    bubble.innerHTML = parseMarkdown(text);
+  } else {
+    bubble.textContent = text;
+  }
   helpMessages.appendChild(bubble);
   scrollHelpToBottom();
   return bubble;
@@ -885,7 +945,7 @@ helpForm.addEventListener("submit", async (e) => {
   if (!endpoint) {
     addHelpBubble(
       "Help isn't configured yet. Deploy the help-ai function first.",
-      "error"
+      "error",
     );
     return;
   }
@@ -909,7 +969,10 @@ helpForm.addEventListener("submit", async (e) => {
     const { data: sessionData } = await supabaseClient.auth.getSession();
     let session = sessionData && sessionData.session;
     if (!session) {
-      addHelpBubble("No active session. Sign out and sign back in, then try again.", "error");
+      addHelpBubble(
+        "No active session. Sign out and sign back in, then try again.",
+        "error",
+      );
       return;
     }
     const expiresAt = (session.expires_at || 0) * 1000;
@@ -947,7 +1010,10 @@ helpForm.addEventListener("submit", async (e) => {
     }
   } catch (netErr) {
     typing.remove();
-    addHelpBubble("Couldn't reach the assistant. Check your connection and try again.", "error");
+    addHelpBubble(
+      "Couldn't reach the assistant. Check your connection and try again.",
+      "error",
+    );
   } finally {
     helpSendBtn.disabled = false;
     helpInput.focus();
@@ -971,7 +1037,7 @@ function renderProfile() {
   statusBadge.textContent = statusLabel(profile.account_status);
   statusBadge.classList.toggle(
     "status-inactive",
-    profile.account_status !== "active"
+    profile.account_status !== "active",
   );
   profileJoined.textContent = formatDate(profile.created_at);
   profilePointsEl.textContent = formatPeso(profile.total_points);
@@ -1002,8 +1068,11 @@ function setWithdrawMsg(message, kind) {
 }
 
 async function openWithdraw() {
-  if (!isActive()) { showSubscribe(); return; }
-  await loadProfile();  // refresh current balance
+  if (!isActive()) {
+    showSubscribe();
+    return;
+  }
+  await loadProfile(); // refresh current balance
   await loadWithdrawals();
   showWithdraw();
   renderWithdraw();
@@ -1057,7 +1126,7 @@ function renderWithdrawAction(balance) {
   withdrawMinNote.textContent =
     balance < MIN_WITHDRAWAL
       ? `Minimum withdrawal is ${formatPeso(MIN_WITHDRAWAL)} — you need ${formatPeso(
-          MIN_WITHDRAWAL - balance
+          MIN_WITHDRAWAL - balance,
         )} more to withdraw.`
       : "This withdraws your full current balance.";
 }
@@ -1067,7 +1136,8 @@ function renderWithdrawAction(balance) {
 function withdrawalStatusKind(status) {
   const s = String(status || "").toLowerCase();
   if (["success", "completed", "paid", "done"].includes(s)) return "success";
-  if (["failed", "rejected", "cancelled", "canceled"].includes(s)) return "failed";
+  if (["failed", "rejected", "cancelled", "canceled"].includes(s))
+    return "failed";
   return "pending";
 }
 
@@ -1098,7 +1168,8 @@ function renderHistory() {
     left.append(amount, meta);
 
     const status = document.createElement("span");
-    status.className = "history-status history-status-" + withdrawalStatusKind(w.status);
+    status.className =
+      "history-status history-status-" + withdrawalStatusKind(w.status);
     status.textContent = statusLabel(w.status);
 
     row.append(left, status);
@@ -1116,7 +1187,7 @@ withdrawForm.addEventListener("submit", async (e) => {
   if (!/^09\d{9}$/.test(digits)) {
     setWithdrawMsg(
       "Enter a valid GCash number — 11 digits starting with 09.",
-      "error"
+      "error",
     );
     return;
   }
@@ -1145,7 +1216,7 @@ requestWithdrawBtn.addEventListener("click", async () => {
   if (balance < MIN_WITHDRAWAL) {
     setWithdrawMsg(
       `Minimum withdrawal is ${formatPeso(MIN_WITHDRAWAL)}.`,
-      "error"
+      "error",
     );
     return;
   }
@@ -1166,7 +1237,7 @@ requestWithdrawBtn.addEventListener("click", async () => {
     if (m.includes("minimum withdrawal")) {
       setWithdrawMsg(
         `Minimum withdrawal is ${formatPeso(MIN_WITHDRAWAL)}.`,
-        "error"
+        "error",
       );
     } else if (m.includes("insufficient")) {
       setWithdrawMsg("Insufficient balance for this withdrawal.", "error");
@@ -1179,7 +1250,10 @@ requestWithdrawBtn.addEventListener("click", async () => {
   await loadProfile();
   await loadWithdrawals();
   renderWithdraw();
-  setWithdrawMsg(`✅ ${formatPeso(balance)} withdrawn successfully!`, "success");
+  setWithdrawMsg(
+    `✅ ${formatPeso(balance)} withdrawn successfully!`,
+    "success",
+  );
 });
 
 // ------------------------------------------------------------
@@ -1187,7 +1261,10 @@ requestWithdrawBtn.addEventListener("click", async () => {
 // earners by lifetime points, plus the caller's own rank.
 // ------------------------------------------------------------
 async function openLeaderboard() {
-  if (!isActive()) { showSubscribe(); return; }
+  if (!isActive()) {
+    showSubscribe();
+    return;
+  }
   await loadProfile(); // fresh points for the user's row
   showLeaderboard();
   await renderLeaderboard();
@@ -1346,9 +1423,12 @@ async function renderLeaderboard() {
 // Gentle count-up for leaderboard totals. Respects reduced motion.
 function countUp(el, to, delayMs) {
   const reduced =
-    window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const duration = reduced ? 0 : 700;
-  const set = (v) => { el.textContent = formatPeso(v); };
+  const set = (v) => {
+    el.textContent = formatPeso(v);
+  };
   setTimeout(() => {
     if (duration === 0) {
       set(to);
@@ -1394,7 +1474,10 @@ async function loadCommentLinks() {
 }
 
 async function openBounty() {
-  if (!isActive()) { showSubscribe(); return; }
+  if (!isActive()) {
+    showSubscribe();
+    return;
+  }
   await loadProfile(); // fresh points, rate bonus, referral fields
   await loadCommentLinks();
   await loadLoginRewards();
@@ -1491,16 +1574,21 @@ rewardClaimBtn.addEventListener("click", async () => {
   if (data && data.seventh) {
     setBountyMsg(
       "🎉 Day 7! ₱3.00 claimed and +₱0.003 added to your rate per question.",
-      "success"
+      "success",
     );
   } else {
-    setBountyMsg("✅ ₱3.00 claimed! Come back tomorrow for another.", "success");
+    setBountyMsg(
+      "✅ ₱3.00 claimed! Come back tomorrow for another.",
+      "success",
+    );
   }
 });
 
 function renderBounty() {
   bountyCode.textContent = profile.referral_code || "—";
-  bountyReferralCount.textContent = Number(profile.referral_count || 0).toLocaleString();
+  bountyReferralCount.textContent = Number(
+    profile.referral_count || 0,
+  ).toLocaleString();
   bountyRedeemBox.hidden = !!profile.referred_by;
   bountyRedeemedNote.hidden = !profile.referred_by;
   renderCommentHistory();
@@ -1534,7 +1622,8 @@ function renderCommentHistory() {
     left.append(link, meta);
 
     const status = document.createElement("span");
-    status.className = "history-status history-status-" + withdrawalStatusKind(c.status);
+    status.className =
+      "history-status history-status-" + withdrawalStatusKind(c.status);
     status.textContent = statusLabel(c.status);
 
     row.append(left, status);
@@ -1555,7 +1644,10 @@ bountyCopyBtn.addEventListener("click", async () => {
       bountyCopyBtn.textContent = "Copy";
     }, 1500);
   } catch (e) {
-    setBountyMsg("Couldn't copy automatically — select the code to copy it.", "error");
+    setBountyMsg(
+      "Couldn't copy automatically — select the code to copy it.",
+      "error",
+    );
   }
 });
 
@@ -1572,7 +1664,9 @@ bountyRedeemForm.addEventListener("submit", async (e) => {
   bountyRedeemBtn.disabled = true;
   bountyRedeemBtn.textContent = "Redeeming…";
 
-  const { error } = await supabaseClient.rpc("redeem_referral", { p_code: code });
+  const { error } = await supabaseClient.rpc("redeem_referral", {
+    p_code: code,
+  });
 
   bountyBusy = false;
   if (error) {
@@ -1593,7 +1687,10 @@ bountyRedeemForm.addEventListener("submit", async (e) => {
 
   await loadProfile();
   renderBounty();
-  setBountyMsg("✅ Referral code accepted! +₱20.00 added to your balance.", "success");
+  setBountyMsg(
+    "✅ Referral code accepted! +₱20.00 added to your balance.",
+    "success",
+  );
   showRedeemModal();
 });
 
@@ -1625,7 +1722,7 @@ async function loadNotices() {
     .from("system_notices")
     .select("id, emoji, title, text, posted_at")
     .order("id", { ascending: false });
-  systemNotices = error ? [] : (data || []);
+  systemNotices = error ? [] : data || [];
   updateNoticeDot();
 }
 
@@ -1661,20 +1758,24 @@ function updateNoticeDot() {
 }
 
 function escapeHtml(s) {
-  return String(s).replace(/[&<>"']/g, (c) => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;",
-  }[c]));
+  return String(s).replace(
+    /[&<>"']/g,
+    (c) =>
+      ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;",
+      })[c],
+  );
 }
 
 // [label](url) becomes a styled, safe-to-open link.
 function linkifyNotice(text) {
   return escapeHtml(text).replace(
     /\[([^\]]+)\]\((https?:\/\/[^)\s]+|mailto:[^)\s]+)\)/g,
-    '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+    '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>',
   );
 }
 
@@ -1752,7 +1853,10 @@ function renderNoticeTimeline() {
 }
 
 async function openNotifications() {
-  if (!isActive()) { showSubscribe(); return; }
+  if (!isActive()) {
+    showSubscribe();
+    return;
+  }
   await loadNotices();
   renderNoticeTimeline();
   noticeModal.hidden = false;
@@ -1788,7 +1892,10 @@ bountyCommentForm.addEventListener("submit", async (e) => {
   if (bountyBusy) return;
   const url = bountyCommentLink.value.trim();
   if (!/^https?:\/\//i.test(url)) {
-    setBountyMsg("Enter a valid link starting with http:// or https://.", "error");
+    setBountyMsg(
+      "Enter a valid link starting with http:// or https://.",
+      "error",
+    );
     return;
   }
 
@@ -1810,12 +1917,18 @@ bountyCommentForm.addEventListener("submit", async (e) => {
 
   await loadCommentLinks();
   renderCommentHistory();
-  setBountyMsg("✅ Link submitted! Once approved, your rate goes up +₱0.005.", "success");
+  setBountyMsg(
+    "✅ Link submitted! Once approved, your rate goes up +₱0.005.",
+    "success",
+  );
 });
 
 profileForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  if (!isActive()) { showSubscribe(); return; }
+  if (!isActive()) {
+    showSubscribe();
+    return;
+  }
   const name = profileNameInput.value.trim();
   const birthday = profileBirthdayInput.value || null;
 
@@ -1848,10 +1961,14 @@ function render() {
     totalPointsEl.classList.add("pulse");
   }
   totalPointsEl.textContent = total;
-  currentPointsEl.textContent = formatPeso(profile ? profile.current_points : 0);
+  currentPointsEl.textContent = formatPeso(
+    profile ? profile.current_points : 0,
+  );
   pointsTodayEl.textContent = formatPeso(pointsToday());
   const baseRate = BASE_RATES[quizCategory] || RATE_PER_QUESTION;
-  const bonusRate = Number(profile && profile.rate_bonus ? profile.rate_bonus : 0);
+  const bonusRate = Number(
+    profile && profile.rate_bonus ? profile.rate_bonus : 0,
+  );
   baseRateStat.textContent = formatRate(baseRate);
   bonusRateStat.textContent = formatRate(bonusRate);
   overallRateStat.textContent = formatRate(baseRate + bonusRate);
@@ -1880,15 +1997,26 @@ async function nextQuestion() {
     p_category: quizCategory,
   });
   if (error || !data) {
-    showFeedback("Couldn't load the next question: " + (error ? error.message : "empty response"), "wrong");
+    showFeedback(
+      "Couldn't load the next question: " +
+        (error ? error.message : "empty response"),
+      "wrong",
+    );
     console.warn("get_question failed:", error && error.message);
     return;
   }
-  currentQuestion = { token: data.token, payload: data.payload, text: data.question };
-  questionEl.innerHTML = quizSubject === "math"
-    ? currentQuestion.text.replace(/(\S+)\s*\/\s*(\S+)/g,
-        '<span class="fraction"><span class="numerator">$1</span><span class="denominator">$2</span></span>')
-    : currentQuestion.text;
+  currentQuestion = {
+    token: data.token,
+    payload: data.payload,
+    text: data.question,
+  };
+  questionEl.innerHTML =
+    quizSubject === "math"
+      ? currentQuestion.text.replace(
+          /(\S+)\s*\/\s*(\S+)/g,
+          '<span class="fraction"><span class="numerator">$1</span><span class="denominator">$2</span></span>',
+        )
+      : currentQuestion.text;
   answerInput.value = "";
   // Turn the question in gently when a new problem appears.
   questionEl.classList.remove("q-enter");
@@ -1911,7 +2039,8 @@ answerForm.addEventListener("submit", async (e) => {
   if (busy || !state || !isActive() || limitReached()) return;
 
   const value = answerInput.value.trim();
-  if (value === "" || (quizSubject === "math" && Number.isNaN(Number(value)))) return;
+  if (value === "" || (quizSubject === "math" && Number.isNaN(Number(value))))
+    return;
   if (!currentQuestion) return;
 
   busy = true;
@@ -1924,7 +2053,10 @@ answerForm.addEventListener("submit", async (e) => {
   });
 
   if (error || !data) {
-    showFeedback("Couldn't submit: " + (error ? error.message : "empty response"), "wrong");
+    showFeedback(
+      "Couldn't submit: " + (error ? error.message : "empty response"),
+      "wrong",
+    );
     console.warn("submit_answer failed:", error && error.message);
     busy = false;
     submitBtn.disabled = false;
@@ -1953,7 +2085,7 @@ answerForm.addEventListener("submit", async (e) => {
   if (limitReached()) {
     showFeedback(
       `🎉 You've reached today's limit of ${DAILY_LIMIT.toLocaleString()} questions. Come back tomorrow!`,
-      "limit"
+      "limit",
     );
     answerInput.disabled = true;
     submitBtn.disabled = true;
@@ -1975,7 +2107,7 @@ answerForm.addEventListener("submit", async (e) => {
 if (!supabaseClient) {
   setAuthMsg(
     "⚠️ Supabase not configured. Open config.js and paste your Project URL and anon key.",
-    "error"
+    "error",
   );
   showAuth();
 } else {
