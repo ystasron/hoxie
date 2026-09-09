@@ -162,6 +162,12 @@ let quizSubject = "math";
 let quizCategory = "arithmetic";
 const BASE_RATES = { arithmetic: 0.07, algebra: 0.5, grammar: 0.3, spelling: 0.06 };
 
+function focusAnswerInput() {
+  // Do not force the mobile keyboard open when a view loads.
+  if (window.matchMedia("(pointer: coarse)").matches) return;
+  answerInput.focus();
+}
+
 // ------------------------------------------------------------
 // View switching
 // ------------------------------------------------------------
@@ -441,7 +447,7 @@ async function enterQuiz(user) {
   render();
   await syncDailyTally(); // server-authoritative daily count
   nextQuestion();
-  answerInput.focus();
+  focusAnswerInput();
 }
 
 // Pull today's server-side tally so the progress bar reflects reality
@@ -797,7 +803,7 @@ function closeHelp() {
   quizView.hidden = false;
   fadeIn(quizView);
   render();
-  answerInput.focus();
+  focusAnswerInput();
 }
 
 function scrollHelpToBottom() {
@@ -901,7 +907,7 @@ function closeProfile() {
   quizView.hidden = false;
   fadeIn(quizView);
   render();
-  answerInput.focus();
+  focusAnswerInput();
 }
 
 function renderProfile() {
@@ -956,7 +962,7 @@ function closeWithdraw() {
   quizView.hidden = false;
   fadeIn(quizView);
   render();
-  answerInput.focus();
+  focusAnswerInput();
 }
 
 async function loadWithdrawals() {
@@ -1140,7 +1146,7 @@ function closeLeaderboard() {
   quizView.hidden = false;
   fadeIn(quizView);
   render();
-  answerInput.focus();
+  focusAnswerInput();
 }
 
 function joinedLabel(ts) {
@@ -1350,7 +1356,7 @@ function closeBounty() {
   quizView.hidden = false;
   fadeIn(quizView);
   render();
-  answerInput.focus();
+  focusAnswerInput();
 }
 
 // ------------------------------------------------------------

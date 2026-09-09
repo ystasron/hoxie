@@ -1937,14 +1937,18 @@ select.auth-input option {
 
 @media (max-width: 640px) {
   body {
-    padding: 20px 14px;
+    padding: 14px 12px;
     padding-top: max(20px, env(safe-area-inset-top));
     padding-bottom: max(20px, env(safe-area-inset-bottom));
   }
 
   .topbar {
     gap: 10px;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
+  }
+
+  .brand-logo {
+    height: 30px;
   }
 
   .user-bar {
@@ -1968,15 +1972,61 @@ select.auth-input option {
   .stats {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-bottom: 14px;
+    gap: 8px;
+    margin-bottom: 12px;
   }
 
   .stat-group {
     flex-basis: 100%;
+    gap: 0;
+    border-radius: 14px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .stat-group .stat {
+    padding: 10px 9px;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .stat-group .stat-label {
+    max-width: 100%;
+    font-size: 0.56rem;
+    letter-spacing: 0.025em;
+    line-height: 1.2;
+    white-space: normal;
+  }
+
+  .stat-group .stat-value {
+    max-width: 100%;
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+
+  .stat-group .stat-secondary .stat-label,
+  .stat-group .stat-secondary .stat-value {
+    font-size: 0.62rem;
+  }
+
+  .stat-group .stat-overall .stat-label {
+    color: var(--accent);
   }
 
   .stat-questions {
+    align-items: center;
+    padding: 10px 14px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .stat-questions .stat-value {
+    font-size: 0.9rem;
+  }
+
+  .stat-questions {
+    display: flex;
     grid-column: 1 / -1;
     justify-self: stretch;
   }
@@ -1990,7 +2040,67 @@ select.auth-input option {
   }
 
   .card {
-    padding: 26px 20px;
+    padding: 28px 16px 22px;
+    border-radius: 18px;
+  }
+
+  .mode-picker {
+    margin-bottom: 12px;
+    padding: 15px;
+    border-radius: 16px;
+  }
+
+  .mode-picker-head {
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+
+  .mode-picker-head h2 {
+    font-size: 1.15rem;
+  }
+
+  .mode-current {
+    font-size: 0.76rem;
+  }
+
+  .subject-cards,
+  .category-picker {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .subject-card,
+  .category-card {
+    min-height: 52px;
+  }
+
+  .subject-card {
+    padding: 9px 10px;
+    gap: 8px;
+  }
+
+  .subject-card small,
+  .category-card small {
+    font-size: 0.67rem;
+  }
+
+  .subject-icon {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+  }
+
+  .category-card {
+    padding: 9px 8px;
+  }
+
+  .category-card strong {
+    font-size: 0.82rem;
+  }
+
+  .rate-pill {
+    padding: 2px 5px;
+    font-size: 0.61rem;
   }
 
   .auth-card {
@@ -2013,12 +2123,32 @@ select.auth-input option {
   }
 
   .question-box {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
+  }
+
+  .question-label {
+    font-size: 0.68rem;
+    margin-bottom: 10px;
+  }
+
+  .question {
+    font-size: clamp(2rem, 11vw, 3rem);
+    overflow-wrap: anywhere;
+  }
+
+  .answer-note {
+    font-size: 0.72rem;
+    line-height: 1.4;
   }
 
   .feedback {
-    min-height: 46px;
-    padding: 12px 10px;
+    min-height: 42px;
+    padding: 11px 10px;
+  }
+
+  .footnote {
+    margin-top: 12px;
+    font-size: 0.7rem;
   }
 
   .section-title {
