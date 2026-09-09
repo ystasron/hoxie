@@ -326,6 +326,61 @@ body {
 .rate-pill { display: inline-block; margin-left: 5px; padding: 2px 7px; color: var(--accent); background: var(--surface); border: 1px solid var(--accent); border-radius: 999px; font-size: .7rem; font-weight: 700; vertical-align: 1px; }
 .answer-note { margin: 0 0 8px; color: var(--muted); font-size: .78rem; }
 
+/* Mode picker collapse / expand */
+.mode-picker-body {
+  overflow: hidden;
+  max-height: 220px;
+  opacity: 1;
+  transition: max-height 0.35s var(--ease-out), opacity 0.25s ease;
+}
+.mode-picker-body.collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+.change-subject-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  background: var(--surface-inset);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: .88rem;
+  cursor: pointer;
+  transition: border-color .15s ease, background .15s ease;
+}
+.change-subject-btn:hover {
+  border-color: var(--accent);
+  background: var(--accent-glow);
+}
+.change-subject-label {
+  color: var(--accent);
+  font-weight: 700;
+}
+.mode-current--inline {
+  color: var(--muted);
+  font-size: .82rem;
+  margin-left: auto;
+}
+
+/* No-selection blur states */
+.rates-group.blurred,
+.card.blurred {
+  filter: blur(4px);
+  pointer-events: none;
+  transition: filter 0.3s ease;
+}
+.select-subject-note {
+  text-align: center;
+  padding: 18px 0;
+  color: var(--muted);
+  font-size: .88rem;
+}
+
 .topbar {
   display: flex;
   align-items: center;
@@ -412,6 +467,77 @@ body {
   min-width: 0;
   border: 0;
   border-radius: 0;
+}
+
+.earnings-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0;
+  position: relative;
+}
+
+.earnings-group::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 7%;
+  left: 7%;
+  border-top: 1px solid var(--border-soft);
+}
+
+.earnings-group .stat {
+  align-items: flex-start;
+  justify-content: center;
+  padding: 17px 20px;
+}
+
+.earnings-group .earnings-today,
+.earnings-group .earnings-withdraw {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.earnings-group .stat-value {
+  color: var(--accent);
+  font-size: 1.45rem;
+}
+
+.earnings-withdraw {
+  cursor: default;
+}
+
+.earnings-withdraw .withdraw-btn {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: transparent;
+  border: 0;
+}
+
+.earnings-withdraw .withdraw-btn:hover {
+  color: var(--accent-hover, var(--accent));
+}
+
+.rates-group {
+  display: grid;
+  align-self: start;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto auto;
+}
+
+.rates-group .stat-overall {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--border-soft);
+}
+
+.rates-group .stat {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .stat-secondary .stat-label,
@@ -510,6 +636,23 @@ body {
   line-height: 1.1;
   letter-spacing: -0.01em;
   font-variant-numeric: tabular-nums;
+}
+
+.fraction {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  font-size: 0.6em;
+  line-height: 1.1;
+  margin: 0 0.15em;
+}
+.fraction .numerator {
+  border-bottom: 2px solid currentColor;
+  padding: 0 0.3em 0.15em;
+}
+.fraction .denominator {
+  padding: 0.15em 0.3em 0;
 }
 
 .answer-input.text-answer { font-variant-numeric: normal; }
@@ -1984,6 +2127,39 @@ select.auth-input option {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .earnings-group .stat {
+    padding: 14px 12px;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+  }
+
+  .earnings-group {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rates-group {
+    align-self: start;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .earnings-group .earnings-today,
+  .earnings-group .earnings-withdraw {
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .earnings-group .stat-value,
+  .earnings-withdraw .withdraw-btn {
+    font-size: 1.05rem;
+    white-space: nowrap;
+  }
+
+  .earnings-group .stat-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.03em;
+  }
+
   .stat-group .stat {
     padding: 10px 9px;
     align-items: center;
@@ -2029,6 +2205,22 @@ select.auth-input option {
     display: flex;
     grid-column: 1 / -1;
     justify-self: stretch;
+  }
+
+  .earnings-group .stat {
+    align-items: flex-start;
+    text-align: left;
+    padding: 14px 12px;
+  }
+
+  .earnings-group .earnings-today,
+  .earnings-group .earnings-withdraw {
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .earnings-group .earnings-withdraw {
+    overflow: visible;
   }
 
   .withdraw-btn {

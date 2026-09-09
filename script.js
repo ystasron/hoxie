@@ -157,9 +157,16 @@ const answerNote = document.getElementById("answerNote");
 const categoryPicker = document.getElementById("categoryPicker");
 const subjectCards = [...document.querySelectorAll(".subject-card")];
 const categoryCards = [...document.querySelectorAll(".category-card")];
+const modePickerBody = document.getElementById("modePickerBody");
+const changeSubjectBtn = document.getElementById("changeSubjectBtn");
+const modeCurrentInline = document.getElementById("modeCurrentInline");
+const ratesGroup = document.getElementById("ratesGroup");
+const quizCard = document.getElementById("quizCard");
+const selectSubjectNote = document.getElementById("selectSubjectNote");
 
-let quizSubject = "math";
-let quizCategory = "arithmetic";
+let quizSubject = null;
+let quizCategory = null;
+let hasSelected = false;
 const BASE_RATES = { arithmetic: 0.07, algebra: 0.5, grammar: 0.3, spelling: 0.06 };
 
 function focusAnswerInput() {
@@ -244,9 +251,10 @@ function showHelp() {
   helpInput.focus();
 }
 
-function setQuizMode(subject, category) {
+function setQuizMode(subject, category, { collapse = false } = {}) {
   quizSubject = subject;
   quizCategory = category;
+  if (collapse) hasSelected = true;
   subjectCards.forEach((card) => {
     const selected = card.dataset.subject === subject;
     card.classList.toggle("active", selected);
@@ -259,7 +267,9 @@ function setQuizMode(subject, category) {
     card.setAttribute("aria-pressed", String(selected));
   });
   categoryPicker.setAttribute("aria-label", `${subject === "math" ? "Math" : "English"} categories`);
-  modeCurrent.textContent = `${subject === "math" ? "Math" : "English"} · ${category[0].toUpperCase()}${category.slice(1)}`;
+  const modeText = `${subject === "math" ? "Math" : "English"} · ${category[0].toUpperCase()}${category.slice(1)}`;
+  modeCurrent.textContent = modeText;
+  if (modeCurrentInline) modeCurrentInline.textContent = modeText;
   const textMode = subject === "english";
   questionLabel.textContent = textMode
     ? `Correct the ${category}`
@@ -271,18 +281,60 @@ function setQuizMode(subject, category) {
   answerInput.placeholder = textMode ? "Type the correct answer" : "Your answer";
   currentQuestion = null;
   showFeedback("", "");
-  if (currentUser && isActive()) {
+  if (collapse && currentUser && isActive()) {
     render();
     nextQuestion();
   }
+  if (collapse) collapsePicker();
 }
 
+function showSubjectCategories(subject) {
+  quizSubject = subject;
+  subjectCards.forEach((card) => {
+    const selected = card.dataset.subject === subject;
+    card.classList.toggle("active", selected);
+    card.setAttribute("aria-pressed", String(selected));
+  });
+  categoryCards.forEach((card) => {
+    card.hidden = card.dataset.subject !== subject;
+    card.classList.remove("active");
+    card.setAttribute("aria-pressed", "false");
+  });
+  categoryPicker.setAttribute("aria-label", `${subject === "math" ? "Math" : "English"} categories`);
+  modeCurrent.textContent = `Pick a ${subject === "math" ? "Math" : "English"} category`;
+  if (modeCurrentInline) modeCurrentInline.textContent = modeCurrent.textContent;
+}
+
+function collapsePicker() {
+  modePickerBody.classList.add("collapsed");
+  changeSubjectBtn.hidden = false;
+  updateBlurState();
+}
+
+function expandPicker() {
+  modePickerBody.classList.remove("collapsed");
+  changeSubjectBtn.hidden = true;
+  ratesGroup.classList.toggle("blurred", !hasSelected);
+  quizCard.classList.add("blurred");
+  selectSubjectNote.hidden = false;
+}
+
+function updateBlurState() {
+  const noSelection = !quizCategory;
+  ratesGroup.classList.toggle("blurred", noSelection);
+  quizCard.classList.toggle("blurred", noSelection);
+  selectSubjectNote.hidden = !noSelection;
+}
+
+updateBlurState();
+
+changeSubjectBtn.addEventListener("click", expandPicker);
+
 subjectCards.forEach((card) => card.addEventListener("click", () => {
-  const subject = card.dataset.subject;
-  setQuizMode(subject, subject === "math" ? "arithmetic" : "grammar");
+  showSubjectCategories(card.dataset.subject);
 }));
 categoryCards.forEach((card) => card.addEventListener("click", () => {
-  setQuizMode(quizSubject, card.dataset.category);
+  setQuizMode(quizSubject, card.dataset.category, { collapse: true });
 }));
 
 function setAuthMsg(message, kind) {
@@ -1821,6 +1873,7 @@ function showFeedback(message, kind) {
 // renders the text and sends the token back with the answer.
 // ------------------------------------------------------------
 async function nextQuestion() {
+  if (!quizSubject || !quizCategory) return;
   questionEl.textContent = "…";
   const { data, error } = await supabaseClient.rpc("get_question", {
     p_subject: quizSubject,
@@ -1832,7 +1885,10 @@ async function nextQuestion() {
     return;
   }
   currentQuestion = { token: data.token, payload: data.payload, text: data.question };
-  questionEl.textContent = currentQuestion.text;
+  questionEl.innerHTML = quizSubject === "math"
+    ? currentQuestion.text.replace(/(\S+)\s*\/\s*(\S+)/g,
+        '<span class="fraction"><span class="numerator">$1</span><span class="denominator">$2</span></span>')
+    : currentQuestion.text;
   answerInput.value = "";
   // Turn the question in gently when a new problem appears.
   questionEl.classList.remove("q-enter");
