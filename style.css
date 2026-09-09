@@ -385,6 +385,17 @@ body {
   margin-bottom: 18px;
 }
 
+.stat-group {
+  display: flex;
+  flex: 1 1 360px;
+  min-width: 0;
+  gap: 1px;
+  overflow: hidden;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
 .stat {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -394,6 +405,26 @@ body {
   flex-direction: column;
   align-items: flex-end;
   gap: 2px;
+}
+
+.stat-group .stat {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+.stat-secondary .stat-label,
+.stat-secondary .stat-value {
+  font-size: 0.82rem;
+}
+
+.stat-overall .stat-value {
+  color: var(--accent);
+}
+
+.stat-questions {
+  flex: 0 1 auto;
 }
 
 .stat-label {
@@ -1941,9 +1972,13 @@ select.auth-input option {
     margin-bottom: 14px;
   }
 
-  /* The "Questions" chip (longest value) spans the full row. */
-  .stat:nth-child(5) {
+  .stat-group {
+    flex-basis: 100%;
+  }
+
+  .stat-questions {
     grid-column: 1 / -1;
+    justify-self: stretch;
   }
 
   .withdraw-btn {

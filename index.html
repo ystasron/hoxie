@@ -141,32 +141,36 @@
     </section>
 
     <div class="stats">
-      <div class="stat">
-        <span class="stat-label">Total Earnings</span>
-        <span class="stat-value" id="totalPoints">₱0.000</span>
+      <div class="stat-group earnings-group" aria-label="Earnings">
+        <div class="stat">
+          <span class="stat-label">Total Earnings</span>
+          <span class="stat-value" id="totalPoints">₱0.000</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Current Balance</span>
+          <span class="stat-value" id="currentPoints">₱0.000</span>
+          <button type="button" id="withdrawBtn" class="withdraw-btn">Withdraw</button>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Earned Today</span>
+          <span class="stat-value" id="pointsToday">₱0.000</span>
+        </div>
       </div>
-      <div class="stat">
-        <span class="stat-label">Current Balance</span>
-        <span class="stat-value" id="currentPoints">₱0.000</span>
-        <button type="button" id="withdrawBtn" class="withdraw-btn">Withdraw</button>
+      <div class="stat-group rates-group" aria-label="Rates">
+        <div class="stat stat-secondary">
+          <span class="stat-label">Base Rate</span>
+          <span class="stat-value" id="baseRateStat">₱0.070</span>
+        </div>
+        <div class="stat stat-secondary">
+          <span class="stat-label">Bonus Rate</span>
+          <span class="stat-value" id="bonusRateStat">₱0.000</span>
+        </div>
+        <div class="stat stat-overall">
+          <span class="stat-label">Overall Rate</span>
+          <span class="stat-value" id="overallRateStat">₱0.070</span>
+        </div>
       </div>
-      <div class="stat">
-        <span class="stat-label">Today</span>
-        <span class="stat-value" id="pointsToday">₱0.000</span>
-      </div>
-      <div class="stat">
-        <span class="stat-label">Base Rate</span>
-        <span class="stat-value" id="baseRateStat">₱0.070</span>
-      </div>
-      <div class="stat">
-        <span class="stat-label">Bonus Rate</span>
-        <span class="stat-value" id="bonusRateStat">₱0.000</span>
-      </div>
-      <div class="stat">
-        <span class="stat-label">Overall Rate</span>
-        <span class="stat-value" id="overallRateStat">₱0.070</span>
-      </div>
-      <div class="stat">
+      <div class="stat stat-questions">
         <span class="stat-label">Questions</span>
         <span class="stat-value" id="questionCount">0 / 20,000</span>
       </div>
