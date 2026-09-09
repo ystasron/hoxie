@@ -300,6 +300,30 @@ body {
 
 /* ---------- Quiz view ---------- */
 
+.mode-picker {
+  margin-bottom: 18px;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+}
+
+.mode-picker-head, .subject-cards, .category-picker { display: flex; gap: 12px; }
+.mode-picker-head { align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.mode-picker-head h2 { font-family: var(--font-display); font-size: 1.35rem; margin: 2px 0 0; }
+.mode-kicker { color: var(--accent); font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin: 0; }
+.mode-current { color: var(--muted); font-size: .82rem; }
+.subject-card, .category-card { cursor: pointer; text-align: left; color: var(--text); background: var(--surface-inset); border: 1px solid var(--border); border-radius: 14px; transition: border-color .15s ease, transform .15s ease, background .15s ease; }
+.subject-card:hover, .category-card:hover { border-color: var(--accent); transform: translateY(-1px); }
+.subject-card { flex: 1; display: flex; align-items: center; gap: 12px; padding: 13px 15px; }
+.subject-card.active, .category-card.active { border-color: var(--accent); background: var(--accent-glow); }
+.subject-card strong, .category-card strong { display: block; font-size: .95rem; }
+.subject-card small, .category-card small { display: block; color: var(--muted); font-size: .75rem; margin-top: 3px; }
+.subject-icon { display: grid; place-items: center; width: 38px; height: 38px; color: var(--accent); border: 1px solid var(--accent); border-radius: 11px; font-family: var(--font-display); font-weight: 700; }
+.category-picker { margin-top: 12px; }
+.category-card { flex: 1; padding: 11px 14px; }
+
 .topbar {
   display: flex;
   align-items: center;
@@ -453,6 +477,13 @@ body {
   line-height: 1.1;
   letter-spacing: -0.01em;
   font-variant-numeric: tabular-nums;
+}
+
+.answer-input.text-answer { font-variant-numeric: normal; }
+
+@media (max-width: 560px) {
+  .mode-picker-head { align-items: flex-start; flex-direction: column; }
+  .subject-cards, .category-picker { flex-direction: column; }
 }
 
 #answerForm {

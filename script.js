@@ -151,6 +151,14 @@ const noticeTimeline = document.getElementById("noticeTimeline");
 const redeemModal = document.getElementById("redeemModal");
 const redeemModalClose = document.getElementById("redeemModalClose");
 const footnoteEl = document.getElementById("footnote");
+const modeCurrent = document.getElementById("modeCurrent");
+const questionLabel = document.getElementById("questionLabel");
+const categoryPicker = document.getElementById("categoryPicker");
+const subjectCards = [...document.querySelectorAll(".subject-card")];
+const categoryCards = [...document.querySelectorAll(".category-card")];
+
+let quizSubject = "math";
+let quizCategory = "arithmetic";
 
 // ------------------------------------------------------------
 // View switching
@@ -227,6 +235,43 @@ function showHelp() {
   fadeIn(helpView);
   helpInput.focus();
 }
+
+function setQuizMode(subject, category) {
+  quizSubject = subject;
+  quizCategory = category;
+  subjectCards.forEach((card) => {
+    const selected = card.dataset.subject === subject;
+    card.classList.toggle("active", selected);
+    card.setAttribute("aria-pressed", String(selected));
+  });
+  categoryCards.forEach((card) => {
+    card.hidden = card.dataset.subject !== subject;
+    const selected = card.dataset.category === category;
+    card.classList.toggle("active", selected);
+    card.setAttribute("aria-pressed", String(selected));
+  });
+  categoryPicker.setAttribute("aria-label", `${subject === "math" ? "Math" : "English"} categories`);
+  modeCurrent.textContent = `${subject === "math" ? "Math" : "English"} · ${category[0].toUpperCase()}${category.slice(1)}`;
+  const textMode = subject === "english";
+  questionLabel.textContent = textMode
+    ? `Correct the ${category} answer`
+    : category === "algebra" ? "Solve for x" : "Solve the math problem";
+  answerInput.type = textMode ? "text" : "number";
+  answerInput.inputMode = textMode ? "text" : "numeric";
+  answerInput.classList.toggle("text-answer", textMode);
+  answerInput.placeholder = textMode ? "Type the correct answer" : "Your answer";
+  currentQuestion = null;
+  showFeedback("", "");
+  if (currentUser && isActive()) nextQuestion();
+}
+
+subjectCards.forEach((card) => card.addEventListener("click", () => {
+  const subject = card.dataset.subject;
+  setQuizMode(subject, subject === "math" ? "arithmetic" : "grammar");
+}));
+categoryCards.forEach((card) => card.addEventListener("click", () => {
+  setQuizMode(quizSubject, card.dataset.category);
+}));
 
 function setAuthMsg(message, kind) {
   authMsg.textContent = message;
@@ -1763,7 +1808,10 @@ function showFeedback(message, kind) {
 // ------------------------------------------------------------
 async function nextQuestion() {
   questionEl.textContent = "…";
-  const { data, error } = await supabaseClient.rpc("get_question");
+  const { data, error } = await supabaseClient.rpc("get_question", {
+    p_subject: quizSubject,
+    p_category: quizCategory,
+  });
   if (error || !data) {
     showFeedback("Couldn't load the next question: " + (error ? error.message : "empty response"), "wrong");
     console.warn("get_question failed:", error && error.message);
@@ -1793,7 +1841,7 @@ answerForm.addEventListener("submit", async (e) => {
   if (busy || !state || !isActive() || limitReached()) return;
 
   const value = answerInput.value.trim();
-  if (value === "" || Number.isNaN(Number(value))) return;
+  if (value === "" || (quizSubject === "math" && Number.isNaN(Number(value)))) return;
   if (!currentQuestion) return;
 
   busy = true;
@@ -1802,7 +1850,7 @@ answerForm.addEventListener("submit", async (e) => {
   const { data, error } = await supabaseClient.rpc("submit_answer", {
     p_token: currentQuestion.token,
     p_payload: currentQuestion.payload,
-    p_answer: Number(value),
+    p_answer: value,
   });
 
   if (error || !data) {

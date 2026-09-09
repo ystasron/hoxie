@@ -1,0 +1,14 @@
+[
+  {"id": 1001, "subject": "math", "category": "algebra", "prompt": "Solve for x: 2x + 6 = 14", "answer": "4"},
+  {"id": 1002, "subject": "math", "category": "algebra", "prompt": "Solve for x: 5x - 10 = 15", "answer": "5"},
+  {"id": 1003, "subject": "math", "category": "algebra", "prompt": "Solve for x: x / 3 = 7", "answer": "21"},
+  {"id": 1004, "subject": "math", "category": "algebra", "prompt": "Solve for x: 3(x + 2) = 18", "answer": "4"},
+  {"id": 2001, "subject": "english", "category": "grammar", "prompt": "Correct this sentence: She don't like rainy days.", "answer": "She doesn't like rainy days."},
+  {"id": 2002, "subject": "english", "category": "grammar", "prompt": "Correct this sentence: The dogs runs fast.", "answer": "The dogs run fast."},
+  {"id": 2003, "subject": "english", "category": "grammar", "prompt": "Correct this sentence: I has two pencils.", "answer": "I have two pencils."},
+  {"id": 2004, "subject": "english", "category": "grammar", "prompt": "Correct this sentence: They was ready.", "answer": "They were ready."},
+  {"id": 3001, "subject": "english", "category": "spelling", "prompt": "Correct the spelling: accomodate", "answer": "accommodate"},
+  {"id": 3002, "subject": "english", "category": "spelling", "prompt": "Correct the spelling: definately", "answer": "definitely"},
+  {"id": 3003, "subject": "english", "category": "spelling", "prompt": "Correct the spelling: seperate", "answer": "separate"},
+  {"id": 3004, "subject": "english", "category": "spelling", "prompt": "Correct the spelling: recieve", "answer": "receive"}
+]

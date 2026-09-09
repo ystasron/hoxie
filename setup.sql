@@ -305,10 +305,11 @@ language sql
 stable
 as $$ select (now() at time zone 'Asia/Manila')::date $$;
 
--- v11 — Issue one fresh question, stateless. The expression is signed
--- (HMAC-SHA256 over user + operands + issued-at) and returned with the
--- question text; submit_answer verifies the signature and recomputes the
--- answer. Nothing is stored — no questions table, no answers at rest.
+-- v11 — Issue one fresh question, stateless. Arithmetic expressions are
+-- signed (HMAC-SHA256 over user + operands + issued-at) and returned with
+-- the question text; submit_answer verifies the signature and recomputes
+-- the answer. Bank questions use the same signature flow and keep answers
+-- only in the database.
 -- The signing key lives only in this file + the DB function body; the
 -- client can never call question_secret() (revoked below).
 create or replace function public.question_secret()
@@ -319,7 +320,39 @@ as $$ select 'hoxiee-question-signing-key-9f2c1e' $$;
 
 revoke execute on function public.question_secret() from anon, authenticated, public;
 
-create or replace function public.get_question()
+-- Bank-backed questions for non-arithmetic modes. The answer stays in the
+-- database; questions.json is the source file used to maintain these rows.
+create table if not exists public.quiz_questions (
+  id integer primary key,
+  subject text not null,
+  category text not null,
+  prompt text not null,
+  answer text not null,
+  unique (subject, category, id)
+);
+
+alter table public.quiz_questions enable row level security;
+
+insert into public.quiz_questions (id, subject, category, prompt, answer) values
+  (1001, 'math', 'algebra', 'Solve for x: 2x + 6 = 14', '4'),
+  (1002, 'math', 'algebra', 'Solve for x: 5x - 10 = 15', '5'),
+  (1003, 'math', 'algebra', 'Solve for x: x / 3 = 7', '21'),
+  (1004, 'math', 'algebra', 'Solve for x: 3(x + 2) = 18', '4'),
+  (2001, 'english', 'grammar', 'Correct this sentence: She don''t like rainy days.', 'She doesn''t like rainy days.'),
+  (2002, 'english', 'grammar', 'Correct this sentence: The dogs runs fast.', 'The dogs run fast.'),
+  (2003, 'english', 'grammar', 'Correct this sentence: I has two pencils.', 'I have two pencils.'),
+  (2004, 'english', 'grammar', 'Correct this sentence: They was ready.', 'They were ready.'),
+  (3001, 'english', 'spelling', 'Correct the spelling: accomodate', 'accommodate'),
+  (3002, 'english', 'spelling', 'Correct the spelling: definately', 'definitely'),
+  (3003, 'english', 'spelling', 'Correct the spelling: seperate', 'separate'),
+  (3004, 'english', 'spelling', 'Correct the spelling: recieve', 'receive')
+on conflict (id) do update set
+  subject = excluded.subject, category = excluded.category,
+  prompt = excluded.prompt, answer = excluded.answer;
+
+drop function if exists public.get_question();
+drop function if exists public.get_question(text, text);
+create or replace function public.get_question(p_subject text default 'math', p_category text default 'arithmetic')
 returns jsonb
 language plpgsql
 security definer
@@ -335,9 +368,26 @@ declare
   v_ts      bigint;
   v_payload text;
   v_token   text;
+  v_question_id integer;
+  v_bank_answer text;
 begin
   if auth.uid() is null then
     raise exception 'Not signed in.';
+  end if;
+
+  if p_subject <> 'math' or p_category <> 'arithmetic' then
+    select id, prompt, answer into v_question_id, v_text, v_bank_answer
+    from public.quiz_questions
+    where subject = p_subject and category = p_category
+    order by random()
+    limit 1;
+    if v_question_id is null then
+      raise exception 'No questions found for this category.';
+    end if;
+    v_ts := floor(extract(epoch from now()))::bigint;
+    v_payload := auth.uid()::text || ':bank:' || v_question_id || ':' || v_ts;
+    v_token := encode(hmac(v_payload, public.question_secret(), 'sha256'), 'hex');
+    return jsonb_build_object('token', v_token, 'payload', v_payload, 'question', v_text);
   end if;
 
   v_type := floor(random() * 4); -- 0 add, 1 sub, 2 mul, 3 div
@@ -373,14 +423,15 @@ begin
 end;
 $$;
 
-grant execute on function public.get_question() to authenticated;
+grant execute on function public.get_question(text, text) to authenticated;
 
 -- Submit an answer for a signed question. Points are credited only if
 -- the submitted value matches the answer recomputed from the signed
 -- operands. Tokens expire after 5 minutes and the client discards them
 -- after one use; the daily limit is enforced server-side.
 drop function if exists public.submit_answer(uuid, numeric);
-create or replace function public.submit_answer(p_token text, p_payload text, p_answer numeric)
+drop function if exists public.submit_answer(text, text, numeric);
+create or replace function public.submit_answer(p_token text, p_payload text, p_answer text)
 returns jsonb
 language plpgsql
 security definer
@@ -399,6 +450,8 @@ declare
   v_rate      numeric;
   v_answered  integer;
   v_correct_n integer;
+  v_question_id integer;
+  v_expected_text text;
 begin
   if auth.uid() is null then
     raise exception 'Not signed in.';
@@ -410,34 +463,42 @@ begin
     raise exception 'Invalid question token. Get a new question.';
   end if;
 
-  -- 2) Parse the signed payload: user_id:a:op:b:issued-epoch-seconds.
+  -- 2) Parse the signed payload and validate its user and timestamp.
   v_user_id := split_part(p_payload, ':', 1);
-  v_a       := split_part(p_payload, ':', 2)::int;
-  v_op      := split_part(p_payload, ':', 3);
-  v_b       := split_part(p_payload, ':', 4)::int;
-  v_ts      := split_part(p_payload, ':', 5)::bigint;
-
-  -- 3) The token was issued to this user.
   if v_user_id is distinct from auth.uid()::text then
     raise exception 'Invalid question token. Get a new question.';
   end if;
 
-  -- 4) Tokens expire after 5 minutes.
+  v_ts := case when split_part(p_payload, ':', 2) = 'bank'
+    then split_part(p_payload, ':', 4)::bigint
+    else split_part(p_payload, ':', 5)::bigint
+  end;
   if floor(extract(epoch from now())) - v_ts > 300 then
     raise exception 'Question expired. Get a new question.';
   end if;
 
-  -- 5) Recompute the answer from the signed operands.
-  if v_op = '+' then
-    v_answer := v_a + v_b;
-  elsif v_op = '-' then
-    v_answer := v_a - v_b;
-  elsif v_op = 'x' then
-    v_answer := v_a * v_b;
-  elsif v_op = '/' then
-    v_answer := v_a / v_b;
+  -- Bank answers are compared as normalized text; arithmetic remains numeric.
+  if split_part(p_payload, ':', 2) = 'bank' then
+    v_question_id := split_part(p_payload, ':', 3)::int;
+    select answer into v_expected_text from public.quiz_questions where id = v_question_id;
+    if v_expected_text is null then raise exception 'Invalid question token. Get a new question.'; end if;
+    v_correct := lower(trim(p_answer)) = lower(trim(v_expected_text));
   else
-    raise exception 'Invalid question token. Get a new question.';
+    v_a       := split_part(p_payload, ':', 2)::int;
+    v_op      := split_part(p_payload, ':', 3);
+    v_b       := split_part(p_payload, ':', 4)::int;
+    if v_op = '+' then
+      v_answer := v_a + v_b;
+    elsif v_op = '-' then
+      v_answer := v_a - v_b;
+    elsif v_op = 'x' then
+      v_answer := v_a * v_b;
+    elsif v_op = '/' then
+      v_answer := v_a / v_b;
+    else
+      raise exception 'Invalid question token. Get a new question.';
+    end if;
+    v_correct := (p_answer::numeric = v_answer);
   end if;
 
   -- Atomic daily tally upsert (row lock keeps concurrent tabs honest).
@@ -450,8 +511,6 @@ begin
   if v_answered > public.get_daily_limit() then
     raise exception 'Daily limit reached.';
   end if;
-
-  v_correct := (p_answer = v_answer);
 
   -- Rate = base ₱0.07 (keep in sync with RATE_PER_QUESTION in script.js)
   -- plus the user's permanent bounty bonus (referrals + approved comments).
@@ -487,7 +546,7 @@ begin
 
   return jsonb_build_object(
     'correct', v_correct,
-    'answer', v_answer,
+    'answer', coalesce(v_expected_text, v_answer::text),
     'current_points', v_current,
     'total_points', v_total,
     'answered', v_answered,
@@ -496,7 +555,7 @@ begin
 end;
 $$;
 
-grant execute on function public.submit_answer(text, text, numeric) to authenticated;
+grant execute on function public.submit_answer(text, text, text) to authenticated;
 
 -- Today's tally for the client (progress bar + "Today" earnings). The
 -- client cannot read daily_answers directly — this is the only read path.

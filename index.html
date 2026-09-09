@@ -106,6 +106,40 @@
       </div>
     </header>
 
+    <section class="mode-picker" aria-labelledby="modePickerTitle">
+      <div class="mode-picker-head">
+        <div>
+          <p class="mode-kicker">Choose a subject</p>
+          <h2 id="modePickerTitle">Pick your next challenge</h2>
+        </div>
+        <span class="mode-current" id="modeCurrent">Math · Arithmetic</span>
+      </div>
+      <div class="subject-cards" role="group" aria-label="Subjects">
+        <button type="button" class="subject-card active" data-subject="math" aria-pressed="true">
+          <span class="subject-icon" aria-hidden="true">∑</span>
+          <span><strong>Math</strong><small>Numbers and patterns</small></span>
+        </button>
+        <button type="button" class="subject-card" data-subject="english" aria-pressed="false">
+          <span class="subject-icon" aria-hidden="true">Aa</span>
+          <span><strong>English</strong><small>Words and language</small></span>
+        </button>
+      </div>
+      <div class="category-picker" id="categoryPicker" role="group" aria-label="Math categories">
+        <button type="button" class="category-card active" data-subject="math" data-category="arithmetic" aria-pressed="true">
+          <strong>Arithmetic</strong><small>Quick calculations</small>
+        </button>
+        <button type="button" class="category-card" data-subject="math" data-category="algebra" aria-pressed="false">
+          <strong>Algebra</strong><small>Solve for the unknown</small>
+        </button>
+        <button type="button" class="category-card" data-subject="english" data-category="grammar" aria-pressed="false" hidden>
+          <strong>Grammar</strong><small>Make the sentence right</small>
+        </button>
+        <button type="button" class="category-card" data-subject="english" data-category="spelling" aria-pressed="false" hidden>
+          <strong>Spelling</strong><small>Put every letter in place</small>
+        </button>
+      </div>
+    </section>
+
     <div class="stats">
       <div class="stat">
         <span class="stat-label">Total Earnings</span>
@@ -137,7 +171,7 @@
 
     <main class="card">
       <div class="question-box">
-        <p class="question-label">Solve the math problem</p>
+        <p class="question-label" id="questionLabel">Solve the math problem</p>
         <h1 class="question" id="question">…</h1>
       </div>
 
