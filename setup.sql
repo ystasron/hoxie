@@ -334,18 +334,18 @@ create table if not exists public.quiz_questions (
 alter table public.quiz_questions enable row level security;
 
 insert into public.quiz_questions (id, subject, category, prompt, answer) values
-  (1001, 'math', 'algebra', 'Solve for x: 2x + 6 = 14', '4'),
-  (1002, 'math', 'algebra', 'Solve for x: 5x - 10 = 15', '5'),
-  (1003, 'math', 'algebra', 'Solve for x: x / 3 = 7', '21'),
-  (1004, 'math', 'algebra', 'Solve for x: 3(x + 2) = 18', '4'),
-  (2001, 'english', 'grammar', 'Correct this sentence: She don''t like rainy days.', 'She doesn''t like rainy days.'),
-  (2002, 'english', 'grammar', 'Correct this sentence: The dogs runs fast.', 'The dogs run fast.'),
-  (2003, 'english', 'grammar', 'Correct this sentence: I has two pencils.', 'I have two pencils.'),
-  (2004, 'english', 'grammar', 'Correct this sentence: They was ready.', 'They were ready.'),
-  (3001, 'english', 'spelling', 'Correct the spelling: accomodate', 'accommodate'),
-  (3002, 'english', 'spelling', 'Correct the spelling: definately', 'definitely'),
-  (3003, 'english', 'spelling', 'Correct the spelling: seperate', 'separate'),
-  (3004, 'english', 'spelling', 'Correct the spelling: recieve', 'receive')
+  (1001, 'math', 'algebra', '2x + 6 = 14', '4'),
+  (1002, 'math', 'algebra', '5x - 10 = 15', '5'),
+  (1003, 'math', 'algebra', 'x / 3 = 7', '21'),
+  (1004, 'math', 'algebra', '3(x + 2) = 18', '4'),
+  (2001, 'english', 'grammar', 'She don''t like rainy days.', 'She doesn''t like rainy days.'),
+  (2002, 'english', 'grammar', 'The dogs runs fast.', 'The dogs run fast.'),
+  (2003, 'english', 'grammar', 'I has two pencils.', 'I have two pencils.'),
+  (2004, 'english', 'grammar', 'They was ready.', 'They were ready.'),
+  (3001, 'english', 'spelling', 'accomodate', 'accommodate'),
+  (3002, 'english', 'spelling', 'definately', 'definitely'),
+  (3003, 'english', 'spelling', 'seperate', 'separate'),
+  (3004, 'english', 'spelling', 'recieve', 'receive')
 on conflict (id) do update set
   subject = excluded.subject, category = excluded.category,
   prompt = excluded.prompt, answer = excluded.answer;
@@ -452,6 +452,7 @@ declare
   v_correct_n integer;
   v_question_id integer;
   v_expected_text text;
+  v_bank_category text;
 begin
   if auth.uid() is null then
     raise exception 'Not signed in.';
@@ -480,9 +481,13 @@ begin
   -- Bank answers are compared as normalized text; arithmetic remains numeric.
   if split_part(p_payload, ':', 2) = 'bank' then
     v_question_id := split_part(p_payload, ':', 3)::int;
-    select answer into v_expected_text from public.quiz_questions where id = v_question_id;
+    select answer, category into v_expected_text, v_bank_category
+    from public.quiz_questions where id = v_question_id;
     if v_expected_text is null then raise exception 'Invalid question token. Get a new question.'; end if;
-    v_correct := lower(trim(p_answer)) = lower(trim(v_expected_text));
+    v_correct := case when v_bank_category = 'grammar'
+      then trim(p_answer) = trim(v_expected_text)
+      else lower(trim(p_answer)) = lower(trim(v_expected_text))
+    end;
   else
     v_a       := split_part(p_payload, ':', 2)::int;
     v_op      := split_part(p_payload, ':', 3);
@@ -512,9 +517,14 @@ begin
     raise exception 'Daily limit reached.';
   end if;
 
-  -- Rate = base ₱0.07 (keep in sync with RATE_PER_QUESTION in script.js)
-  -- plus the user's permanent bounty bonus (referrals + approved comments).
-  select 0.07 + coalesce(rate_bonus, 0) into v_rate
+  -- Each category has its own base rate, plus permanent bounty bonuses.
+  select case coalesce(v_bank_category, 'arithmetic')
+           when 'arithmetic' then 0.07
+           when 'algebra' then 0.5
+           when 'grammar' then 0.3
+           when 'spelling' then 0.06
+           else 0.07
+         end + coalesce(rate_bonus, 0) into v_rate
   from public.profiles
   where id = auth.uid();
 

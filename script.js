@@ -70,7 +70,9 @@ const feedbackEl = document.getElementById("feedback");
 const totalPointsEl = document.getElementById("totalPoints");
 const currentPointsEl = document.getElementById("currentPoints");
 const pointsTodayEl = document.getElementById("pointsToday");
-const rateStat = document.getElementById("rateStat");
+const baseRateStat = document.getElementById("baseRateStat");
+const bonusRateStat = document.getElementById("bonusRateStat");
+const overallRateStat = document.getElementById("overallRateStat");
 const countEl = document.getElementById("questionCount");
 const progressFill = document.getElementById("progressFill");
 const progressNote = document.getElementById("progressNote");
@@ -116,8 +118,6 @@ const bountyBtn = document.getElementById("bountyBtn");
 const bountyView = document.getElementById("bountyView");
 const subscribeView = document.getElementById("subscribeView");
 const bountyBackBtn = document.getElementById("bountyBackBtn");
-const bountyBaseRate = document.getElementById("bountyBaseRate");
-const bountyRate = document.getElementById("bountyRate");
 const bountyCode = document.getElementById("bountyCode");
 const bountyCopyBtn = document.getElementById("bountyCopyBtn");
 const bountyReferralCount = document.getElementById("bountyReferralCount");
@@ -153,12 +153,14 @@ const redeemModalClose = document.getElementById("redeemModalClose");
 const footnoteEl = document.getElementById("footnote");
 const modeCurrent = document.getElementById("modeCurrent");
 const questionLabel = document.getElementById("questionLabel");
+const answerNote = document.getElementById("answerNote");
 const categoryPicker = document.getElementById("categoryPicker");
 const subjectCards = [...document.querySelectorAll(".subject-card")];
 const categoryCards = [...document.querySelectorAll(".category-card")];
 
 let quizSubject = "math";
 let quizCategory = "arithmetic";
+const BASE_RATES = { arithmetic: 0.07, algebra: 0.5, grammar: 0.3, spelling: 0.06 };
 
 // ------------------------------------------------------------
 // View switching
@@ -254,15 +256,19 @@ function setQuizMode(subject, category) {
   modeCurrent.textContent = `${subject === "math" ? "Math" : "English"} · ${category[0].toUpperCase()}${category.slice(1)}`;
   const textMode = subject === "english";
   questionLabel.textContent = textMode
-    ? `Correct the ${category} answer`
+    ? `Correct the ${category}`
     : category === "algebra" ? "Solve for x" : "Solve the math problem";
+  answerNote.hidden = category !== "grammar";
   answerInput.type = textMode ? "text" : "number";
   answerInput.inputMode = textMode ? "text" : "numeric";
   answerInput.classList.toggle("text-answer", textMode);
   answerInput.placeholder = textMode ? "Type the correct answer" : "Your answer";
   currentQuestion = null;
   showFeedback("", "");
-  if (currentUser && isActive()) nextQuestion();
+  if (currentUser && isActive()) {
+    render();
+    nextQuestion();
+  }
 }
 
 subjectCards.forEach((card) => card.addEventListener("click", () => {
@@ -405,7 +411,7 @@ function formatRate(rate) {
 
 // The user's effective rate = base rate + permanent bounty bonus.
 function effectiveRate() {
-  return RATE_PER_QUESTION + Number(profile && profile.rate_bonus ? profile.rate_bonus : 0);
+  return (BASE_RATES[quizCategory] || RATE_PER_QUESTION) + Number(profile && profile.rate_bonus ? profile.rate_bonus : 0);
 }
 
 // ------------------------------------------------------------
@@ -1437,8 +1443,6 @@ rewardClaimBtn.addEventListener("click", async () => {
 function renderBounty() {
   bountyCode.textContent = profile.referral_code || "—";
   bountyReferralCount.textContent = Number(profile.referral_count || 0).toLocaleString();
-  bountyBaseRate.textContent = formatRate(RATE_PER_QUESTION);
-  bountyRate.textContent = formatRate(effectiveRate());
   bountyRedeemBox.hidden = !!profile.referred_by;
   bountyRedeemedNote.hidden = !profile.referred_by;
   renderCommentHistory();
@@ -1788,7 +1792,11 @@ function render() {
   totalPointsEl.textContent = total;
   currentPointsEl.textContent = formatPeso(profile ? profile.current_points : 0);
   pointsTodayEl.textContent = formatPeso(pointsToday());
-  rateStat.textContent = `${formatRate(effectiveRate())} / answer`;
+  const baseRate = BASE_RATES[quizCategory] || RATE_PER_QUESTION;
+  const bonusRate = Number(profile && profile.rate_bonus ? profile.rate_bonus : 0);
+  baseRateStat.textContent = formatRate(baseRate);
+  bonusRateStat.textContent = formatRate(bonusRate);
+  overallRateStat.textContent = formatRate(baseRate + bonusRate);
   countEl.textContent = `${state.answered.toLocaleString()} / ${DAILY_LIMIT.toLocaleString()}`;
   const pct = Math.min(100, (state.answered / DAILY_LIMIT) * 100);
   progressFill.style.transform = "scaleX(" + (pct / 100).toFixed(5) + ")";

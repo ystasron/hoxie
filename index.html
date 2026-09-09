@@ -126,16 +126,16 @@
       </div>
       <div class="category-picker" id="categoryPicker" role="group" aria-label="Math categories">
         <button type="button" class="category-card active" data-subject="math" data-category="arithmetic" aria-pressed="true">
-          <strong>Arithmetic</strong><small>Quick calculations</small>
+          <strong>Arithmetic <span class="rate-pill">₱0.07</span></strong><small>Quick calculations</small>
         </button>
         <button type="button" class="category-card" data-subject="math" data-category="algebra" aria-pressed="false">
-          <strong>Algebra</strong><small>Solve for the unknown</small>
+          <strong>Algebra <span class="rate-pill">₱0.5</span></strong><small>Solve for the unknown</small>
         </button>
         <button type="button" class="category-card" data-subject="english" data-category="grammar" aria-pressed="false" hidden>
-          <strong>Grammar</strong><small>Make the sentence right</small>
+          <strong>Grammar <span class="rate-pill">₱0.3</span></strong><small>Make the sentence right</small>
         </button>
         <button type="button" class="category-card" data-subject="english" data-category="spelling" aria-pressed="false" hidden>
-          <strong>Spelling</strong><small>Put every letter in place</small>
+          <strong>Spelling <span class="rate-pill">₱0.06</span></strong><small>Put every letter in place</small>
         </button>
       </div>
     </section>
@@ -155,8 +155,16 @@
         <span class="stat-value" id="pointsToday">₱0.000</span>
       </div>
       <div class="stat">
-        <span class="stat-label">Rate</span>
-        <span class="stat-value" id="rateStat">₱0.07 / answer</span>
+        <span class="stat-label">Base Rate</span>
+        <span class="stat-value" id="baseRateStat">₱0.070</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Bonus Rate</span>
+        <span class="stat-value" id="bonusRateStat">₱0.000</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Overall Rate</span>
+        <span class="stat-value" id="overallRateStat">₱0.070</span>
       </div>
       <div class="stat">
         <span class="stat-label">Questions</span>
@@ -171,6 +179,7 @@
 
     <main class="card">
       <div class="question-box">
+        <p class="answer-note" id="answerNote" hidden>Grammar answers must use the correct capitalization.</p>
         <p class="question-label" id="questionLabel">Solve the math problem</p>
         <h1 class="question" id="question">…</h1>
       </div>
@@ -410,11 +419,6 @@
         <div class="reward-track" id="rewardTrack" aria-hidden="true"></div>
         <p class="reward-status" id="rewardStatus" aria-live="polite"></p>
       </section>
-
-      <div class="bounty-summary">
-        <span>Base rate <strong id="bountyBaseRate">₱0.07</strong></span>
-        <span>Your current rate <strong id="bountyRate">₱0.07</strong></span>
-      </div>
 
       <section class="bounty-section">
         <h2 class="bounty-title">Referral</h2>
