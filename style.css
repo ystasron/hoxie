@@ -331,7 +331,7 @@ body {
   overflow: hidden;
   max-height: 220px;
   opacity: 1;
-  transition: max-height 0.35s var(--ease-out), opacity 0.25s ease;
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .mode-picker-body.collapsed {
   max-height: 0;
@@ -1800,6 +1800,130 @@ select.auth-input option {
 }
 
 /* ============================================================
+   Generic modal overlay — reusable for Bounty, Leaderboard,
+   Help, Profile, and System Notice
+   ============================================================ */
+.generic-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(14, 13, 12, 0.66);
+  backdrop-filter: blur(2px);
+  animation: overlayIn 0.22s ease-out both;
+}
+
+.generic-modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 560px;
+  max-height: min(88vh, 720px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  animation: fadeUp 0.32s var(--ease-out) both;
+}
+
+.generic-head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 54px 14px 22px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.generic-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.generic-x {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.generic-x:hover {
+  color: var(--text);
+  background: var(--surface-inset);
+}
+
+.generic-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 20px 20px 6px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-soft) transparent;
+}
+
+.generic-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.generic-body::-webkit-scrollbar-thumb {
+  background: var(--border-soft);
+  border-radius: 999px;
+}
+
+.generic-foot {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 14px 20px 18px;
+  border-top: 1px solid var(--border-soft);
+}
+
+.generic-foot .submit-btn {
+  padding: 10px 18px;
+  font-size: 0.92rem;
+  min-height: 42px;
+}
+
+/* Mobile adjustments for generic modals */
+@media (max-width: 640px) {
+  .generic-overlay {
+    padding: 12px;
+  }
+
+  .generic-modal {
+    max-height: calc(100vh - 24px);
+  }
+
+  .generic-head {
+    padding: 16px 50px 12px 18px;
+  }
+
+  .generic-foot {
+    padding: 12px 14px 14px;
+  }
+}
+
+/* ============================================================
    System Notice modal — centered alternating announcement
    timeline (the Notifications bell surface)
    ============================================================ */
@@ -2531,42 +2655,16 @@ select.auth-input option {
 }
 /* ---------- Help (AI chat) on phones ---------- */
 @media (max-width: 640px) {
-  /* The chat becomes a messenger-style column that fills the phone
-     screen: topbar on top, a scrollable thread in the middle, and the
-     composer pinned to the bottom. Flexbox shares out the leftover
-     space instead of a fixed height guess, so the composer is never
-     cut off below the fold — or under the on-screen keyboard. */
-  #helpView.app {
+  /* The chat becomes a messenger-style column inside the modal:
+     scrollable thread in the middle, composer pinned to the bottom. */
+  #helpModal .generic-body {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 40px); /* older browsers */
-    height: calc(
-      100dvh
-      - max(20px, env(safe-area-inset-top))
-      - max(20px, env(safe-area-inset-bottom))
-    );
+    padding: 14px;
+    padding-bottom: calc(14px + var(--kb-inset, 0px));
   }
 
-  #helpView.app .topbar {
-    flex-shrink: 0;
-    margin-bottom: 12px;
-  }
-
-  .help-card {
-    flex: 1 1 auto;
-    min-height: 0;
-    padding: 20px 14px;
-    /* --kb-inset (set from JS) is the on-screen keyboard's height on
-       browsers that overlay it (iOS Safari, older Android). This
-       padding lifts the composer above the keys. */
-    padding-bottom: calc(20px + var(--kb-inset, 0px));
-  }
-
-  .help-card .section-title {
-    flex-shrink: 0;
-  }
-
-  .help-card .section-sub {
+  #helpModal .section-sub {
     flex-shrink: 0;
     margin-bottom: 12px;
   }

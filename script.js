@@ -77,8 +77,9 @@ const countEl = document.getElementById("questionCount");
 const progressFill = document.getElementById("progressFill");
 const progressNote = document.getElementById("progressNote");
 const profileBtn = document.getElementById("profileBtn");
-const profileView = document.getElementById("profileView");
-const profileBackBtn = document.getElementById("profileBackBtn");
+const profileModal = document.getElementById("profileModal");
+const profileCloseBtn = document.getElementById("profileCloseBtn");
+const profileDismissBtn = document.getElementById("profileDismissBtn");
 const profileForm = document.getElementById("profileForm");
 const profileNameInput = document.getElementById("profileNameInput");
 const profileBirthdayInput = document.getElementById("profileBirthdayInput");
@@ -112,14 +113,16 @@ const requestWithdrawBtn = document.getElementById("requestWithdrawBtn");
 const withdrawMinNote = document.getElementById("withdrawMinNote");
 const withdrawHistory = document.getElementById("withdrawHistory");
 const leaderboardBtn = document.getElementById("leaderboardBtn");
-const leaderboardView = document.getElementById("leaderboardView");
-const leaderboardBackBtn = document.getElementById("leaderboardBackBtn");
+const leaderboardModal = document.getElementById("leaderboardModal");
+const leaderboardCloseBtn = document.getElementById("leaderboardCloseBtn");
+const leaderboardDismissBtn = document.getElementById("leaderboardDismissBtn");
 const leaderboardList = document.getElementById("leaderboardList");
 const leaderboardSummary = document.getElementById("leaderboardSummary");
 const bountyBtn = document.getElementById("bountyBtn");
-const bountyView = document.getElementById("bountyView");
+const bountyModal = document.getElementById("bountyModal");
+const bountyCloseBtn = document.getElementById("bountyCloseBtn");
+const bountyDismissBtn = document.getElementById("bountyDismissBtn");
 const subscribeView = document.getElementById("subscribeView");
-const bountyBackBtn = document.getElementById("bountyBackBtn");
 const bountyCode = document.getElementById("bountyCode");
 const bountyCopyBtn = document.getElementById("bountyCopyBtn");
 const bountyReferralCount = document.getElementById("bountyReferralCount");
@@ -138,8 +141,9 @@ const rewardClaimBtn = document.getElementById("rewardClaimBtn");
 const rewardTrack = document.getElementById("rewardTrack");
 const rewardStatus = document.getElementById("rewardStatus");
 const helpBtn = document.getElementById("helpBtn");
-const helpView = document.getElementById("helpView");
-const helpBackBtn = document.getElementById("helpBackBtn");
+const helpModal = document.getElementById("helpModal");
+const helpCloseBtn = document.getElementById("helpCloseBtn");
+const helpDismissBtn = document.getElementById("helpDismissBtn");
 const helpMessages = document.getElementById("helpMessages");
 const helpForm = document.getElementById("helpForm");
 const helpInput = document.getElementById("helpInput");
@@ -194,12 +198,8 @@ function fadeIn(el) {
 function hideViews() {
   authView.hidden = true;
   quizView.hidden = true;
-  profileView.hidden = true;
   withdrawView.hidden = true;
-  leaderboardView.hidden = true;
-  bountyView.hidden = true;
   subscribeView.hidden = true;
-  helpView.hidden = true;
 }
 
 // Account must be 'active' to use the app. Inactive accounts (new
@@ -221,41 +221,16 @@ function showQuiz() {
   fadeIn(quizView);
 }
 
-function showProfile() {
-  hideViews();
-  profileView.hidden = false;
-  fadeIn(profileView);
-}
-
 function showWithdraw() {
   hideViews();
   withdrawView.hidden = false;
   fadeIn(withdrawView);
 }
 
-function showLeaderboard() {
-  hideViews();
-  leaderboardView.hidden = false;
-  fadeIn(leaderboardView);
-}
-
-function showBounty() {
-  hideViews();
-  bountyView.hidden = false;
-  fadeIn(bountyView);
-}
-
 function showSubscribe() {
   hideViews();
   subscribeView.hidden = false;
   fadeIn(subscribeView);
-}
-
-function showHelp() {
-  hideViews();
-  helpView.hidden = false;
-  fadeIn(helpView);
-  helpInput.focus();
 }
 
 function setQuizMode(subject, category, { collapse = false } = {}) {
@@ -459,7 +434,7 @@ function scheduleMidnightRefresh() {
     // open reward card) flip over exactly at midnight, not on next load.
     loadLoginRewards().then(() => {
       updateBountyDot();
-      if (!bountyView.hidden) renderLoginRewards();
+      if (!bountyModal.hidden) renderLoginRewards();
     });
     updateNoticeDot();
     scheduleMidnightRefresh();
@@ -565,6 +540,10 @@ function leaveQuiz() {
   bountyDot.hidden = true;
   noticeDot.hidden = true;
   noticeModal.hidden = true;
+  profileModal.hidden = true;
+  leaderboardModal.hidden = true;
+  bountyModal.hidden = true;
+  helpModal.hidden = true;
   document.body.style.overflow = "";
   helpTranscript = [];
   helpMessages.textContent = "";
@@ -786,7 +765,9 @@ async function openProfile() {
     return;
   }
   await loadProfile(); // refresh points + profile fields from Supabase
-  showProfile();
+  profileModal.hidden = false;
+  document.body.style.overflow = "hidden";
+  profileDismissBtn.focus();
   renderProfile();
   refreshProfileExtras(); // rank, referrer, withdrawal method (async)
 }
@@ -892,7 +873,9 @@ function openHelp() {
     showSubscribe();
     return;
   }
-  showHelp();
+  helpModal.hidden = false;
+  document.body.style.overflow = "hidden";
+  helpDismissBtn.focus();
   if (helpMessages.children.length === 0) {
     helpTranscript = [];
     addHelpBubble(
@@ -900,12 +883,12 @@ function openHelp() {
       "bot",
     );
   }
+  helpInput.focus();
 }
 
 function closeHelp() {
-  helpView.hidden = true;
-  quizView.hidden = false;
-  fadeIn(quizView);
+  helpModal.hidden = true;
+  document.body.style.overflow = "";
   render();
   focusAnswerInput();
 }
@@ -932,7 +915,8 @@ function addHelpBubble(text, kind) {
 }
 
 helpBtn.addEventListener("click", openHelp);
-helpBackBtn.addEventListener("click", closeHelp);
+helpCloseBtn.addEventListener("click", closeHelp);
+helpDismissBtn.addEventListener("click", closeHelp);
 
 helpForm.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -1021,9 +1005,8 @@ helpForm.addEventListener("submit", async (e) => {
 });
 
 function closeProfile() {
-  profileView.hidden = true;
-  quizView.hidden = false;
-  fadeIn(quizView);
+  profileModal.hidden = true;
+  document.body.style.overflow = "";
   render();
   focusAnswerInput();
 }
@@ -1046,7 +1029,8 @@ function renderProfile() {
 }
 
 profileBtn.addEventListener("click", openProfile);
-profileBackBtn.addEventListener("click", closeProfile);
+profileCloseBtn.addEventListener("click", closeProfile);
+profileDismissBtn.addEventListener("click", closeProfile);
 
 // ------------------------------------------------------------
 // Withdraw: pick a method (GCash for now) and save the number once.
@@ -1266,14 +1250,15 @@ async function openLeaderboard() {
     return;
   }
   await loadProfile(); // fresh points for the user's row
-  showLeaderboard();
+  leaderboardModal.hidden = false;
+  document.body.style.overflow = "hidden";
+  leaderboardDismissBtn.focus();
   await renderLeaderboard();
 }
 
 function closeLeaderboard() {
-  leaderboardView.hidden = true;
-  quizView.hidden = false;
-  fadeIn(quizView);
+  leaderboardModal.hidden = true;
+  document.body.style.overflow = "";
   render();
   focusAnswerInput();
 }
@@ -1447,7 +1432,8 @@ function countUp(el, to, delayMs) {
 }
 
 leaderboardBtn.addEventListener("click", openLeaderboard);
-leaderboardBackBtn.addEventListener("click", closeLeaderboard);
+leaderboardCloseBtn.addEventListener("click", closeLeaderboard);
+leaderboardDismissBtn.addEventListener("click", closeLeaderboard);
 
 // ------------------------------------------------------------
 // Bounty: referral codes (₱20 + ₱0.01/rate per referral) and
@@ -1481,15 +1467,16 @@ async function openBounty() {
   await loadProfile(); // fresh points, rate bonus, referral fields
   await loadCommentLinks();
   await loadLoginRewards();
-  showBounty();
+  bountyModal.hidden = false;
+  document.body.style.overflow = "hidden";
+  bountyDismissBtn.focus();
   renderLoginRewards();
   renderBounty();
 }
 
 function closeBounty() {
-  bountyView.hidden = true;
-  quizView.hidden = false;
-  fadeIn(quizView);
+  bountyModal.hidden = true;
+  document.body.style.overflow = "";
   render();
   focusAnswerInput();
 }
@@ -1632,7 +1619,8 @@ function renderCommentHistory() {
 }
 
 bountyBtn.addEventListener("click", openBounty);
-bountyBackBtn.addEventListener("click", closeBounty);
+bountyCloseBtn.addEventListener("click", closeBounty);
+bountyDismissBtn.addEventListener("click", closeBounty);
 
 bountyCopyBtn.addEventListener("click", async () => {
   const code = profile && profile.referral_code;
@@ -1704,8 +1692,30 @@ function closeRedeemModal() {
 }
 
 redeemModalClose.addEventListener("click", closeRedeemModal);
+
+// Close any open modal on Escape
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && !redeemModal.hidden) closeRedeemModal();
+  if (e.key !== "Escape") return;
+  if (!redeemModal.hidden) { closeRedeemModal(); return; }
+  if (!noticeModal.hidden) { closeNotices(); return; }
+  if (!profileModal.hidden) { closeProfile(); return; }
+  if (!leaderboardModal.hidden) { closeLeaderboard(); return; }
+  if (!bountyModal.hidden) { closeBounty(); return; }
+  if (!helpModal.hidden) { closeHelp(); return; }
+});
+
+// Backdrop click closes modals
+profileModal.addEventListener("click", (e) => {
+  if (e.target === profileModal) closeProfile();
+});
+leaderboardModal.addEventListener("click", (e) => {
+  if (e.target === leaderboardModal) closeLeaderboard();
+});
+bountyModal.addEventListener("click", (e) => {
+  if (e.target === bountyModal) closeBounty();
+});
+helpModal.addEventListener("click", (e) => {
+  if (e.target === helpModal) closeHelp();
 });
 
 // ------------------------------------------------------------
@@ -1881,10 +1891,6 @@ noticeCloseBtn.addEventListener("click", closeNotices);
 // Clicking the dimmed backdrop closes like the ✕ does.
 noticeModal.addEventListener("click", (e) => {
   if (e.target === noticeModal) closeNotices();
-});
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && !noticeModal.hidden) closeNotices();
 });
 
 bountyCommentForm.addEventListener("submit", async (e) => {

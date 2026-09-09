@@ -259,71 +259,70 @@
     </main>
   </div>
 
-  <!-- ===================== PROFILE VIEW ===================== -->
-  <div class="app" id="profileView" hidden>
-    <header class="topbar">
-      <div class="brand">
-        <img src="img/hoxiee.jpg" alt="Hoxiee" class="brand-logo" />
-      </div>
-      <div class="user-bar">
-        <button type="button" id="profileBackBtn" class="ghost-btn">← Quiz</button>
-        <button type="button" class="logout-btn">Logout</button>
-      </div>
-    </header>
-
-    <main class="card">
-      <div class="profile-header">
-        <div class="profile-id">
-          <h1 class="profile-name" id="profileNameDisplay">…</h1>
-          <p class="profile-email" id="profileEmailDisplay">…</p>
-        </div>
-        <span class="status-badge" id="statusBadge">Active</span>
-      </div>
-
-      <form id="profileForm" class="profile-form" autocomplete="on">
-        <label class="field">
-          <span class="field-label">Name</span>
-          <input type="text" id="profileNameInput" class="auth-input" placeholder="Your name" autocomplete="name" />
-        </label>
-
-        <label class="field">
-          <span class="field-label">Birthday</span>
-          <input type="date" id="profileBirthdayInput" class="auth-input" />
-        </label>
-
-        <div class="profile-meta">
-          <span>Member since <strong id="profileJoined">—</strong></span>
-          <span>Total earnings <strong id="profilePointsEl">₱0.000</strong></span>
-          <span>Current balance <strong id="profileCurrentEl">₱0.000</strong></span>
+  <!-- ===================== PROFILE MODAL ===================== -->
+  <div class="generic-overlay" id="profileModal" hidden>
+    <div class="generic-modal" role="dialog" aria-modal="true" aria-labelledby="profileModalTitle">
+      <header class="generic-head">
+        <h2 class="generic-title" id="profileModalTitle">Profile</h2>
+        <button type="button" id="profileCloseBtn" class="generic-x" aria-label="Close">✕</button>
+      </header>
+      <div class="generic-body">
+        <div class="profile-header">
+          <div class="profile-id">
+            <h1 class="profile-name" id="profileNameDisplay">…</h1>
+            <p class="profile-email" id="profileEmailDisplay">…</p>
+          </div>
+          <span class="status-badge" id="statusBadge">Active</span>
         </div>
 
-        <div class="profile-rows">
-          <div class="profile-row">
-            <span class="field-label">Ranked</span>
-            <span class="profile-row-main">
-              <span class="profile-row-value" id="profileRank">—</span>
-            </span>
-          </div>
-          <div class="profile-row">
-            <span class="field-label">Referred by</span>
-            <span class="profile-row-main">
-              <span class="profile-row-value" id="profileReferredBy">—</span>
-              <button type="button" id="profileRedeemBtn" class="ghost-btn profile-row-btn" hidden>Enter a code</button>
-            </span>
-          </div>
-          <div class="profile-row">
-            <span class="field-label">Withdrawal method</span>
-            <span class="profile-row-main">
-              <span class="profile-row-value" id="profileWithdrawal">—</span>
-              <button type="button" id="profileWithdrawSetupBtn" class="ghost-btn profile-row-btn" hidden>Set up</button>
-            </span>
-          </div>
-        </div>
+        <form id="profileForm" class="profile-form" autocomplete="on">
+          <label class="field">
+            <span class="field-label">Name</span>
+            <input type="text" id="profileNameInput" class="auth-input" placeholder="Your name" autocomplete="name" />
+          </label>
 
-        <button type="submit" class="submit-btn profile-save">Save changes</button>
-        <p class="auth-msg" id="profileMsg"></p>
-      </form>
-    </main>
+          <label class="field">
+            <span class="field-label">Birthday</span>
+            <input type="date" id="profileBirthdayInput" class="auth-input" />
+          </label>
+
+          <div class="profile-meta">
+            <span>Member since <strong id="profileJoined">—</strong></span>
+            <span>Total earnings <strong id="profilePointsEl">₱0.000</strong></span>
+            <span>Current balance <strong id="profileCurrentEl">₱0.000</strong></span>
+          </div>
+
+          <div class="profile-rows">
+            <div class="profile-row">
+              <span class="field-label">Ranked</span>
+              <span class="profile-row-main">
+                <span class="profile-row-value" id="profileRank">—</span>
+              </span>
+            </div>
+            <div class="profile-row">
+              <span class="field-label">Referred by</span>
+              <span class="profile-row-main">
+                <span class="profile-row-value" id="profileReferredBy">—</span>
+                <button type="button" id="profileRedeemBtn" class="ghost-btn profile-row-btn" hidden>Enter a code</button>
+              </span>
+            </div>
+            <div class="profile-row">
+              <span class="field-label">Withdrawal method</span>
+              <span class="profile-row-main">
+                <span class="profile-row-value" id="profileWithdrawal">—</span>
+                <button type="button" id="profileWithdrawSetupBtn" class="ghost-btn profile-row-btn" hidden>Set up</button>
+              </span>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn profile-save">Save changes</button>
+          <p class="auth-msg" id="profileMsg"></p>
+        </form>
+      </div>
+      <footer class="generic-foot">
+        <button type="button" id="profileDismissBtn" class="submit-btn">Close Profile</button>
+      </footer>
+    </div>
   </div>
 
   <!-- ===================== WITHDRAW VIEW ===================== -->
@@ -400,170 +399,164 @@
     </main>
   </div>
 
-  <!-- ===================== BOUNTY VIEW ===================== -->
-  <div class="app" id="bountyView" hidden>
-    <header class="topbar">
-      <div class="brand">
-        <img src="img/hoxiee.jpg" alt="Hoxiee" class="brand-logo" />
-      </div>
-      <div class="user-bar">
-        <button type="button" id="bountyBackBtn" class="ghost-btn">← Quiz</button>
-        <button type="button" class="logout-btn">Logout</button>
-      </div>
-    </header>
+  <!-- ===================== BOUNTY MODAL ===================== -->
+  <div class="generic-overlay" id="bountyModal" hidden>
+    <div class="generic-modal" role="dialog" aria-modal="true" aria-labelledby="bountyModalTitle">
+      <header class="generic-head">
+        <h2 class="generic-title" id="bountyModalTitle">Bounty</h2>
+        <button type="button" id="bountyCloseBtn" class="generic-x" aria-label="Close">✕</button>
+      </header>
+      <div class="generic-body">
+        <p class="section-sub">Boost your rate and earn bonus pesos.</p>
 
-    <main class="card">
-      <h1 class="section-title">Bounty</h1>
-      <p class="section-sub">Boost your rate and earn bonus pesos.</p>
-
-      <!-- Daily login reward -->
-      <section class="reward-card" aria-label="Daily login reward">
-        <div class="reward-head">
-          <div class="reward-copy">
-            <h2 class="reward-title">Daily login reward</h2>
-            <p class="reward-sub">
-              Claim <strong>₱3.00</strong> every day. Claim 6 days in a row and the
-              7th day unlocks <strong>+₱0.003 per question</strong> — miss a day and
-              the streak resets.
-            </p>
+        <!-- Daily login reward -->
+        <section class="reward-card" aria-label="Daily login reward">
+          <div class="reward-head">
+            <div class="reward-copy">
+              <h2 class="reward-title">Daily login reward</h2>
+              <p class="reward-sub">
+                Claim <strong>₱3.00</strong> every day. Claim 6 days in a row and the
+                7th day unlocks <strong>+₱0.003 per question</strong> — miss a day and
+                the streak resets.
+              </p>
+            </div>
+            <button type="button" id="rewardClaimBtn" class="submit-btn reward-btn" disabled>Claim ₱3.00</button>
           </div>
-          <button type="button" id="rewardClaimBtn" class="submit-btn reward-btn" disabled>Claim ₱3.00</button>
-        </div>
-        <div class="reward-track" id="rewardTrack" aria-hidden="true"></div>
-        <p class="reward-status" id="rewardStatus" aria-live="polite"></p>
-      </section>
+          <div class="reward-track" id="rewardTrack" aria-hidden="true"></div>
+          <p class="reward-status" id="rewardStatus" aria-live="polite"></p>
+        </section>
 
-      <section class="bounty-section">
-        <h2 class="bounty-title">Referral</h2>
-        <p class="bounty-desc">
-          Share your code — for every friend who signs up with it, you instantly
-          earn <strong>₱20.00</strong> and your rate goes up
-          <strong>+₱0.01 per question</strong> forever. Your friend also earns
-          <strong>₱20.00</strong> the moment they redeem.
-        </p>
-
-        <div class="bounty-code-row">
-          <span class="code-box" id="bountyCode" title="Your referral code">—</span>
-          <button type="button" id="bountyCopyBtn" class="copy-btn">Copy</button>
-        </div>
-
-        <div class="profile-meta">
-          <span>Referrals <strong id="bountyReferralCount">0</strong></span>
-        </div>
-
-        <div id="bountyRedeemBox" class="bounty-redeem">
-          <p class="withdraw-note">
-            Used someone's code? Enter it here — you'll instantly earn
-            <strong>₱20.00</strong> (each account can redeem only once).
+        <section class="bounty-section">
+          <h2 class="bounty-title">Referral</h2>
+          <p class="bounty-desc">
+            Share your code — for every friend who signs up with it, you instantly
+            earn <strong>₱20.00</strong> and your rate goes up
+            <strong>+₱0.01 per question</strong> forever. Your friend also earns
+            <strong>₱20.00</strong> the moment they redeem.
           </p>
-          <form id="bountyRedeemForm" class="profile-form" autocomplete="off">
+
+          <div class="bounty-code-row">
+            <span class="code-box" id="bountyCode" title="Your referral code">—</span>
+            <button type="button" id="bountyCopyBtn" class="copy-btn">Copy</button>
+          </div>
+
+          <div class="profile-meta">
+            <span>Referrals <strong id="bountyReferralCount">0</strong></span>
+          </div>
+
+          <div id="bountyRedeemBox" class="bounty-redeem">
+            <p class="withdraw-note">
+              Used someone's code? Enter it here — you'll instantly earn
+              <strong>₱20.00</strong> (each account can redeem only once).
+            </p>
+            <form id="bountyRedeemForm" class="profile-form" autocomplete="off">
+              <input
+                type="text"
+                id="bountyRedeemInput"
+                class="auth-input"
+                placeholder="Referral code"
+                autocomplete="off"
+              />
+              <button type="submit" id="bountyRedeemBtn" class="submit-btn profile-save">Redeem code</button>
+            </form>
+          </div>
+          <p id="bountyRedeemedNote" class="withdraw-note" hidden>
+            ✅ You've already redeemed a referral code.
+          </p>
+        </section>
+
+        <section class="bounty-section">
+          <h2 class="bounty-title">Comment to posts</h2>
+          <p class="bounty-desc">
+            Comment on our posts, then submit your comment link. Once approved,
+            your rate goes up <strong>+₱0.005 per question</strong>.
+          </p>
+
+          <form id="bountyCommentForm" class="profile-form" autocomplete="off">
             <input
-              type="text"
-              id="bountyRedeemInput"
+              type="url"
+              id="bountyCommentLink"
               class="auth-input"
-              placeholder="Referral code"
+              placeholder="Paste your comment link (https://…)"
               autocomplete="off"
             />
-            <button type="submit" id="bountyRedeemBtn" class="submit-btn profile-save">Redeem code</button>
+            <button type="submit" id="bountyCommentBtn" class="submit-btn profile-save">Submit link</button>
           </form>
-        </div>
-        <p id="bountyRedeemedNote" class="withdraw-note" hidden>
-          ✅ You've already redeemed a referral code.
-        </p>
-      </section>
 
-      <section class="bounty-section">
-        <h2 class="bounty-title">Comment to posts</h2>
-        <p class="bounty-desc">
-          Comment on our posts, then submit your comment link. Once approved,
-          your rate goes up <strong>+₱0.005 per question</strong>.
+          <div class="history">
+            <h2 class="history-title">Comment history</h2>
+            <div id="bountyCommentHistory"></div>
+          </div>
+        </section>
+
+        <p class="auth-msg" id="bountyMsg"></p>
+      </div>
+      <footer class="generic-foot">
+        <button type="button" id="bountyDismissBtn" class="submit-btn">Close</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ===================== LEADERBOARD MODAL ===================== -->
+  <div class="generic-overlay" id="leaderboardModal" hidden>
+    <div class="generic-modal" role="dialog" aria-modal="true" aria-labelledby="leaderboardModalTitle">
+      <header class="generic-head">
+        <h2 class="generic-title" id="leaderboardModalTitle">Leaderboard</h2>
+        <button type="button" id="leaderboardCloseBtn" class="generic-x" aria-label="Close">✕</button>
+      </header>
+      <div class="generic-body">
+        <p class="section-sub">
+          Top earners ranked by lifetime earnings — every correct answer
+          moves you one step closer to the top.
         </p>
 
-        <form id="bountyCommentForm" class="profile-form" autocomplete="off">
+        <div class="lb-summary" id="leaderboardSummary"></div>
+
+        <div class="leaderboard" id="leaderboardList"></div>
+
+        <p class="lb-note">
+          Ranked by lifetime earnings. Keep answering and check back here to
+          watch yourself climb.
+        </p>
+      </div>
+      <footer class="generic-foot">
+        <button type="button" id="leaderboardDismissBtn" class="submit-btn">Close</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ===================== HELP MODAL ===================== -->
+  <div class="generic-overlay" id="helpModal" hidden>
+    <div class="generic-modal" role="dialog" aria-modal="true" aria-labelledby="helpModalTitle">
+      <header class="generic-head">
+        <h2 class="generic-title" id="helpModalTitle">Help</h2>
+        <button type="button" id="helpCloseBtn" class="generic-x" aria-label="Close">✕</button>
+      </header>
+      <div class="generic-body">
+        <p class="section-sub">Ask anything about earning, withdrawing, or your account.</p>
+
+        <div class="help-chat" id="helpMessages" aria-live="polite"></div>
+
+        <form id="helpForm" class="help-form" autocomplete="off">
           <input
-            type="url"
-            id="bountyCommentLink"
-            class="auth-input"
-            placeholder="Paste your comment link (https://…)"
+            type="text"
+            id="helpInput"
+            class="auth-input help-input"
+            placeholder="Type your question…"
             autocomplete="off"
           />
-          <button type="submit" id="bountyCommentBtn" class="submit-btn profile-save">Submit link</button>
+          <button type="submit" id="helpSendBtn" class="submit-btn help-send">Send</button>
         </form>
 
-        <div class="history">
-          <h2 class="history-title">Comment history</h2>
-          <div id="bountyCommentHistory"></div>
-        </div>
-      </section>
-
-      <p class="auth-msg" id="bountyMsg"></p>
-    </main>
-  </div>
-
-  <!-- ===================== LEADERBOARD VIEW ===================== -->
-  <div class="app" id="leaderboardView" hidden>
-    <header class="topbar">
-      <div class="brand">
-        <img src="img/hoxiee.jpg" alt="Hoxiee" class="brand-logo" />
+        <p class="help-note">
+          Powered by AI — it can make mistakes. For urgent issues, reach us on
+          Messenger or the Facebook group.
+        </p>
       </div>
-      <div class="user-bar">
-        <button type="button" id="leaderboardBackBtn" class="ghost-btn">← Quiz</button>
-        <button type="button" class="logout-btn">Logout</button>
-      </div>
-    </header>
-
-    <main class="card">
-      <h1 class="section-title">Leaderboard</h1>
-      <p class="section-sub">
-        Top earners ranked by lifetime earnings — every correct answer
-        moves you one step closer to the top.
-      </p>
-
-      <div class="lb-summary" id="leaderboardSummary"></div>
-
-      <div class="leaderboard" id="leaderboardList"></div>
-
-      <p class="lb-note">
-        Ranked by lifetime earnings. Keep answering and check back here to
-        watch yourself climb.
-      </p>
-    </main>
-  </div>
-
-  <!-- ===================== HELP VIEW ===================== -->
-  <div class="app" id="helpView" hidden>
-    <header class="topbar">
-      <div class="brand">
-        <img src="img/hoxiee.jpg" alt="Hoxiee" class="brand-logo" />
-      </div>
-      <div class="user-bar">
-        <button type="button" id="helpBackBtn" class="ghost-btn">← Quiz</button>
-        <button type="button" class="logout-btn">Logout</button>
-      </div>
-    </header>
-
-    <main class="card help-card">
-      <h1 class="section-title">Help</h1>
-      <p class="section-sub">Ask anything about earning, withdrawing, or your account.</p>
-
-      <div class="help-chat" id="helpMessages" aria-live="polite"></div>
-
-      <form id="helpForm" class="help-form" autocomplete="off">
-        <input
-          type="text"
-          id="helpInput"
-          class="auth-input help-input"
-          placeholder="Type your question…"
-          autocomplete="off"
-        />
-        <button type="submit" id="helpSendBtn" class="submit-btn help-send">Send</button>
-      </form>
-
-      <p class="help-note">
-        Powered by AI — it can make mistakes. For urgent issues, reach us on
-        Messenger or the Facebook group.
-      </p>
-    </main>
+      <footer class="generic-foot">
+        <button type="button" id="helpDismissBtn" class="submit-btn">Close</button>
+      </footer>
+    </div>
   </div>
 
   <!-- ===================== REDEEM SUCCESS MODAL ===================== -->
