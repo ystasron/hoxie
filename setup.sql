@@ -920,6 +920,9 @@ create table if not exists public.system_notices (
 -- Anyone logged in can read notices; nobody writes from the client.
 alter table public.system_notices enable row level security;
 
+drop policy if exists "Authenticated users can read system notices"
+  on public.system_notices;
+
 create policy "Authenticated users can read system notices"
   on public.system_notices for select
   to authenticated

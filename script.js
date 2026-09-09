@@ -367,7 +367,9 @@ function effectiveRate() {
 // Auth
 // ------------------------------------------------------------
 async function enterQuiz(user) {
-  if (currentUser && currentUser.id === user.id && !quizView.hidden) return;
+  // Token refreshes can fire when a background tab becomes active again.
+  // Keep the current section instead of treating that refresh as a new login.
+  if (currentUser && currentUser.id === user.id) return;
 
   currentUser = user;
   userEmailEl.textContent = user.email || "";
