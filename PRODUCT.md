@@ -2,10 +2,10 @@
 
 **What it is:** A web app where logged-in users answer simple math questions and earn points.
 
-**Core loop:** A question is generated randomly server-side (addition, subtraction, multiplication, division — the answer never reaches the client). A correct answer earns the user's current rate, credited to their running points total. The base rate is ₱0.04, and permanent bonuses from the Bounty section stack on top.
+**Core loop:** A question is generated randomly server-side (addition, subtraction, multiplication, division — the answer never reaches the client). A correct answer earns the user's current rate, credited to their running points total. The base rate is ₱0.07, and permanent bonuses from the Bounty section stack on top.
 
 **Hard rules:**
-- Rate is ₱0.04 per *correct* answer, plus any bounty bonus (referral: +₱0.01 per referred friend; approved comment: +₱0.005). Wrong answers earn nothing.
+- Rate is ₱0.07 per *correct* answer, plus any bounty bonus (referral: +₱0.01 per referred friend; approved comment: +₱0.005). Wrong answers earn nothing.
 - New signups start **inactive**: they cannot answer questions, use the profile settings, or access the other views — they are redirected to a subscribe screen (Messenger / Facebook Group links) until an admin flips `account_status` to `active` in the dashboard.
 - Max 20,000 questions per user per day; the cap counts every submitted question (right or wrong) and resets at midnight Manila time. Enforced server-side in `daily_answers` — clearing localStorage can't bypass it.
 - No per-answer history is stored — only the running totals on the profile.

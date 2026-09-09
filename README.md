@@ -1,6 +1,6 @@
 # Hoxiee
 
-A simple math quiz where users log in / sign up, answer up to **20,000 questions per day**, and earn **₱0.025 per correct answer**. Accounts, profiles, and points are saved to Supabase.
+A simple math quiz where users log in / sign up, answer up to **20,000 questions per day**, and earn **₱0.07 per correct answer**. Accounts, profiles, and points are saved to Supabase.
 
 ## Files
 
@@ -46,7 +46,7 @@ A simple math quiz where users log in / sign up, answer up to **20,000 questions
 ## How it works
 
 - Users sign up / log in with email + password via Supabase Auth.
-- Each correct answer adds the user's current rate to both `current_points` (spendable balance) and `total_points` (lifetime earnings) on their profile in Supabase. The base rate is **₱0.04**, plus any permanent bounty bonus (see below) — no per-answer log is kept.
+- Each correct answer adds the user's current rate to both `current_points` (spendable balance) and `total_points` (lifetime earnings) on their profile in Supabase. The base rate is **₱0.07**, plus any permanent bounty bonus (see below) — no per-answer log is kept.
 - **Everything is server-side**: questions are issued by the `get_question` RPC as a signed token (the answer never reaches the client and nothing is stored), `submit_answer` verifies the signature + answer, credits points, and enforces the daily limit. Direct UPDATE on the points columns is revoked — the client can never write them. Withdrawals deduct via the `request_withdrawal` RPC. Users may still edit their own profile-info columns (name, birthday, withdrawal method/number).
 - The **20,000/day limit** counts every submitted question (right or wrong) and resets at midnight Manila time; it's enforced in the `daily_answers` table server-side, so clearing localStorage can't bypass it.
 - The Withdraw view lets users pick a method (GCash for now) and save their GCash number. The number is permanent — a DB trigger rejects any later change to it.
