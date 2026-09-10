@@ -1665,6 +1665,17 @@ select.auth-input option {
   white-space: nowrap;
 }
 
+.lb-joined-pill {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .lb-right {
   flex-shrink: 0;
   display: flex;

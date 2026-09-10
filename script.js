@@ -1241,7 +1241,7 @@ requestWithdrawBtn.addEventListener("click", async () => {
 });
 
 // ------------------------------------------------------------
-// Leaderboard: real players from get_leaderboard() — top 20 active
+// Leaderboard: real players from get_leaderboard() — top 10 active
 // earners by lifetime points, plus the caller's own rank.
 // ------------------------------------------------------------
 async function openLeaderboard() {
@@ -1301,10 +1301,10 @@ async function renderLeaderboard() {
     isUser: !!(currentUser && r.id === currentUser.id),
   }));
 
-  // The caller only appears in the list when inside the top 20 —
+  // The caller only appears in the list when inside the top 10 —
   // otherwise append their own row (with a divider) below the board.
   const meInRows = rows.some((r) => r.isUser);
-  const meUnranked = myRank === 0;
+  const meUnranked = myRank === 0 || myRank > 10;
   if (!meInRows && currentUser) {
     rows.push({
       id: currentUser.id,
@@ -1326,7 +1326,6 @@ async function renderLeaderboard() {
       value: meUnranked ? "Unranked" : "#" + myRank.toLocaleString(),
       accent: !meUnranked && myRank <= 3,
     },
-    { label: "Players", value: playerCount.toLocaleString() },
     { label: "Earned today", value: formatPeso(pointsToday()), accent: true },
   ];
   chips.forEach((c) => {
@@ -1343,14 +1342,14 @@ async function renderLeaderboard() {
   });
 
   // --- Rows, staggered in with a gentle fade-up ---
-  rows.forEach((r, i) => {
+  rows.slice(0, 10).forEach((r, i) => {
     const rowDelay = Math.min(60 + i * 55, 550);
     const row = document.createElement("div");
     row.className = "leaderboard-row" + (r.isUser ? " lb-you-row" : "");
     row.style.animationDelay = rowDelay + "ms";
 
     if (r.appended) {
-      // Divider before the trailing "me" row when it's outside the top 20.
+      // Divider before the trailing "me" row when it's outside the top 10.
       const divider = document.createElement("div");
       divider.className = "lb-more";
       divider.textContent = "•";
@@ -1386,9 +1385,12 @@ async function renderLeaderboard() {
     const joined = joinedLabel(r.joined);
     const meta = document.createElement("span");
     meta.className = "lb-meta";
-    meta.textContent =
-      `${r.answeredToday.toLocaleString()} answers today` +
-      (joined ? ` · joined ${joined}` : "");
+    if (joined) {
+      const pill = document.createElement("span");
+      pill.className = "lb-joined-pill";
+      pill.textContent = `JOINED ${joined.toUpperCase()}`;
+      meta.appendChild(pill);
+    }
     main.appendChild(meta);
 
     const right = document.createElement("span");
