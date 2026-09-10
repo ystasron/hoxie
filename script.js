@@ -143,6 +143,9 @@ const rewardStatus = document.getElementById("rewardStatus");
 const helpBtn = document.getElementById("helpBtn");
 const helpModal = document.getElementById("helpModal");
 const helpCloseBtn = document.getElementById("helpCloseBtn");
+const gcashModal = document.getElementById("gcashModal");
+const gcashCloseBtn = document.getElementById("gcashCloseBtn");
+const subscribeBtn = document.getElementById("subscribeBtn");
 const helpDismissBtn = document.getElementById("helpDismissBtn");
 const helpMessages = document.getElementById("helpMessages");
 const helpForm = document.getElementById("helpForm");
@@ -893,6 +896,23 @@ function closeHelp() {
   focusAnswerInput();
 }
 
+function closeGcash() {
+  const overlay = gcashModal;
+  const modal = gcashModal.querySelector('.gcash-modal');
+  if (modal) {
+    modal.style.animation = 'gcashModalOut 0.25s var(--ease-out) forwards';
+  }
+  overlay.style.animation = 'gcashOverlayOut 0.3s ease-out forwards';
+  setTimeout(() => {
+    gcashModal.hidden = true;
+    document.body.style.overflow = "";
+    if (modal) modal.style.animation = '';
+    overlay.style.animation = '';
+    render();
+    focusAnswerInput();
+  }, 280);
+}
+
 function scrollHelpToBottom() {
   helpMessages.scrollTop = helpMessages.scrollHeight;
 }
@@ -917,6 +937,13 @@ function addHelpBubble(text, kind) {
 helpBtn.addEventListener("click", openHelp);
 helpCloseBtn.addEventListener("click", closeHelp);
 helpDismissBtn.addEventListener("click", closeHelp);
+
+subscribeBtn.addEventListener("click", () => {
+  gcashModal.hidden = false;
+  document.body.style.overflow = "hidden";
+  render();
+});
+gcashCloseBtn.addEventListener("click", closeGcash);
 
 helpForm.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -1718,6 +1745,9 @@ bountyModal.addEventListener("click", (e) => {
 });
 helpModal.addEventListener("click", (e) => {
   if (e.target === helpModal) closeHelp();
+});
+gcashModal.addEventListener("click", (e) => {
+  if (e.target === gcashModal) closeGcash();
 });
 
 // ------------------------------------------------------------

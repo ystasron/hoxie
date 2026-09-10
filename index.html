@@ -239,24 +239,89 @@
 
       <div class="subscribe-rate">
         <span>Rate per question</span>
-        <strong>up to ₱0.50</strong>
+        <strong>up to ₱1</strong>
       </div>
 
       <div class="subscribe-actions">
-        <a href="https://www.facebook.com/profile.php?id=61593862990137" target="_blank" rel="noopener" class="subscribe-cta subscribe-messenger">
-          💬 Subscribe on Messenger
-        </a>
-        <a href="https://www.facebook.com/groups/yourgroup" target="_blank" rel="noopener" class="subscribe-cta subscribe-ghost">
-          👥 Join our Facebook Group
-        </a>
+        <button type="button" id="subscribeBtn" class="subscribe-cta subscribe-messenger">
+          💬 Subscribe
+        </button>
       </div>
 
       <p class="subscribe-note">
-        Message us on Messenger or in the Facebook group to purchase your subscription.
+        Click Subscribe above to view payment instructions.
         Once your payment is confirmed, your account is activated and you can start
         earning right away.
       </p>
     </main>
+  </div>
+
+  <!-- ===================== GCASH SUBSCRIBE MODAL ===================== -->
+  <div class="gcash-overlay" id="gcashModal" hidden>
+    <div class="gcash-modal" role="dialog" aria-modal="true" aria-labelledby="gcashModalTitle">
+      <button type="button" id="gcashCloseBtn" class="gcash-close" aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M15 5L5 15M5 5l10 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+
+      <div class="gcash-glow"></div>
+      <div class="gcash-shimmer"></div>
+
+      <header class="gcash-header">
+        <div class="gcash-icon-wrap">
+          <div class="gcash-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <h2 class="gcash-title" id="gcashModalTitle">Activate Your Account</h2>
+        <p class="gcash-subtitle">Complete payment to start earning</p>
+      </header>
+
+      <div class="gcash-body">
+        <div class="gcash-amount-badge">
+          <span class="gcash-amount-label">Amount</span>
+          <span class="gcash-amount-value">₱150</span>
+        </div>
+
+        <div class="gcash-steps-container">
+          <div class="gcash-step" data-step="1">
+            <div class="gcash-step-num">1</div>
+            <div class="gcash-step-content">
+              <p class="gcash-step-title">Scan QR Code</p>
+              <p class="gcash-step-desc">Open your GCash app and scan this code</p>
+            </div>
+          </div>
+
+          <div class="gcash-qr-frame">
+            <div class="gcash-qr-border"></div>
+            <img src="img/gcash.jpg" alt="GCash QR Code" class="gcash-qr" />
+            <div class="gcash-qr-tag">GCash</div>
+          </div>
+
+          <div class="gcash-step" data-step="2">
+            <div class="gcash-step-num">2</div>
+            <div class="gcash-step-content">
+              <p class="gcash-step-title">Screenshot Proof</p>
+              <p class="gcash-step-desc">Capture your payment confirmation</p>
+            </div>
+          </div>
+
+          <div class="gcash-step" data-step="3">
+            <div class="gcash-step-num">3</div>
+            <div class="gcash-step-content">
+              <p class="gcash-step-title">Send to Facebook</p>
+              <p class="gcash-step-desc">
+                Send screenshot to our
+                <a href="https://www.facebook.com/profile.php?id=61593862990137" target="_blank" rel="noopener" class="gcash-link">Facebook page</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="gcash-footer">
+        <p class="gcash-footer-note">Account activates within 24 hours after verification</p>
+      </footer>
+    </div>
   </div>
 
   <!-- ===================== PROFILE MODAL ===================== -->
